@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <%@include file="header.jsp" %>
+   <%/*
     <header>
         <div class="bloco">
             <img src="imgs/icone.png" id="icone">
@@ -36,6 +38,7 @@
             <li><a href="requisicao.jsp">Requisição de Exames</a></li>
         </ul>
     </section>
+    */%>
     <main>
         <div id="centro">
         <article id="calendario">
