@@ -1,8 +1,15 @@
+/* cores padrões */
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(209, 209, 209);
+}
+
 /* css do cabeçalho */
 
 html {
     font-size: 150%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
 }
 
 main {
@@ -26,7 +33,7 @@ h1, th {
 }
 
 
-h3 {
+header h3 {
     color: rgb(209, 209, 209);
     text-align: center;
     margin: 0;
@@ -36,6 +43,9 @@ h3 {
     height: 90%;
     width: 120px;
     /* temporário, não funfou com medida responsiva ainda*/
+}
+#icone:hover {
+    cursor: pointer;
 }
 
 button {
@@ -134,5 +144,25 @@ th, td {
 /* css dos menus */
 
 #opcoes{
-    display: none;
+    position: absolute;
+    right: 0px;
+}
+#opcoes.menu-escondido {
+    left: 100%;
+    animation: all 1s ease-in-out;
+}
+
+/* css telas de cadastro e busca genéricos */
+.cadastro h3,
+.buscar h3 {
+    color: var(--azul);
+}
+/* css paciente.jsp */
+main#paciente {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+main#paciente section {
 }
