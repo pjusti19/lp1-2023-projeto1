@@ -20,9 +20,9 @@ header {
     display: flex;
 }
 
-h1 {
+h1, th {
     color: rgb(44, 182, 248);
-    margin-bottom: 0;
+    margin: 0;
 }
 
 
@@ -33,16 +33,12 @@ h3 {
 }
 
 #icone {
-    height: 75%;
+    height: 90%;
     width: 120px;
     /* temporário, não funfou com medida responsiva ainda*/
 }
 
 button {
-    color: rgb(44, 182, 248);
-    background-color: white;
-    margin-top: 1%;
-    margin-right: 30%;
     height: min-content;
     font-size: 120%;
     border-radius: 5px;
@@ -50,6 +46,13 @@ button {
 
 #menu {
     margin-right: 4%;
+}
+
+#menu button{
+    color: rgb(44, 182, 248);
+    background-color: white;
+    margin-top: 1%;
+    margin-right: 30%;
 }
 
 #sino {
@@ -61,22 +64,75 @@ body {
     margin: 0;
 }
 
-button:hover {
+button:hover, #menu button:hover {
     background: rgb(209, 209, 209);
 }
 
-button:active {
+button:active, #menu button:active {
     background: rgb(136, 135, 135);
 }
 
-/* css do menu */
+/* css do calendário e agenda */
 
 li {
     list-style-type: none;
 }
 
-/* css do index */
-
 article {
     background-color: white;
+    border-radius: 1px;
+    margin: 2%;
+}
+
+#centro{
+    display: flex;
+    justify-content: center;
+}
+
+#calendario {
+    padding: 1%;
+    width: min-content;
+    text-align: center;
+}
+
+#cabecalhoCalendario {
+    margin-bottom: 1%;
+}
+
+th, td {
+    width: 14.28%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    color: rgb(0, 0, 44);
+}
+
+.hoje{
+    background-color: rgb(212, 211, 211);
+}
+
+#agenda{
+    padding: 1%;
+    width: min-content;
+}
+
+
+
+#agendar{
+   background-color: rgb(44, 182, 248);
+   margin: 0;
+   text-align: center;
+}
+
+#agendar:hover{
+    background-color: rgb(15, 156, 221);
+}
+
+#agendar:active{
+    background-color: rgb(11, 129, 184);
+}
+
+/* css dos menus */
+
+#opcoes{
+    display: none;
 }
