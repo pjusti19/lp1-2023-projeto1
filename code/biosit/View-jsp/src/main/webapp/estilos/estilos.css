@@ -1,0 +1,82 @@
+/* css do cabeçalho */
+
+html {
+    font-size: 150%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+main {
+    background-color: rgb(209, 209, 209);
+}
+
+header {
+    height: 20%;
+    display: flex;
+    margin: 1%;
+    justify-content: space-between;   
+}
+
+.bloco {
+    display: flex;
+}
+
+h1 {
+    color: rgb(44, 182, 248);
+    margin-bottom: 0;
+}
+
+
+h3 {
+    color: rgb(209, 209, 209);
+    text-align: center;
+    margin: 0;
+}
+
+#icone {
+    height: 75%;
+    width: 120px;
+    /* temporário, não funfou com medida responsiva ainda*/
+}
+
+button {
+    color: rgb(44, 182, 248);
+    background-color: white;
+    margin-top: 1%;
+    margin-right: 30%;
+    height: min-content;
+    font-size: 120%;
+    border-radius: 5px;
+}
+
+#menu {
+    margin-right: 4%;
+}
+
+#sino {
+    height: 32px;
+    /* temporário, não funfou com medida responsiva ainda*/
+}
+
+body {
+    margin: 0;
+}
+
+button:hover {
+    background: rgb(209, 209, 209);
+}
+
+button:active {
+    background: rgb(136, 135, 135);
+}
+
+/* css do menu */
+
+li {
+    list-style-type: none;
+}
+
+/* css do index */
+
+article {
+    background-color: white;
+}
