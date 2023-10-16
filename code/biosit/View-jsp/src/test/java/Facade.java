@@ -36,7 +36,7 @@ public class Facade extends HttpServlet {
         String act = request.getParameter("act");
         
         if(act.equals("cadastrarPaciente")) {
-            // não consegui criar o CadastrarCliente.java no controller
+            jsp = CadastrarPaciente.execute(request);
         }
         
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
