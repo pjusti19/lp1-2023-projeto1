@@ -16,7 +16,7 @@
         <%@include file="header.jsp" %>
         <main id="paciente">
             <section class="cadastro">
-                <form>
+                <form action="Facade" method="GET">
                     <h3>CADASTRO</h3>
                     <label id="nome-cadastro">Nome:<br>
                         <input type="text" name="nome">
@@ -30,12 +30,12 @@
                     <label id="endereco-cadastro">Endereço:<br>
                         <input type="text" name="endereco">
                     </label>
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit" name="act" value="cadastrarPaciente">Cadastrar</button>
                 </form>
             </section>
             
             <section class="buscar">
-                <form>
+                <form action="Facade" method="GET">
                     <h3>PESQUISA</h3>
                     <label id="nome-bucar">Nome:<br>
                         <input type="text" name="nome">
@@ -49,7 +49,7 @@
                     <label id="endereco-busca">Endereço:<br>
                         <input type="text" name="endereco">
                     </label>
-                    <button type="submit">Pesquisar</button>
+                    <button type="submit" name="act" value="BuscarPaciente">Pesquisar</button>
                 </form>
             </section>    
         </main>
