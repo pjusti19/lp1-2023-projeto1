@@ -13,6 +13,8 @@ html {
 }
 
 main {
+    padding-top: 6.0%;
+    padding-bottom: 7%;
     background-color: rgb(209, 209, 209);
 }
 
@@ -67,7 +69,6 @@ button {
 
 #sino {
     height: 32px;
-    /* temporário, não funfou com medida responsiva ainda*/
 }
 
 body {
@@ -84,8 +85,29 @@ button:active, #menu button:active {
 
 /* css do calendário e agenda */
 
+ul{
+    padding: 0;
+}
+
 li {
     list-style-type: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 2%;
+    margin: 2%
+}
+
+li:hover{
+    background-color: rgb(212, 211, 211); 
+}
+
+li:active{
+    background-color: rgb(200, 200, 200);
+}
+
+a{
+    text-decoration: none;
+    color: black
 }
 
 article {
@@ -124,6 +146,17 @@ th, td {
     padding: 1%;
     width: min-content;
 }
+
+#agenda, #calendario{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+h3{
+    margin: 1%;
+}
+
+/* css do botão de agendar consulta*/
 
 #divisao {
     display: flex;
