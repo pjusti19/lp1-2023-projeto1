@@ -205,3 +205,21 @@ main#paciente {
 }
 main#paciente section {
 }
+
+/* css do estoque */
+.buscar > input {
+    width: 90%;
+    height: 7%;
+    margin-bottom: 1%;
+}
+.cinza button {
+    background-color: rgb(44, 182, 248);
+    color: white;
+    border: none;
+    margin-bottom: 1%;
+    
+}
+.buscar-nome-equipamento{
+    font-weight: bold;
+}
+
