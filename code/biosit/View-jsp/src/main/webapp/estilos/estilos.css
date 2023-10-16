@@ -125,7 +125,11 @@ th, td {
     width: min-content;
 }
 
-
+#divisao {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 
 #agendar{
    background-color: rgb(44, 182, 248);
@@ -144,6 +148,8 @@ th, td {
 /* css dos menus */
 
 #opcoes{
+    padding: 30px;
+    background-color: white;
     position: absolute;
     right: 0px;
 }
