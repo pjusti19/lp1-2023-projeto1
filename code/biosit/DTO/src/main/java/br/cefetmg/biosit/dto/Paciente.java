@@ -1,5 +1,5 @@
 
-package dto;
+package br.cefetmg.biosit.dto;
 
 
 import java.util.Date;

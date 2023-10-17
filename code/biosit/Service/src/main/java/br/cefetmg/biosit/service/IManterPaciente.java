@@ -1,5 +1,7 @@
 
-import br.cefetmg.biosit.DTO.dto.Paciente;
+package br.cefetmg.biosit.service;
+
+import br.cefetmg.biosit.dto.Paciente;
 import java.util.Date;
 
 /**
@@ -12,6 +14,6 @@ public interface IManterPaciente {
     public String atualizar(Paciente paciente);
     public String excluir(Paciente paciente);
     
-    public Paciente pesquisar(String id, String nome, Date dataNasc);
+    //public Paciente pesquisar(String id, String nome, Date dataNasc);
     
 }

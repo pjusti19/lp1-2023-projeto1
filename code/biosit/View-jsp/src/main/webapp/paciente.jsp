@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de paciente</title>
         <link rel="stylesheet" href="estilos/estilos.css">
+        <link rel="stylesheet" href="estilos/paciente.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -24,7 +25,7 @@
                     <label id="cpf-cadastro">CPF:<br>
                         <input type="number" name="cpf">
                     </label>
-                    <label id="data-nascimento-cadastro">Data de nascimento:<br>
+                    <label id="data-nascimento-cadastro">Nascimento:<br>
                         <input type="date" name="data-nascimento">
                     </label>
                     <label id="endereco-cadastro">Endereço:<br>
@@ -48,7 +49,7 @@
                     </label>
                     <label id="endereco-busca">Endereço:<br>
                         <input type="text" name="endereco">
-                    </label>
+                    </label><br>
                     <button type="submit" name="act" value="BuscarPaciente">Pesquisar</button>
                 </form>
             </section>    
