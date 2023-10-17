@@ -17,7 +17,7 @@
         </div>
         <div class="bloco" id="menu">
             <button><img src="imgs/sino.png" id="sino"></button>
-            <button id="mostrar-menu">â°</button>
+            <button id="mostrar-menu">☰</button>
         </div>
     </header>
     <section id="opcoes" class="menu-escondido">

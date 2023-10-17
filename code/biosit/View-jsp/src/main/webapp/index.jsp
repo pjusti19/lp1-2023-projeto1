@@ -33,8 +33,8 @@
                     </table>
                 </article>
                 <article id="agenda">
-                    <h1 id="dataAtual">SDGSDGDFSGHI</h1>
-                    <h3 id="diaSemana"></h3>
+                    <h1 id="dataPorExtenso"></h1>
+                    <h3 id="diaDaSemana"></h3>
                 </article>
             </div>
             <div id="divisao">
