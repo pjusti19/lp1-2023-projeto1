@@ -3,6 +3,8 @@ package br.cefetmg.biosit.service.implement;
 import java.util.Date;
 import br.cefetmg.biosit.service.IManterPaciente;
 import br.cefetmg.biosit.dto.Paciente;
+import br.cefetmg.biosit.service.exception.*;
+import br.cefetmg.biosit.service.util.Util;
 import java.util.List;
 /**
  *
@@ -10,10 +12,13 @@ import java.util.List;
  */
 public class ManterPaciente implements IManterPaciente {
     @Override
-    public String cadastrar(Paciente paciente) {
+    public String cadastrar(Paciente paciente) throws CadastroException {
         String id = "";
-        //verificar os dados do cliente
-        // usar classe DAO para gravar no bd
+        
+        if(Util.verify(paciente.getNome())) {
+            throw new CadastroException("Cadastro Incompleto, insira um nome");
+        }
+        
         return id;
     }
     

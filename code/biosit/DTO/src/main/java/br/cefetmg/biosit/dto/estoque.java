@@ -12,12 +12,7 @@ import java.util.Date;
         private Date data;
         private String setor;
         private int quant;
-        private Paciente teste;
 
-    public Paciente metodoFoda() {
-        teste = new Paciente("1", "Sla", new Date(), "");
-        return teste;
-    }
     public String getFornecedora() {
         return fornecedora;
     }

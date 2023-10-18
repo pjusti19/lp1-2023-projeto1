@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 
 main#paciente {
-    height: 55vh;
+    height: 62vh;
     padding: 30px;
     display: flex;
     flex-direction: row;
@@ -90,7 +90,7 @@ main#paciente section {
 #paciente .cadastro form button {
 }
 #paciente .cadastro form label {
-    margin: 20px 0px;
+    margin: 1vh 0px;
 }
 #paciente .cadastro form label,
 #paciente .cadastro form button {
@@ -98,5 +98,5 @@ main#paciente section {
 }
 #paciente .cadastro form button {
     height: 60px;
-    margin: 30px auto;
+    margin: 2vh auto;
 }
