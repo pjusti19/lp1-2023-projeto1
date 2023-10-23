@@ -186,8 +186,7 @@ h3{
     right: 0px;
 }
 #opcoes.menu-escondido {
-    left: 100%;
-    animation: all 1s ease-in-out;
+    display: none !important;
 }
 
 /* css telas de cadastro e busca genéricos */

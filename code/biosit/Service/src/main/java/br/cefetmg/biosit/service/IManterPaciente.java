@@ -2,8 +2,10 @@
 package br.cefetmg.biosit.service;
 
 import br.cefetmg.biosit.dto.Paciente;
-import br.cefetmg.biosit.service.exception.*;
+import br.cefetmg.biosit.dto.exception.*;
 import java.util.Date;
+import java.util.List;
+
 
 /**
  *
@@ -12,9 +14,9 @@ import java.util.Date;
 public interface IManterPaciente {
     
     public String cadastrar(Paciente paciente) throws CadastroException;
-    public String atualizar(Paciente paciente);
-    public String excluir(Paciente paciente);
+    public String atualizar(Paciente paciente) throws Exception;
+    public String excluir(Paciente paciente) throws Exception;
     
-    //public Paciente pesquisar(String id, String nome, Date dataNasc);
+    public List<Paciente> pesquisar(Paciente paciente) throws Exception;
     
 }

@@ -3,10 +3,15 @@ package br.cefetmg.biosit.controller;
 
 import java.util.Date;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Paciente;
 import br.cefetmg.biosit.service.IManterPaciente;
 import br.cefetmg.biosit.service.implement.ManterPaciente;
-import br.cefetmg.biosit.service.exception.*;
+import br.cefetmg.biosit.dto.exception.*;
 
 
 /**
@@ -19,7 +24,7 @@ public class CadastrarPaciente {
         String jsp = "";
         
         try {
-            
+        
             String nome = request.getParameter("nome");
             String cpf = request.getParameter("cpf");
             Date dataNasc = new Date(request.getParameter("data-nascimento"));
@@ -30,14 +35,11 @@ public class CadastrarPaciente {
             
             manterPaciente.cadastrar(paciente);
             
-        } catch(CadastroException e) {
-            request.setAttribute("erro", e.getMessage());
-            jsp = "erroCadastro";
         } catch(Exception e) {
-            e.printStackTrace();
-            jsp = "";
+            request.setAttribute("error", e.getMessage());
+            jsp = "/erro.jsp";
         }
         
-        return "index";
+        return "/index.jsp";
     }
 }

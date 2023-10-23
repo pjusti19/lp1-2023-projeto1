@@ -1,5 +1,5 @@
 
-package br.cefetmg.biosit.service.exception;
+package br.cefetmg.biosit.dto.exception;
 
 /**
  *

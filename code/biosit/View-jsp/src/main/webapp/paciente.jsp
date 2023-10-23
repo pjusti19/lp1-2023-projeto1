@@ -31,7 +31,7 @@
                     <label id="endereco-cadastro">Endereço:<br>
                         <input type="text" name="endereco">
                     </label>
-                    <button type="submit" name="act" value="cadastrarPaciente">Cadastrar</button>
+                    <button id="envia-cadastro" type="submit" name="act" value="cadastrarPaciente">Cadastrar</button>
                 </form>
             </section>
             
@@ -54,5 +54,8 @@
                 </form>
             </section>    
         </main>
+        <!--<script>-->
+            <!--document.querySelector("#envia-cadastro").addEventListener('click', ()=>location.href="/Facade");-->
+        <!--</script>-->
     </body>
 </html>
