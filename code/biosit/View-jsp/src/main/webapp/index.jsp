@@ -13,7 +13,7 @@
         <%@include file="header.jsp" %>
         <main>
             <div id="centro">
-                <article id="calendario">
+                <article id="calendario" class="sombreado">
                     <div id="cabecalhoCalendario">
                         <h1 id="mesAno"></h1>
                     </div>
@@ -32,7 +32,7 @@
                         <tbody id="corpoCalendario"></tbody>
                     </table>
                 </article>
-                <article id="agenda">
+                <article id="agenda" class="sombreado">
                     <h1 id="dataPorExtenso"></h1>
                     <h3 id="diaDaSemana"></h3>
                 </article>

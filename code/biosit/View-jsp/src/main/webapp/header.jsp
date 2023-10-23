@@ -16,22 +16,26 @@
             </div>
         </div>
         <div class="bloco" id="menu">
-            <button><img src="imgs/sino.png" id="sino"></button>
+            <button id="mostrar-notificacoes"><img src="imgs/sino.png" id="sino"></button>
             <button id="mostrar-menu">☰</button>
         </div>
     </header>
     <section id="opcoes" class="menu-escondido">
         <h1>Menu</h1>
         <ul class="lista">
-            <li><a href="estoque.jsp">Estoque</a></li>
-            <li><a href="funcionarios.jsp">Funcionários</a></li>
-            <li><a href="equipamentos.jsp">Equipamentos</a></li>
-            <li><a href="paciente.jsp">Paciente</a></li>
-            <li><a href="triagem.jsp">Triagem</a></li>
-            <li><a href="financeiro.jsp">Financeiro</a></li>
-            <li><a href="encaminhamento.jsp">Encaminhamento</a></li>
-            <li><a href="requisicao.jsp">Requisição de Exames</a></li>
+            <a href="estoque.jsp"><li>Estoque</li></a>
+            <a href="funcionarios.jsp"><li>Funcionários</li></a>
+            <a href="equipamentos.jsp"><li>Equipamentos</li></a>
+            <a href="paciente.jsp"><li>Paciente</li></a>
+            <a href="triagem.jsp"><li>Triagem</li></a>
+            <a href="financeiro.jsp"><li>Financeiro</li></a>
+            <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
+            <a href="requisicao.jsp"><li>Requisição de Exames</li></a>
         </ul>
+    </section>
+    <section id="notificacoes" class="menu-escondido">
+        <h1>Notificações</h1>
+        <p>Nenhuma notificação</p>
     </section>
     <script src="scripts/header.js"></script>
 </html>

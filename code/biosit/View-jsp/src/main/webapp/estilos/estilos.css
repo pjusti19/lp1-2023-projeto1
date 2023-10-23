@@ -155,6 +155,10 @@ h3{
     margin: 1%;
 }
 
+.sombreado{
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+
 /* css do botão de agendar consulta*/
 
 #divisao {
@@ -179,14 +183,15 @@ h3{
 
 /* css dos menus */
 
-#opcoes{
+#opcoes, #notificacoes{
     padding: 30px;
     background-color: white;
     position: absolute;
     right: 0px;
     transition: right 1s;
+    border-radius: 5px;
 }
-#opcoes.menu-escondido {
+#opcoes.menu-escondido, #notificacoes.menu-escondido {
     right: -1000px; 
 }
 
