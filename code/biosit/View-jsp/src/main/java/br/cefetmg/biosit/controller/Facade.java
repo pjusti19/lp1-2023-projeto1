@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Aluno
  */
-@WebServlet(urlPatterns = {"/Facade"})
+//@WebServlet(urlPatterns = {"/Facade"})
 public class Facade extends HttpServlet {
     private String jsp;
 

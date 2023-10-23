@@ -44,7 +44,7 @@
                     <label id="cpf-busca">CPF:<br>
                         <input type="number" name="cpf">
                     </label>
-                    <label id="data-nascimento-busca">Data de nascimento:<br>
+                    <label id="data-nascimento-busca">Nascimento:<br>
                         <input type="date" name="data-nascimento">
                     </label>
                     <label id="endereco-busca">Endereço:<br>
