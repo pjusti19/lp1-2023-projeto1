@@ -1,0 +1,96 @@
+/* 
+    Created on : 23 de out. de 2023, 10:58:43
+    Author     : Aluno
+*/
+
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+    --fonte-principal: 'Raleway', sans-serif;
+}
+
+#prontuario {
+    width: 45vw;
+}
+
+#frm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--fonte-principal);
+}
+main {
+}
+
+#dados-principais {
+    width: 35vw;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#dados-principais input {
+    border-radius: 0px;
+    border: none;
+    height: 60%;
+}
+
+
+#att-dados {
+    width: 100%;
+}
+#nome-att {
+    width: 100%;
+}
+#nome-att input {
+    width: 100%;
+}
+
+#cpf-att {
+    width: 45%;
+}
+#cpf-att input {
+    width: 100%;
+}
+
+#data-nascimento-att {
+    width: 45%;
+}
+#data-nascimento-att input {
+    width: 100%;
+}
+
+#endereco-att {
+    width: 100%;
+}
+#endereco-att input {
+    width: 100%;
+}
+
+#dados-principais label {
+    margin: 1vh 0px;
+}
+
+#atualiza-cadastro {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+    flex-wrap: wrap;
+}
+#btn-voltar {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#att-btn {
+    margin: 30px auto;
+}
