@@ -8,17 +8,20 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <main id="financeiro">
-           <section>
-                <label id="setor-bucar">Setor:<br>
-                    <input type="text" name="setor">
-                <label id="data-inicial-busca">Data inicial:<br>
-                    <input type="date" name="data-inicial">
-                <label id="data-final-busca">Data final:<br>
-                    <input type="date" name="data-final">
+        <main id="financeiro">           
+            <section class="sla">
+                <h3>CONSULTA FINANCEIRA</h3>
+                <form>
+                <label id="setor-bucar">Setor:</label>
+                <input type="text" name="setor">
+                <label id="data-inicial-busca">Data inicial:</label>
+                <input type="date" name="data-inicial">
+                <label id="data-final-busca">Data final:</label>
+                <input type="date" name="data-final"><br>
                 <button type="submit">Buscar</button>
                 <button>Baixar relatório</button>
-           </section>   
+                </form>
+             </section>                     
         </main>
     </body>
 </html>
