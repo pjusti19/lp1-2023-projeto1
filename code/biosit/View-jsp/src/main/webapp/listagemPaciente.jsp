@@ -16,11 +16,18 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <main>
+        <main id="listagemPaciente">
             <section>
-                
+                <article>
+                    <div>Nome Foda</div>
+                    <div>111.111.111-11</div>
+                </article>
+                <article>
+                    <div>Nome Foda</div>
+                    <div>111.111.111-11</div>
+                </article> 
             </section>
-            <button onclick="window.history.back();'">Voltar</button>
+            <button class="btn-voltar" onclick="window.history.back();'">Voltar</button>
         </main>
     </body>
 </html>

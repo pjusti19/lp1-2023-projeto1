@@ -28,7 +28,8 @@ main#paciente section {
 #paciente .buscar {
     width: 30vw;
 }
-#paciente .cadastro h3 {
+#paciente .cadastro h3,
+#paciente .buscar h3{
     text-align: center;
     font-size: 40px;
 }
@@ -67,11 +68,11 @@ main#paciente section {
     width: 100%;
 }
 
-#paciente .cadastro h3 {
+#paciente .cadastro h3, #paciente .buscar h3 {
     width: 100%;
 }
 
-#paciente .cadastro form button {
+#paciente .cadastro form button, #paciente .buscar form button {
     background-color: var(--azul);
     width: 100%;
     padding: 20px auto;
@@ -80,13 +81,22 @@ main#paciente section {
     background-color: var(--cinza);
     height: 70%;
 }
-#paciente .cadastro {
+#paciente .buscar form input {
+    height: 70%;
+}
+#paciente .cadastro, #paciente .buscar {
     font-family: 'Raleway', sans-serif;;
 }
 #paciente .cadastro form input,
-#paciente .cadastro form button {
+#paciente .cadastro form button,
+#paciente .buscar form input,
+#paciente .buscar form button{
     border-radius: 0px;
     border: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 #paciente .cadastro form h3,
@@ -94,18 +104,45 @@ main#paciente section {
 #paciente .cadastro form input,
 #paciente .cadastro form button {
 }
-#paciente .cadastro form label {
+#paciente .cadastro form label,
+#paciente .buscar form label{
     margin: 1vh 0px;
 }
 #paciente .cadastro form label,
-#paciente .cadastro form button {
+#paciente .cadastro form button,
+#paciente .buscar form label,
+#paciente .buscar form button{
     color: #505053;
 }
-#paciente .cadastro form button {
+#paciente .cadastro form button,
+#paciente .buscar form button{
     height: 60px;
     margin: 2vh auto;
 }
 
 
-
 /*  listagem de pacientes   */
+#listagemPaciente {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;;
+    align-content: center;
+}
+#listagemPaciente .btn-voltar {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#listagemPaciente section {
+    padding: 10px 50px;
+}
+#listagemPaciente section article {
+    padding: 10px 20px;
+}
+#listagemPaciente section article:hover {
+    cursor: pointer;
+}

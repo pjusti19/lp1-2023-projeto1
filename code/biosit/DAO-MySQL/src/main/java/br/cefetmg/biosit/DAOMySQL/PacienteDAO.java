@@ -92,7 +92,24 @@ public class PacienteDAO implements IPacienteDAO {
     
     @Override
     public List<Paciente> pesquisarNome(String nome) throws Exception {
-        return null;
+        String query = "SELECT * FROM paciente WHERE nome = ?";
+        List<Paciente> pacientes = new ArrayList<>();
+        
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, nome);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Paciente paciente = new Paciente(resultSet.getString("nome"),new Date(resultSet.getString("data_nascimento")),resultSet.getString("cpf"),resultSet.getString("endereco"));
+                pacientes.add(paciente);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception("Erro ao deletar o paciente: " + e.getMessage());
+        }
+        return pacientes;
     }
     @Override
     public List<Paciente> pesquisarCPF(String cpf) throws Exception {
