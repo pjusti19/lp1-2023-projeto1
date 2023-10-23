@@ -184,9 +184,10 @@ h3{
     background-color: white;
     position: absolute;
     right: 0px;
+    transition: right 1s;
 }
 #opcoes.menu-escondido {
-    display: none !important;
+    right: -1000px; 
 }
 
 /* css telas de cadastro e busca genéricos */
@@ -221,3 +222,34 @@ main#paciente section {
     font-weight: bold;
 }
 
+.sla {
+    background-color: white;
+    width: 50vw;
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+
+main#financeiro {
+    height: 62vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main#financeiro section {
+    padding: 15px;
+}
+
+#financeiro .sla form button {
+    background-color: var(--azul);
+    width: 100%;
+    padding: 20px auto;
+}
+
+#financeiro .sla form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

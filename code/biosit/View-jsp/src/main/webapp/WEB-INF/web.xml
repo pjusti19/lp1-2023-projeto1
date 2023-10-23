@@ -13,7 +13,6 @@
     <url-pattern>/Facade</url-pattern>
 </servlet-mapping>
 
-
     <session-config>
         <session-timeout>
             30
