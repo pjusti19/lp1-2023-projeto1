@@ -184,9 +184,10 @@ h3{
     background-color: white;
     position: absolute;
     right: 0px;
+    transition: right 1s;
 }
 #opcoes.menu-escondido {
-    display: none !important;
+    right: -1000px; 
 }
 
 /* css telas de cadastro e busca genéricos */

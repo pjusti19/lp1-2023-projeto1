@@ -26,7 +26,7 @@
             <li><a href="estoque.jsp">Estoque</a></li>
             <li><a href="funcionarios.jsp">Funcionários</a></li>
             <li><a href="equipamentos.jsp">Equipamentos</a></li>
-            <li><a href="paciente.jsp">Clientes</a></li>
+            <li><a href="paciente.jsp">Paciente</a></li>
             <li><a href="triagem.jsp">Triagem</a></li>
             <li><a href="financeiro.jsp">Financeiro</a></li>
             <li><a href="encaminhamento.jsp">Encaminhamento</a></li>
