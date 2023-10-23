@@ -12,28 +12,36 @@
         <title>Editar Paciente/Prontuário</title>
         <link rel="stylesheet" href="estilos/estilos.css">
         <link rel="stylesheet" href="estilos/paciente.css">
+        <link rel="stylesheet" href="estilos/prontuario.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <main>
-            <section class="cadastro">
-                <form action="Facade" method="GET">
-                    <label id="nome-cadastro">Nome:<br>
-                        <input type="text" name="nome">
-                    </label>
-                    <label id="cpf-cadastro">CPF:<br>
-                        <input type="number" name="cpf">
-                    </label>
-                    <label id="data-nascimento-cadastro">Nascimento:<br>
-                        <input type="date" name="data-nascimento">
-                    </label>
-                    <label id="endereco-cadastro">Endereço:<br>
-                        <input type="text" name="endereco">
-                    </label>
-                    <button id="envia-cadastro" type="submit" name="act" value="atualizaCadastro">Cadastrar</button>
-                </form>
-            </section>
-            <button onclick="window.history.back();">Voltar</button>
+        <main id="pron">
+            <form id="frm" action="Facade" method="GET">
+                <section id="att-dados">
+                    <section id="dados-principais">
+                        <label id="nome-att">Nome:<br>
+                            <input type="text" name="nome">
+                        </label>
+                        <label id="cpf-att">CPF:<br>
+                            <input type="number" name="cpf">
+                        </label>
+                        <label id="data-nascimento-att">Nascimento:<br>
+                            <input type="date" name="data-nascimento">
+                        </label>
+                        <label id="endereco-att">Endereço:<br>
+                            <input type="text" name="endereco">
+                        </label>
+                    </section>
+                    <section id="prontuario">
+
+                    </section>
+                </section>
+                <section id="att-btn">
+                    <button id="atualiza-cadastro" type="submit" name="act" value="atualizaCadastro">Atualizar</button>
+                    <button id="btn-voltar" onclick="window.history.back();">Voltar</button>
+                </section>
+            </form>
         </main>
     </body>
 </html>
