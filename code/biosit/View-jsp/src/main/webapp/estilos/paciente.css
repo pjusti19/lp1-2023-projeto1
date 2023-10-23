@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
 :root {
     --azul: rgb(44, 182, 248);
     --cinza: rgb(221 218 218);
     --fonte-principal: 'Raleway', sans-serif;
 }
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 
 main#paciente {
     height: 62vh;
@@ -24,41 +25,45 @@ main#paciente section {
     width: 30vw;
     box-shadow: 1px 1px 17px 1px #7a8383;
 }
+#paciente .buscar {
+    width: 30vw;
+}
 #paciente .cadastro h3 {
     text-align: center;
     font-size: 40px;
 }
-#paciente .cadastro form {
+#paciente .cadastro form,
+#paciente .buscar form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-#nome-cadastro {
+#nome-cadastro, #nome-bucar {
     width: 100%;
 }
-#nome-cadastro input {
+#nome-cadastro input, #nome-bucar input {
     width: 100%;
 }
 
-#cpf-cadastro {
+#cpf-cadastro, #cpf-busca {
     width: 45%;
 }
-#cpf-cadastro input {
+#cpf-cadastro input, #cpf-busca input {
     width: 100%;
 }
 
-#data-nascimento-cadastro {
+#data-nascimento-cadastro, #data-nascimento-busca {
     width: 45%;
 }
-#data-nascimento-cadastro input {
+#data-nascimento-cadastro input, #data-nascimento-busca input {
     width: 100%;
 }
 
-#endereco-cadastro {
+#endereco-cadastro, #endereco-busca {
     width: 100%;
 }
-#endereco-cadastro input {
+#endereco-cadastro input, #endereco-busca input {
     width: 100%;
 }
 
@@ -100,3 +105,7 @@ main#paciente section {
     height: 60px;
     margin: 2vh auto;
 }
+
+
+
+/*  listagem de pacientes   */
