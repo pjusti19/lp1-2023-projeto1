@@ -6,7 +6,7 @@ package br.cefetmg.biosit.dto;
  */
 
 import java.util.Date;
-    public class estoque  {
+    public class Equipamento  {
         private String fornecedora;
         private String nome;
         private Date data;
@@ -45,7 +45,7 @@ import java.util.Date;
         this.quant = quant;
     }
         
-        public estoque (String fornecedora, String nome, Date data, String setor, int quant) {
+        public Equipamento (String fornecedora, String nome, Date data, String setor, int quant) {
 
         }
 
