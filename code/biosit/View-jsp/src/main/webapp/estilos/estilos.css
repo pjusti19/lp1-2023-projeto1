@@ -159,6 +159,36 @@ h3{
     box-shadow: 1px 1px 17px 1px #7a8383;
 }
 
+.botaoDeBusca {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    height: min-content;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#inputBusca { 
+    border: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+#buscar {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#iconeBuscar{
+    height: 2vh;
+}
+
 /* css do botão de agendar consulta*/
 
 #divisao {

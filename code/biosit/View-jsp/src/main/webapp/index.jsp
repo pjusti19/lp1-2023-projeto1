@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +37,18 @@
                 <article id="agenda" class="sombreado">
                     <h1 id="dataPorExtenso"></h1>
                     <h3 id="diaDaSemana"></h3>
+                    <form action="buscarConsulta" method="post">
+                        <div class="botaoDeBusca">                      
+                            <input type="text" id="inputBusca" placeholder="Digite sua busca">   
+                            <button id="buscar"><img src="imgs/lupa.png"? id="iconeBuscar"></button>
+                        </div>
+                    </form>
+                    <!-- não funciona ainda
+                    <ul>
+                        <c:forEach var="resultado" items="${resultados}">
+                            <li>${resultado}</li>
+                            </c:forEach>
+                    </ul>  -->
                 </article>
             </div>
             <div id="divisao">
