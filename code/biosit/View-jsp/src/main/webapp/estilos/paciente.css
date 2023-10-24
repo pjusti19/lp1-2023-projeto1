@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+    --fonte-principal: 'Raleway', sans-serif;
+}
+
+main#paciente {
+    height: 62vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+main#paciente section {
+    padding: 15px;
+}
+#paciente input {
+    box-sizing: border-box;
+}
+#paciente .cadastro {
+    background-color: white;
+    width: 30vw;
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+#paciente .buscar {
+    width: 30vw;
+}
+#paciente .cadastro h3,
+#paciente .buscar h3{
+    text-align: center;
+    font-size: 40px;
+}
+#paciente .cadastro form,
+#paciente .buscar form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#nome-cadastro, #nome-bucar {
+    width: 100%;
+}
+#nome-cadastro input, #nome-bucar input {
+    width: 100%;
+}
+
+#cpf-cadastro, #cpf-busca {
+    width: 45%;
+}
+#cpf-cadastro input, #cpf-busca input {
+    width: 100%;
+}
+
+#data-nascimento-cadastro, #data-nascimento-busca {
+    width: 45%;
+}
+#data-nascimento-cadastro input, #data-nascimento-busca input {
+    width: 100%;
+}
+
+#endereco-cadastro, #endereco-busca {
+    width: 100%;
+}
+#endereco-cadastro input, #endereco-busca input {
+    width: 100%;
+}
+
+#paciente .cadastro h3, #paciente .buscar h3 {
+    width: 100%;
+}
+
+#paciente .cadastro form button, #paciente .buscar form button {
+    background-color: var(--azul);
+    width: 100%;
+    padding: 20px auto;
+}
+#paciente .cadastro form input {
+    background-color: var(--cinza);
+    height: 70%;
+}
+#paciente .buscar form input {
+    height: 70%;
+}
+#paciente .cadastro, #paciente .buscar {
+    font-family: 'Raleway', sans-serif;;
+}
+#paciente .cadastro form input,
+#paciente .cadastro form button,
+#paciente .buscar form input,
+#paciente .buscar form button{
+    border-radius: 0px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#paciente .cadastro form h3,
+#paciente .cadastro form label,
+#paciente .cadastro form input,
+#paciente .cadastro form button {
+}
+#paciente .cadastro form label,
+#paciente .buscar form label{
+    margin: 1vh 0px;
+}
+#paciente .cadastro form label,
+#paciente .cadastro form button,
+#paciente .buscar form label,
+#paciente .buscar form button{
+    color: #505053;
+}
+#paciente .cadastro form button,
+#paciente .buscar form button{
+    height: 60px;
+    margin: 2vh auto;
+}
+
+
+/*  listagem de pacientes   */
+#listagemPaciente {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;;
+    align-content: center;
+}
+#listagemPaciente .btn-voltar {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#listagemPaciente section {
+    padding: 10px 50px;
+}
+#listagemPaciente section article {
+    padding: 10px 20px;
+}
+#listagemPaciente section article:hover {
+    cursor: pointer;
+}

@@ -22,3 +22,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/code/biosit/DTO/target/
+/code/biosit/IDAO/target/
+/code/biosit/Service/target/
+/code/biosit/DAO-MySQL/target/
+/code/biosit/View-jsp/target/

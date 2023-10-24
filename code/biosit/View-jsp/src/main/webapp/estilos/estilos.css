@@ -1,0 +1,290 @@
+/* cores padrões */
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+}
+
+/* css do cabeçalho */
+
+html {
+    font-size: 150%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+main {
+    padding-top: 6.0%;
+    padding-bottom: 7%;
+    background-color: rgb(209, 209, 209);
+}
+
+header {
+    height: 20%;
+    display: flex;
+    margin: 1%;
+    justify-content: space-between;   
+}
+
+.bloco {
+    display: flex;
+}
+
+h1, th {
+    color: rgb(44, 182, 248);
+    margin: 0;
+}
+
+
+header h3 {
+    color: rgb(209, 209, 209);
+    text-align: center;
+    margin: 0;
+}
+
+#icone {
+    height: 90%;
+    width: 120px;
+    /* temporário, não funfou com medida responsiva ainda*/
+}
+#icone:hover {
+    cursor: pointer;
+}
+
+button {
+    height: min-content;
+    font-size: 120%;
+    border-radius: 5px;
+}
+
+#menu {
+    margin-right: 4%;
+}
+
+#menu button{
+    color: rgb(44, 182, 248);
+    background-color: white;
+    margin-top: 1%;
+    margin-right: 30%;
+}
+
+#sino {
+    height: 32px;
+}
+
+body {
+    margin: 0;
+}
+
+button:hover, #menu button:hover {
+    background: rgb(209, 209, 209);
+}
+
+button:active, #menu button:active {
+    background: rgb(136, 135, 135);
+}
+
+/* css do calendário e agenda */
+
+ul{
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 2%;
+    margin: 2%
+}
+
+li:hover{
+    background-color: rgb(212, 211, 211); 
+}
+
+li:active{
+    background-color: rgb(200, 200, 200);
+}
+
+a{
+    text-decoration: none;
+    color: black
+}
+
+article {
+    background-color: white;
+    border-radius: 1px;
+    margin: 2%;
+}
+
+#centro{
+    display: flex;
+    justify-content: center;
+}
+
+#calendario {
+    padding: 1%;
+    width: min-content;
+    text-align: center;
+}
+
+#cabecalhoCalendario {
+    margin-bottom: 1%;
+}
+
+th, td {
+    width: 14.28%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    color: rgb(0, 0, 44);
+}
+
+.hoje{
+    background-color: rgb(212, 211, 211);
+}
+
+#agenda{
+    padding: 1%;
+}
+
+#agenda, #calendario{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+h3{
+    margin: 1%;
+}
+
+.sombreado{
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+
+.botaoDeBusca {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    height: min-content;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#inputBusca { 
+    border: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+#buscar {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#iconeBuscar{
+    height: 2vh;
+}
+
+/* css do botão de agendar consulta*/
+
+#divisao {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#agendar{
+   background-color: rgb(44, 182, 248);
+   margin: 0;
+   text-align: center;
+}
+
+#agendar:hover{
+    background-color: rgb(15, 156, 221);
+}
+
+#agendar:active{
+    background-color: rgb(11, 129, 184);
+}
+
+/* css dos menus */
+
+#opcoes, #notificacoes{
+    padding: 30px;
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    transition: right 0.5s;
+    border-radius: 5px;
+}
+#opcoes.menu-escondido, #notificacoes.menu-escondido {
+    right: -1000px; 
+}
+
+/* css telas de cadastro e busca genéricos */
+.cadastro h3,
+.buscar h3 {
+    color: var(--azul);
+}
+/* css paciente.jsp */
+main#paciente {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+main#paciente section {
+}
+
+/* css do estoque */
+.buscar > input {
+    width: 90%;
+    height: 7%;
+    margin-bottom: 1%;
+}
+.cinza button {
+    background-color: rgb(44, 182, 248);
+    color: white;
+    border: none;
+    margin-bottom: 1%;
+    
+}
+.buscar-nome-equipamento{
+    font-weight: bold;
+}
+
+.sla {
+    background-color: white;
+    width: 50vw;
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+
+main#financeiro {
+    height: 62vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main#financeiro section {
+    padding: 15px;
+}
+
+#financeiro .sla form button {
+    background-color: var(--azul);
+    width: 100%;
+    padding: 20px auto;
+}
+
+#financeiro .sla form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
