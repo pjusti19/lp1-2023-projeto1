@@ -188,7 +188,7 @@ h3{
     background-color: white;
     position: absolute;
     right: 0px;
-    transition: right 1s;
+    transition: right 0.5s;
     border-radius: 5px;
 }
 #opcoes.menu-escondido, #notificacoes.menu-escondido {
