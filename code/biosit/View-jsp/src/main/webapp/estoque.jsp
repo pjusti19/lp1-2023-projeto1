@@ -32,7 +32,7 @@
                 <label id="quantidade-equipamento">Quantidade:</label><br>
                 <input type="number" id="quantidade" name="quantidade" required><br><br>
 
-                <button type="button" id="cadastrar">Cadastrar</button>
+                <button id="cadastrar" type="submit" name="act" value="cadastrarEquipamento">Cadastrar</button>
             </form>
         </div>
 
