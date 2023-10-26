@@ -24,14 +24,14 @@ public class PacienteDAO implements IPacienteDAO {
     private final String user;
     
     public PacienteDAO() {
-        url = "jdbc:mysql://localhost:3306/banco";
-        password = "admin";
-        user = "admin";
+        url = "jdbc:mysql://localhost:3306/mysql";
+        password = "";
+        user = "root";
     }
     
     @Override
     public boolean inserir(Paciente paciente) throws CadastroException {
-        String query = "INSERT INTO paciente (nome, dataNascimento, cpf, endereco, id) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO pacientes (nome, dataNascimento, cpf, endereco, id) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -173,6 +173,16 @@ public class PacienteDAO implements IPacienteDAO {
             throw new Exception("Erro ao deletar o paciente: " + e.getMessage());
         }
         return pacientes;
+    }
+    
+    public static void main(String[] args) {
+        try {
+            Paciente p = new Paciente("aaa", new Date(), "143", "adress");
+            PacienteDAO q = new PacienteDAO();
+            q.inserir(p);
+        } catch(Exception e) {
+            System.out.println("erro: " + e.getMessage());
+        }
     }
     
 }
