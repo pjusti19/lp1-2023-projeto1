@@ -1,5 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +41,7 @@
                             <button id="buscar"><img src="imgs/lupa.png"? id="iconeBuscar"></button>
                         </div>
                     </form>
-                    <!-- não funciona ainda
+                    <!-- nÃ£o funciona ainda
                     <ul>
                         <c:forEach var="resultado" items="${resultados}">
                             <li>${resultado}</li>
