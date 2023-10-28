@@ -19,22 +19,22 @@
         <div class="cadastro" style="display: flex;">
             <div style="flex: 1; padding: 20px; background-color: white; margin: 2%; align-items: center;">
              <form action="Facade" method="GET" >
-            <h3>Cadastro de Equipamento</h3>
-                <label id="nome-equipamento">Nome do Equipamento:</label><br>
-                <input type="text" id="nome" name="nome" required><br>
+                <h3>Cadastro de Equipamento</h3>
+                    <label id="nome-equipamento">Nome do Equipamento:</label><br>
+                    <input type="text" id="nome" name="nome" required><br>
 
-                <label id="fornecedora-equipamento">Fornecedora:</label><br>
-                <input type="text" id="fornecedora" name="fornecedora" required><br>
+                    <label id="fornecedora-equipamento">Fornecedora:</label><br>
+                    <input type="text" id="fornecedora" name="fornecedora" required><br>
 
-                <label id="data-aquiscao-equipamento">Data de Aquisição:</label><br>
-                <input type="date" id="data" name="data" required><br>
+                    <label id="data-aquiscao-equipamento">Data de Aquisição:</label><br>
+                    <input type="date" id="data" name="data" required><br>
 
-                <label id="quantidade-equipamento">Quantidade:</label><br>
-                <input type="number" id="quantidade" name="quantidade" required><br><br>
+                    <label id="quantidade-equipamento">Quantidade:</label><br>
+                    <input type="number" id="quantidade" name="quantidade" required><br><br>
 
-                <button type="button" id="cadastrar">Cadastrar</button>
-            </form>
-        </div>
+                    <button id="cadastrar" type="submit" name="act" value="cadastrarEquipamento">Cadastrar</button>
+                </form>
+            </div>
 
         <div style="flex: 1; padding: 20px;" class="buscar">
             <h3>Busca de Equipamento</h3>
