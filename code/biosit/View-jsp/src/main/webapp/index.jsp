@@ -48,7 +48,7 @@
                         <c:forEach var="i" begin="0" end="${nomes.size() - 1}">
                             <li>${nomes[i]} ${horarios[i]}</li>
                             </c:forEach>
-        
+                    </ul>
 
                 </article>
             </div>
