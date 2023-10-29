@@ -146,3 +146,11 @@ button:hover {
 #listagemPaciente section article:hover {
     cursor: pointer;
 }
+
+.mensagem-erro {
+    border: 1px solid red;
+    padding: 10px;
+    font-size: 24px;
+    color: red;
+    background-color: #d11d1d63;
+}

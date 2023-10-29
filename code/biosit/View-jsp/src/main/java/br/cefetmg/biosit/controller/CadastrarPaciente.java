@@ -21,25 +21,35 @@ import br.cefetmg.biosit.dto.exception.*;
 public class CadastrarPaciente {
     
     public static String execute(HttpServletRequest request) {
-        String jsp = "";
+        String jsp = "/paciente.jsp";
         
         try {
         
             String nome = request.getParameter("nome");
+//            System.out.println("nome:" + nome);
             String cpf = request.getParameter("cpf");
-            Date dataNasc = new Date(request.getParameter("data-nascimento"));
+//            System.out.println("cpf:" + cpf);
+            String dataNasc = request.getParameter("data-nascimento");
+//            System.out.println("nasc:" + dataNasc);
             String endereco = request.getParameter("endereco");
+//            System.out.println("end:" + endereco);
             Paciente paciente = new Paciente(nome, dataNasc, cpf, endereco);
+//            System.out.println("pac:" + paciente);
             
             IManterPaciente manterPaciente = new ManterPaciente();
             
             manterPaciente.cadastrar(paciente);
             
-        } catch(Exception e) {
+        } catch(PacienteDuplicadoException e) {
+            System.out.println(e.getMessage());
             request.setAttribute("error", e.getMessage());
-            jsp = "/erro.jsp";
+        } catch (CadastroException e) {
+            System.out.println(e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        } catch(Exception e) {
+            request.setAttribute("error", "Não foi possível realizar o cadastro, tente novamente");
         }
         
-        return "/index.jsp";
+        return jsp;
     }
 }

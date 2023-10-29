@@ -24,27 +24,33 @@ public class PacienteDAO implements IPacienteDAO {
     private final String user;
     
     public PacienteDAO() {
-        url = "jdbc:mysql://localhost:3306/banco";
-        password = "admin";
-        user = "admin";
+        url = "jdbc:mysql://localhost:3306/biositdb";
+        password = "";
+        user = "root";
     }
     
     @Override
-    public boolean inserir(Paciente paciente) throws CadastroException {
-        String query = "INSERT INTO paciente (nome, dataNascimento, cpf, endereco, id) VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-
+    public boolean inserir(Paciente paciente) throws CadastroException, PacienteDuplicadoException {
+        String query = "INSERT INTO pacientes (nome, dataNascimento, cpf, endereco) VALUES (?, ?, ?, ?)";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
             preparedStatement.setString(1, paciente.getNome());
-            preparedStatement.setString(2, paciente.getNascimento().toString());
+            preparedStatement.setString(2, paciente.getNascimento());
             preparedStatement.setString(3, paciente.getCPF());
             preparedStatement.setString(4, paciente.getEndereco());
-            preparedStatement.setString(5, paciente.getID());
-
+            
             preparedStatement.executeUpdate();
             connection.close();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
+            if(e.getMessage().substring(0, 9).equals("Duplicate")) {
+                throw new PacienteDuplicadoException(paciente.getCPF());
+            }
+            throw new CadastroException(e.getMessage());
+        } catch (ClassNotFoundException e) {
             throw new CadastroException(e.getMessage());
         }
         return true;
@@ -52,15 +58,14 @@ public class PacienteDAO implements IPacienteDAO {
 
     @Override
     public boolean atualizar(Paciente paciente) throws CadastroException {
-        String query = "UPDATE paciente SET nome = ?, data_nascimento = ?, cpf = ?, endereco = ? WHERE id = ?";
+        String query = "UPDATE paciente SET nome = ?, data_nascimento = ?, endereco = ? WHERE cpf = ?";
         try (Connection connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, paciente.getNome());
-            preparedStatement.setString(2, paciente.getNascimento().toString());
-            preparedStatement.setString(3, paciente.getCPF());
-            preparedStatement.setString(4, paciente.getEndereco());
-            preparedStatement.setString(5, paciente.getID());
+            preparedStatement.setString(2, paciente.getNascimento());
+            preparedStatement.setString(3, paciente.getEndereco());
+            preparedStatement.setString(4, paciente.getCPF());
 
             preparedStatement.executeUpdate();
             connection.close();
@@ -102,7 +107,7 @@ public class PacienteDAO implements IPacienteDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Paciente paciente = new Paciente(resultSet.getString("nome"),new Date(resultSet.getString("data_nascimento")),resultSet.getString("cpf"),resultSet.getString("endereco"));
+                Paciente paciente = new Paciente(resultSet.getString("nome"),resultSet.getString("data_nascimento"),resultSet.getString("cpf"),resultSet.getString("endereco"));
                 pacientes.add(paciente);
             }
             connection.close();
@@ -123,7 +128,7 @@ public class PacienteDAO implements IPacienteDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Paciente paciente = new Paciente(resultSet.getString("nome"),new Date(resultSet.getString("data_nascimento")),resultSet.getString("cpf"),resultSet.getString("endereco"));
+                Paciente paciente = new Paciente(resultSet.getString("nome"),resultSet.getString("data_nascimento"),resultSet.getString("cpf"),resultSet.getString("endereco"));
                 pacientes.add(paciente);
             }
             connection.close();
@@ -144,7 +149,7 @@ public class PacienteDAO implements IPacienteDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Paciente paciente = new Paciente(resultSet.getString("nome"),new Date(resultSet.getString("data_nascimento")),resultSet.getString("cpf"),resultSet.getString("endereco"));
+                Paciente paciente = new Paciente(resultSet.getString("nome"),resultSet.getString("data_nascimento"),resultSet.getString("cpf"),resultSet.getString("endereco"));
                 pacientes.add(paciente);
             }
             connection.close();
@@ -165,7 +170,7 @@ public class PacienteDAO implements IPacienteDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Paciente paciente = new Paciente(resultSet.getString("nome"),new Date(resultSet.getString("data_nascimento")),resultSet.getString("cpf"),resultSet.getString("endereco"));
+                Paciente paciente = new Paciente(resultSet.getString("nome"),resultSet.getString("data_nascimento"),resultSet.getString("cpf"),resultSet.getString("endereco"));
                 pacientes.add(paciente);
             }
             connection.close();
@@ -173,6 +178,16 @@ public class PacienteDAO implements IPacienteDAO {
             throw new Exception("Erro ao deletar o paciente: " + e.getMessage());
         }
         return pacientes;
+    }
+    
+    public static void main(String[] args) {
+        try {
+            Paciente p = new Paciente("teste1", "05/07", "1345543", "adress");
+            PacienteDAO q = new PacienteDAO();
+            q.inserir(p);
+        } catch(Exception e) {
+            System.out.println("erro: " + e.getMessage());
+        }
     }
     
 }
