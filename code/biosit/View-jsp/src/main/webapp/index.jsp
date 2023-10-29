@@ -41,7 +41,7 @@
                             <button id="buscar"><img src="imgs/lupa.png"? id="iconeBuscar"></button>
                         </div>
                     </form>
-                    <!-- não funciona ainda
+                    <!-- nÃ£o funciona ainda
                     <ul>
                         <c:forEach var="item" items="${dados}">
                             <li>${item.horario} ${item.nome}</li>
