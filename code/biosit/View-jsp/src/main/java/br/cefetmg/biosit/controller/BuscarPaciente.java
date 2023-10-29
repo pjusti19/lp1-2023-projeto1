@@ -26,7 +26,7 @@ public class BuscarPaciente {
         
             String nome = request.getParameter("nome");
             String cpf = request.getParameter("cpf");
-            Date dataNasc = new Date(request.getParameter("data-nascimento"));
+            String dataNasc = request.getParameter("data-nascimento");
             String endereco = request.getParameter("endereco");
             Paciente paciente = new Paciente(nome, dataNasc, cpf, endereco);
             
