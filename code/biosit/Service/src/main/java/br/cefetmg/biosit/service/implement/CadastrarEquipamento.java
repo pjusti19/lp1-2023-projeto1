@@ -16,11 +16,10 @@ import br.cefetmg.biosit.idao.IEquipamentoDAO;
  *
  * @author Aluno
  */
-public class CadastrarEquipamento {
+public class CadastrarEquipamento implements ICadastrarEquipamento {
     private IEquipamentoDAO equipamentoDAO;
    
     
-    @Override
     public String cadastrar(Equipamento equipamento) throws CadastroException {
         
         if(Util.verify(equipamento.getNome())) {
@@ -35,13 +34,13 @@ public class CadastrarEquipamento {
         if(Util.verify(equipamento.getSetor())) {
             throw new CadastroException("Cadastro Incompleto, insira um setor");
         }
-        if(equipamento.getQuant() == 0 || equipamento.getQuant() == null) {
+        if(equipamento.getQuant() == 0) {
             throw new CadastroException("Cadastro Incompleto, insira uma quantidade");
         }
         
         
         equipamentoDAO.inserir(equipamento);
-        
+        return "?";
     }
     
     @Override
@@ -68,7 +67,7 @@ public class CadastrarEquipamento {
         }
         if(!Util.verify(equipamento.getData())) {
         }
-        if(equipamento.getQuant() == 0 || equipamento.getQuant() == null){
+        if(equipamento.getQuant() == 0){
         }
         return null;
     }
