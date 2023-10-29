@@ -43,10 +43,15 @@
                     </form>
                     <!-- não funciona ainda
                     <ul>
-                        <c:forEach var="resultado" items="${resultados}">
-                            <li>${resultado}</li>
+                        <c:forEach var="item" items="${dados}">
+                            <li>${item.horario} ${item.nome}</li>
                             </c:forEach>
+                        <c:forEach var="i" begin="0" end="${nomes.size() - 1}">
+                            <li>${nomes[i]} ${horarios[i]}</li>
+                            </c:forEach>
+        
                     </ul>  -->
+
                 </article>
             </div>
             <div id="divisao">
