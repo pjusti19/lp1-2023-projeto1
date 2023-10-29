@@ -1,3 +1,5 @@
+package br.cefetmg.biosit.controller;
+
  /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -28,7 +30,7 @@ public class CadastrarEquipamento extends HttpServlet {
             String fornecedora = request.getParameter("fornecedora");
             Date data = new Date(request.getParameter("data"));
             String setor = request.getParameter("setor");
-            int quantidade = request.getParameter("quantidade");
+            int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         } catch(Exception e) {
             e.printStackTrace();
             jsp = "";
@@ -46,25 +48,6 @@ public class CadastrarEquipamento extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
 
     /**
      * Returns a short description of the servlet.
