@@ -23,7 +23,7 @@ public class ManterPaciente implements IManterPaciente {
     }
     
     @Override
-    public String cadastrar(Paciente paciente) throws CadastroException {
+    public String cadastrar(Paciente paciente) throws CadastroException, PacienteDuplicadoException {
         
         if(Util.verify(paciente.getNome())) {
             throw new CadastroException("Cadastro Incompleto, insira um nome");
@@ -38,12 +38,20 @@ public class ManterPaciente implements IManterPaciente {
             throw new CadastroException("Cadastro Incompleto, insira um CPF");
         }
         
-        String id = paciente.getCPF() + paciente.getNome().charAt(0);
-        paciente.setId(id);
+        if(paciente.getCPF().length() != 11) {
+            throw new CadastroException("Insira um CPF válido");
+        }
+        if(paciente.getNome().length() > 25) {
+            throw new CadastroException("O nome não pode ter mais de 50 caracteres");
+        }
+        if(paciente.getEndereco().length() > 50) {
+            throw new CadastroException("O endereço não pode ter mais de 100 caracteres");
+        }
+        
         
         pacienteDAO.inserir(paciente);
         
-        return id;
+        return "";
     }
     
     @Override

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface IManterPaciente {
     
-    public String cadastrar(Paciente paciente) throws CadastroException;
+    public String cadastrar(Paciente paciente) throws CadastroException, PacienteDuplicadoException;
     public String atualizar(Paciente paciente) throws Exception;
     public String excluir(Paciente paciente) throws Exception;
     
