@@ -41,7 +41,6 @@
                             <button id="buscar"><img src="imgs/lupa.png"? id="iconeBuscar"></button>
                         </div>
                     </form>
-                    <!-- não funciona ainda
                     <ul>
                         <c:forEach var="item" items="${dados}">
                             <li>${item.horario} ${item.nome}</li>
@@ -50,7 +49,6 @@
                             <li>${nomes[i]} ${horarios[i]}</li>
                             </c:forEach>
         
-                    </ul>  -->
 
                 </article>
             </div>
