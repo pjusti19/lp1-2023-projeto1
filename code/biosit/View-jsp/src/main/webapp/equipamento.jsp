@@ -9,7 +9,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="estilos/estilos.css">
+    <link rel="stylesheet" href="estilos/mae.css">
+    <link rel="stylesheet" href="estilos/equipamentos.css.css">
     <title>Cadastro de Equipamento</title>
 </head>
 <body>
@@ -41,7 +42,7 @@
             <input type="text" class="buscar-nome-equipamentos" name="buscaNome" placeholder="Pesquisar..." ><br>
             <input type="text" class="buscar-nome-equipamento" name="buscaNome" placeholder="Nome:"><br>
             <input type="text" class="buscar-nome-equipamento" name="buscaNome" placeholder="Fornecedora:"><br>
-            <input type="text" class="buscar-nome-equipamento" name="buscaNome" placeholder="Setor:">  
+            <input type="text" class="buscar-nome-equipamento" name="buscaNome" placeholder="Setor:"><br>  
             <input type="text" class="buscar-nome-equipamento" name="buscaNome" placeholder="Data:"><br>
             <input type="text" class="buscar-nome-equipamento" name="buscaNome" placeholder="Quantidade:"><br><br>
         

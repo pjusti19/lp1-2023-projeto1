@@ -1,0 +1,49 @@
+.sla {
+    background-color: white;
+    width: 50vw;
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+
+main#financeiro {
+    height: 62vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main#financeiro section {
+    padding: 15px;
+}
+
+#financeiro .sla form button {
+    background-color: var(--azul);
+    width: 100%;
+    padding: 20px auto;
+    margin-right: 10px; 
+    height: 50px;
+    margin: 1vh auto;
+}
+
+#financeiro .sla form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#financeiro .sla form button,
+#financeiro .sla form input {
+    border-radius: 0px;
+    border: none;
+}
+
+#financeiro .sla form label {
+    margin: 1vh 0px;
+}
+
+#financeiro .sla form input {
+    background-color: var(--cinza);
+    height: 70%;
+}

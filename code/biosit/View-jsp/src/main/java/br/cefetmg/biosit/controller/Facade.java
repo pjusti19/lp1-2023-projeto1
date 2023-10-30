@@ -37,8 +37,16 @@ public class Facade extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String act = request.getParameter("act");
         
-        if(act.equals("cadastrarPaciente")) {
+        if(act == null) {
+            jsp = "/index.jsp";
+        } else if(act.equals("cadastrarPaciente")) {
             jsp = CadastrarPaciente.execute(request);
+        } else if(act.equals("buscarPaciente")) {
+            jsp = BuscarPaciente.execute(request);
+        } else if(act.equals("exibirPaciente")) {
+            jsp = ExibirPaciente.execute(request);
+        } else if(act.equals("atualizaCadastro")) {
+            jsp = AtualizarPaciente.execute(request);
         }
         
         RequestDispatcher rd = request.getRequestDispatcher(jsp);

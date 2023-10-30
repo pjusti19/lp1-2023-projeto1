@@ -10,24 +10,32 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pacientes Encontrados</title>
-        <link rel="stylesheet" href="estilos/estilos.css">
+        <link rel="stylesheet" href="estilos/mae.css">
         <link rel="stylesheet" href="estilos/paciente.css">
+        <%@ page import="br.cefetmg.biosit.dto.Paciente" %>
+        <%@ page import="java.util.ArrayList" %>
 
     </head>
     <body>
         <%@include file="header.jsp" %>
         <main id="listagemPaciente">
             <section>
-                <article>
-                    <div>Nome Foda</div>
-                    <div>111.111.111-11</div>
-                </article>
-                <article>
-                    <div>Nome Foda</div>
-                    <div>111.111.111-11</div>
-                </article> 
+                <%
+                        ArrayList<Paciente> pacientes = (ArrayList<Paciente>) request.getAttribute("pacientes");
+                        if(pacientes.size() == 0) {
+                %>
+                    <div>Nenhum paciente encontrado.</div>
+                <%
+                        } else {
+                            for (Paciente paciente: pacientes) {
+                %>
+                    <article onclick="window.location='/biosit/Facade?act=exibirPaciente&cpfExibir=<%=paciente.getCPF()%>'">
+                        <div><%=paciente.getNome()%></div>
+                        <div><%=paciente.getCPF()%></div>
+                    </article>
+                <%   }} %>
             </section>
-            <button class="btn-voltar" onclick="window.history.back();'">Voltar</button>
+            <button class="btn-voltar" onclick="window.location='/biosit/paciente.jsp'">Voltar</button>
         </main>
     </body>
 </html>

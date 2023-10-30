@@ -37,16 +37,18 @@ public class CadastrarPaciente {
 //            System.out.println("pac:" + paciente);
             
             IManterPaciente manterPaciente = new ManterPaciente();
-            
             manterPaciente.cadastrar(paciente);
             
+            request.setAttribute("sucess", "Paciente cadastrado com sucesso");
+            
         } catch(PacienteDuplicadoException e) {
-            System.out.println(e.getMessage());
+            request.setAttribute("tperror", "cadastroPaciente");
             request.setAttribute("error", e.getMessage());
         } catch (CadastroException e) {
-            System.out.println(e.getMessage());
+            request.setAttribute("tperror", "cadastroPaciente");
             request.setAttribute("error", e.getMessage());
         } catch(Exception e) {
+            request.setAttribute("tperror", "cadastroPaciente");
             request.setAttribute("error", "Não foi possível realizar o cadastro, tente novamente");
         }
         
