@@ -1,9 +1,13 @@
+package br.cefetmg.biosit.controller;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,8 +28,15 @@ public class BuscarConsulta extends HttpServlet {
         //cria uma lista para cada dado desejado
         List<String> nomes = new ArrayList<>();
         List<String> horarios = new ArrayList<>();
-
-        try (var connection = ConexaoDB.getConnection()) {
+        
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/biositdb";
+            String username = "";
+            String password = "root";
+            
+            connection = DriverManager.getConnection(url, username, password);
             String sql = "SELECT nome, horario FROM funcionários WHERE data = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, data);
@@ -36,7 +47,7 @@ public class BuscarConsulta extends HttpServlet {
                 nomes.add(resultSet.getString("nome"));
                 horarios.add(resultSet.getString("horario"));
             }
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 

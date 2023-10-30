@@ -3,6 +3,7 @@
  */
 package br.cefetmg.biosit.service.util;
 
+import br.cefetmg.biosit.dto.*;
 /**
  *
  * @author Pedro Gabriel
@@ -18,4 +19,7 @@ public class Util {
         return (date == null || date.toString().equals(""));
     }
     
+    public static boolean verify(Paciente paciente) {
+        return Util.verify(paciente.getCPF()) && Util.verify(paciente.getEndereco()) && Util.verify(paciente.getNome()) && Util.verify(paciente.getNascimento());
+    }
 }

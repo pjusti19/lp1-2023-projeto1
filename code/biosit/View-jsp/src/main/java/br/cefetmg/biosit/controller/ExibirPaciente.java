@@ -13,37 +13,26 @@ import br.cefetmg.biosit.service.IManterPaciente;
 import br.cefetmg.biosit.service.implement.ManterPaciente;
 import br.cefetmg.biosit.dto.exception.*;
 import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  *
  * @author Pedro Gabriel
  */
-public class BuscarPaciente {
+public class ExibirPaciente {
     public static String execute(HttpServletRequest request) {
-        String jsp = "/listagemPaciente.jsp";
-        
+        String jsp = "/prontuario.jsp";
         try {
-            List<Paciente> pacientes = new ArrayList<Paciente>();
+            String cpf = request.getParameter("cpfExibir");
+
+            ManterPaciente manterPaciente = new ManterPaciente();
+            Paciente paciente = manterPaciente.pesquisar(cpf);
             
-            String nome = request.getParameter("nome");
-            String cpf = request.getParameter("cpf");
-            String dataNasc = request.getParameter("data-nascimento");
-            String endereco = request.getParameter("endereco");
-            Paciente paciente = new Paciente(nome, dataNasc, cpf, endereco);
-            
-            IManterPaciente manterPaciente = new ManterPaciente();
-            
-            pacientes = manterPaciente.pesquisar(paciente);
-            request.setAttribute("pacientes", pacientes);
-            
+            request.setAttribute("paciente_exib", paciente);
         } catch(Exception e) {
-            request.setAttribute("tperror", "pesquisaPaciente");
             request.setAttribute("error", e.getMessage());
+            request.setAttribute("tperror", "pesquisaPaciente");
             jsp = "/paciente.jsp";
         }
-        
         return jsp;
     }
 }

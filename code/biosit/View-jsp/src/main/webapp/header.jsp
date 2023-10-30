@@ -7,6 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="estilos/header.css">
+    </head>
     <header>
         <div class="bloco">
             <img src="imgs/icone.png" id="icone">

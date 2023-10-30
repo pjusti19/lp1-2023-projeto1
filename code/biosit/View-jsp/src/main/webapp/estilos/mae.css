@@ -1,0 +1,86 @@
+/* cores padrões */
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+}
+
+html {
+    font-size: 150%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+main {
+    padding-top: 6.0%;
+    padding-bottom: 7%;
+    background-color: rgb(209, 209, 209);
+}
+
+h1, th {
+    color: rgb(44, 182, 248);
+    margin: 0;
+}
+
+button {
+    height: min-content;
+    font-size: 120%;
+}
+
+body {
+    margin: 0;
+}
+
+button:hover, #menu button:hover {
+    background: rgb(209, 209, 209);
+}
+
+button:active, #menu button:active {
+    background: rgb(136, 135, 135);
+}
+
+ul{
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 2%;
+    margin: 2%
+}
+
+li:hover{
+    background-color: rgb(212, 211, 211); 
+}
+
+li:active{
+    background-color: rgb(200, 200, 200);
+}
+
+a{
+    text-decoration: none;
+    color: black
+}
+
+article {
+    background-color: white;
+    border-radius: 1px;
+    margin: 2%;
+}
+
+th, td {
+    width: 14.28%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    color: rgb(0, 0, 44);
+}
+
+h3{
+    margin: 1%;
+}
+
+.sombreado{
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+

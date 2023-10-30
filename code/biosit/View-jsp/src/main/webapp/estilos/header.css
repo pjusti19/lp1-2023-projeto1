@@ -1,0 +1,54 @@
+header {
+    height: 20%;
+    display: flex;
+    margin: 1%;
+    justify-content: space-between;   
+}
+
+.bloco {
+    display: flex;
+}
+
+header h3 {
+    color: rgb(209, 209, 209);
+    text-align: center;
+    margin: 0;
+}
+
+#icone {
+    height: 90%;
+    width: 12vh;
+}
+#icone:hover {
+    cursor: pointer;
+}
+
+#menu {
+    margin-right: 4%;
+}
+
+#menu button{
+    color: rgb(44, 182, 248);
+    background-color: white;
+    margin-top: 1%;
+    margin-right: 30%;
+    border-radius: 5px;
+}
+
+#sino {
+    height: 32px;
+}
+
+/* css dos menus */
+
+#opcoes, #notificacoes{
+    padding: 30px;
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    transition: right 0.5s;
+    border-radius: 5px;
+}
+#opcoes.menu-escondido, #notificacoes.menu-escondido {
+    right: -1000px; 
+}
