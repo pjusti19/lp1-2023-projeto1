@@ -22,4 +22,8 @@ public class Util {
     public static boolean verify(Paciente paciente) {
         return Util.verify(paciente.getCPF()) && Util.verify(paciente.getEndereco()) && Util.verify(paciente.getNome()) && Util.verify(paciente.getNascimento());
     }
+    
+    public static boolean verify(Equipamento equipamento) {
+        return Util.verify(equipamento.getNome()) && Util.verify(equipamento.getData()) && Util.verify(equipamento.getFornecedora()) && Util.verify(equipamento.getSetor());
+    }
 }

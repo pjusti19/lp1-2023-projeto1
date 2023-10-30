@@ -45,7 +45,7 @@ import java.util.Date;
         this.quant = quant;
     }
         
-        public Equipamento (String fornecedora, String nome, Date data, String setor, int quant) {
+        public Equipamento (String nome, Date data,int quant, String fornecedora, String setor) {
 
         }
 
