@@ -23,7 +23,7 @@ main {
 }
 
 #dados-principais {
-    width: 35vw;
+    width: 30vw;
     display: flex;
     flex-direction: row;
     margin: 0px 20px;
@@ -39,6 +39,9 @@ main {
 
 #att-dados {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 #nome-att {
     width: 100%;
@@ -93,4 +96,42 @@ main {
 }
 #att-btn {
     margin: 30px auto;
+}
+#pron {
+    padding: 20px 0px;
+}
+#dados-secundarios {
+    display: flex;
+    width: 20vw;
+    flex-direction: column;
+}
+#dados-secundarios label {
+    margin: 1vh 0px;
+}
+#dados-secundarios input {
+    border-radius: 0px;
+    border: none;
+    height: 60%;
+}
+#rg-att {
+    width: 100%;
+}
+#rg-att input {
+    width: 100%;
+}
+#tel-att {
+    width: 100%;
+}
+#tel-att input {
+    width: 100%;
+}
+#prontuario {
+    border: 1px solid var(--azul);
+    width: 40vw;
+    margin: 0px 15px;
+}
+
+#pron .mensagem-erro,
+#pron .mensagem-sucesso {
+    width: fit-content;
 }

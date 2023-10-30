@@ -15,13 +15,18 @@ public class Paciente {
     private String dataNasc;
     private String CPF;
     private String endereco;
-    //private Prontuario prontuario;
+    private String rg;
+    private String tel;
+    private Prontuario prontuario;
     
     public Paciente(String nome, String dataNasc, String CPF, String endereco) {
         this.nome = nome;
         this.dataNasc = dataNasc;
         this.CPF = CPF;
         this.endereco = endereco;
+        rg = "";
+        tel = "";
+        prontuario = null;
     }
     public String getNome() {
         return nome;
@@ -35,6 +40,12 @@ public class Paciente {
     public String getEndereco() {
         return endereco;
     }
+    public String getRG() {
+        return rg;
+    }
+    public String getTel() {
+        return tel;
+    }
     
     public void setNome(String nome) {
         this.nome = nome;
@@ -47,6 +58,12 @@ public class Paciente {
     }
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+    public void setRG(String rg) {
+        this.rg = rg;
+    }
+    public void setTel(String tel) {
+        this.tel = tel;
     }
     
     public boolean equals(Paciente paciente) {

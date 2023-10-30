@@ -17,7 +17,7 @@
         <%@include file="header.jsp" %>
         <main id="paciente">
             <section class="cadastro">
-                <form action="Facade" method="POST">
+                <form action="Facade" method="GET">
                     <h3>CADASTRO</h3>
                     <label id="nome-cadastro">Nome:<br>
                         <input type="text" name="nome" maxlength="50">
@@ -33,20 +33,29 @@
                     </label>
                     <button id="envia-cadastro" type="submit" name="act" value="cadastrarPaciente">Cadastrar</button>
                     <%
-                    String error = (String) request.getAttribute("error");
-                    if (error != null && !error.isEmpty()) {
+                    String error2 = (String) request.getAttribute("error");
+                    String tperror2 = (String) request.getAttribute("tperror");
+                    if (error2 != null && !error2.isEmpty() && tperror2.equals("cadastroPaciente")) {
                     %>
                     <div class="mensagem-erro">
-                        <%= error %>
+                        <%= error2 %>
                     </div>
                     <%
-                    }
+                    } else {
+                        String sucess = (String) request.getAttribute("sucess");
+                        if(sucess != null && !sucess.isEmpty()) {
+                    %>
+                    <div class="mensagem-sucesso">
+                        <%= sucess %>
+                    </div>
+                    <%
+                        } }
                     %>
                 </form>
             </section>
             
             <section class="buscar">
-                <form action="Facade" method="POST">
+                <form action="Facade" method="GET">
                     <h3>PESQUISA</h3>
                     <label id="nome-bucar">Nome:<br>
                         <input type="text" name="nome" maxlength="50">
@@ -60,7 +69,18 @@
                     <label id="endereco-busca">Endereço:<br>
                         <input type="text" name="endereco" maxlength="100">
                     </label><br>
-                    <button type="submit" name="act" value="BuscarPaciente">Pesquisar</button>
+                    <button type="submit" name="act" value="buscarPaciente">Pesquisar</button>
+                    <%
+                    String error = (String) request.getAttribute("error");
+                    String tperror = (String) request.getAttribute("tperror");
+                    if (error != null && !error.isEmpty() && tperror.equals("pesquisaPaciente")) {
+                    %>
+                    <div class="mensagem-erro">
+                        <%= error %>
+                    </div>
+                    <%
+                    }
+                    %>
                 </form>
             </section>    
         </main>
