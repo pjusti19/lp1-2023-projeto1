@@ -27,7 +27,7 @@
                             <input type="text" name="nome" value='<%=paciente.getNome()%>'>
                         </label>
                         <label id="cpf-att">CPF:<br>
-                            <input type="number" name="cpf" value=<%=paciente.getCPF()%>>
+                            <input type="number" name="cpf" readonly value=<%=paciente.getCPF()%>>
                         </label>
                         <label id="data-nascimento-att">Nascimento:<br>
                             <input type="date" name="data-nascimento" value="<%=paciente.getNascimento()%>">
@@ -45,13 +45,31 @@
                         </label>
                     </section>
                     <section id="prontuario">
-
+                        Prontuario
                     </section>
                 </section>
                 <section id="att-btn">
+                    <button id="btn-voltar" onclick="location.href = 'paciente.jsp'">Voltar</button>
                     <button id="atualiza-cadastro" type="submit" name="act" value="atualizaCadastro">Atualizar</button>
-                    <button id="btn-voltar" onclick="window.location='/biosit/index.jsp'">Voltar</button>
                 </section>
+                <%
+                    String erro = (String) request.getAttribute("error");
+                    if (erro != null && !erro.isEmpty()) {
+                    %>
+                    <div class="mensagem-erro">
+                        <%= erro %>
+                    </div>
+                    <%
+                    } else {
+                        String sucess = (String) request.getAttribute("sucess");
+                        if(sucess != null && !sucess.isEmpty()) {
+                    %>
+                    <div class="mensagem-sucesso">
+                        <%= sucess %>
+                    </div>
+                    <%
+                        } }
+                    %>
             </form>
         </main>
     </body>

@@ -36,9 +36,11 @@ public class AtualizarPaciente {
             manterPaciente.atualizar(paciente);
             
             request.setAttribute("paciente_exib", paciente);
+            request.setAttribute("sucess", "Dados atualizados com sucesso");
             
         } catch (Exception e) {
-            
+            request.setAttribute("error", e.getMessage());
+            jsp = "/index.jsp";
         }
         return jsp;
     }
