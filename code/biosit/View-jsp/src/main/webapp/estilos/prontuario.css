@@ -23,7 +23,7 @@ main {
 }
 
 #dados-principais {
-    width: 35vw;
+    width: 30vw;
     display: flex;
     flex-direction: row;
     margin: 0px 20px;
@@ -39,6 +39,8 @@ main {
 
 #att-dados {
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 #nome-att {
     width: 100%;
@@ -93,4 +95,7 @@ main {
 }
 #att-btn {
     margin: 30px auto;
+}
+#pron {
+    padding: 20px 0px;
 }

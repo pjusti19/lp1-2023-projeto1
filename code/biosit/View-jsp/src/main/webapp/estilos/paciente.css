@@ -153,4 +153,13 @@ button:hover {
     font-size: 24px;
     color: red;
     background-color: #d11d1d63;
+    width: 100%;
+}
+.mensagem-sucesso {
+    border: 1px solid blue;
+    padding: 10px;
+    font-size: 24px;
+    color: blue;
+    background-color: #203fca4a;
+    width: 100%;
 }

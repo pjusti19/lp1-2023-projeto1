@@ -57,7 +57,23 @@ public class ManterPaciente implements IManterPaciente {
     @Override
     public String atualizar(Paciente paciente) throws Exception {
         String id = "";
-        return id;
+        if(Util.verify(paciente.getNome())) {
+            throw new CadastroException("Insira um nome");
+        }
+        if(Util.verify(paciente.getCPF())) {
+            throw new CadastroException("Insira um CPF");
+        }
+        if(Util.verify(paciente.getNascimento())) {
+            throw new CadastroException("Insira uma data de nascimento");
+        }
+        if(Util.verify(paciente.getEndereco())) {
+            throw new CadastroException("Insira um CPF");
+        }
+        
+        
+        pacienteDAO.atualizar(paciente);
+        
+        return null;
     }
     @Override
     public String excluir(Paciente paciente) throws Exception {
@@ -69,15 +85,51 @@ public class ManterPaciente implements IManterPaciente {
     @Override
     public List<Paciente> pesquisar(Paciente paciente) throws Exception {
         List<Paciente> pacientes = new ArrayList<Paciente>();
-        if(!Util.verify(paciente.getNome())) {
-            pacientes.addAll(pacienteDAO.pesquisarNome(paciente.getNome()));
+        if(Util.verify(paciente)) {
+            pacientes = pacienteDAO.pesquisarTodos();
+        } else {
+            if(!Util.verify(paciente.getNome())) {
+                pacientes.addAll(pacienteDAO.pesquisarNome(paciente.getNome()));
+            }
+            if(!Util.verify(paciente.getCPF())) {
+                Paciente aux = pacienteDAO.pesquisarCPF(paciente.getCPF());
+                boolean ver = true;
+                for(Paciente pac : pacientes) {
+                    if(pac.equals(aux)) {
+                        ver = false;
+                    }
+                }
+                if(ver) pacientes.add(aux);
+            }
+            if(!Util.verify(paciente.getNascimento())) {
+                List<Paciente> novos = pacienteDAO.pesquisarNascimento(paciente.getNascimento());
+                for(Paciente novo : novos) {
+                    boolean ver = true;
+                    for(Paciente exist : pacientes) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) pacientes.add(novo);
+                }
+            }
+            if(!Util.verify(paciente.getEndereco())) {
+                List<Paciente> novos = pacienteDAO.pesquisarEndereco(paciente.getEndereco());
+                for(Paciente novo : novos) {
+                    System.out.println(novo);
+                    boolean ver = true;
+                    for(Paciente exist : pacientes) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) pacientes.add(novo);
+                }
+            }
         }
-        if(!Util.verify(paciente.getCPF())) {
-        }
-        if(!Util.verify(paciente.getNascimento())) {
-        }
-        if(!Util.verify(paciente.getEndereco())) {
-        }
-        return null;
+        return pacientes;
+    }
+    
+    public Paciente pesquisar(String cpf) throws Exception {
+        Paciente paciente = null;
+        paciente = pacienteDAO.pesquisarCPF(cpf);
+        
+        return paciente;
     }
 }
