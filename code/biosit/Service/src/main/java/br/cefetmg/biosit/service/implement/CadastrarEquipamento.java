@@ -59,7 +59,7 @@ public class CadastrarEquipamento implements ICadastrarEquipamento {
     public List<Equipamento> pesquisar(Equipamento equipamento) throws Exception {
         List<Equipamento> equipamentos = new ArrayList<>();
         if(Util.verify(equipamento)) {
-            equipamentos = EquipamentoDAO.pesquisarTodos();
+            //equipamentos = EquipamentoDAO.pesquisarTodos();
         } else {
             if(!Util.verify(equipamento.getNome())) {
                 equipamentos.addAll(equipamentoDAO.pesquisarNome(equipamento.getNome()));
@@ -85,15 +85,18 @@ public class CadastrarEquipamento implements ICadastrarEquipamento {
                 }
             }
             if(!Util.verify(equipamento.getSetor())) {
-                List<Equipamento> novos = equipamentoDAO.pesquisarSetor(equipamento.getSetor());
-                for(Equipamento novo : novos) {
-                    System.out.println(novo);
-                    boolean ver = true;
-                    for(Equipamento exist : equipamentos) {
-                        if(exist.equals(novo)) ver = false;
-                    }
-                    if(ver) equipamentos.add(novo);
-                }
+                //List<Equipamento> novos = equipamentoDAO.pesquisarSetor(equipamento.getSetor());
+//                for(Equipamento novo : novos) {
+//                    System.out.println(novo);
+//                    boolean ver = true;
+//                    for(Equipamento exist : equipamentos) {
+//                        if(exist.equals(novo)) ver = false;
+//                    }
+//                    if(ver) equipamentos.add(novo);
+//                }
             }
         }
+        return equipamentos;
+    }
+}
 

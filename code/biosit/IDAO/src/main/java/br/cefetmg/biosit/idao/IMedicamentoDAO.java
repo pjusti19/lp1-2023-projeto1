@@ -15,7 +15,7 @@ public interface IMedicamentoDAO {
     boolean deletar(Medicamento medicamento) throws Exception;
     List<Medicamento> pesquisarNome(String nome) throws Exception;
     List<Medicamento> pesquisarFornecedora(String fornecedora) throws Exception;
-    List<Medicamento> pesquisarSetor(int lote) throws Exception;
+    //List<Medicamento> pesquisarSetor(int lote) throws Exception;
     List<Medicamento> pesquisarQuantidade(int quantidade) throws Exception;
     List<Medicamento> pesquisarData(Date validade) throws Exception;
 

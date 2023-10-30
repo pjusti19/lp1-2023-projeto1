@@ -106,7 +106,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date (resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
@@ -115,7 +115,6 @@ public class MedicamentoDAO implements IMedicamentoDAO {
         }
         return medicamentos;
     }
-    @Override
     public List<Medicamento> pesquisarQuantidade(String cpf) throws Exception {
         String query = "SELECT * FROM medicamento WHERE quantidade = ?";
         List<Medicamento> medicamentos = new ArrayList<>();
@@ -127,7 +126,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date (resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
@@ -148,7 +147,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date (resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
@@ -157,7 +156,6 @@ public class MedicamentoDAO implements IMedicamentoDAO {
         }
         return medicamentos;
     }
-    @Override
     public List<Medicamento> pesquisarValidade(Date nascimento) throws Exception {
         String query = "SELECT * FROM medicamento WHERE data = ?";
         List<Medicamento> medicamentos = new ArrayList<>();
@@ -169,7 +167,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date (resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
@@ -179,14 +177,14 @@ public class MedicamentoDAO implements IMedicamentoDAO {
         return medicamentos;
     }
     
-    public static void main(String[] args) {
-        try {
-            Medicamento p = new Medicamento("teste1", "05/07", "1345543", "adress");
-            MedicamentoDAO q = new MedicamentoDAO();
-            q.inserir(p);
-        } catch(Exception e) {
-            System.out.println("erro: " + e.getMessage());
-        }
+    @Override
+    public List<Medicamento> pesquisarData(Date validade) throws Exception {
+        return null;
+    }
+    
+    @Override
+    public List<Medicamento> pesquisarQuantidade(int quantidade) throws Exception {
+        return null;
     }
     
 }
