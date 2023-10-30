@@ -53,7 +53,7 @@ import java.util.Date;
         this.quantRestante = quantRestante;
     }
         
-    public Medicamento (String fornecedora, String nome, Date data, int lote, int quant) {
+    public Medicamento (String nome, String data, int quant, String fornecedora, int lote) {
 
     }
 

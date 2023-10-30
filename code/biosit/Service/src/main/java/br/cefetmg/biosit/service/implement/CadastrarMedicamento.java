@@ -11,6 +11,7 @@ import br.cefetmg.biosit.dto.Medicamento;
 import br.cefetmg.biosit.dto.exception.*;
 import br.cefetmg.biosit.service.util.Util;
 import br.cefetmg.biosit.DAOMySQL.MedicamentoDAO;
+import br.cefetmg.biosit.dto.Equipamento;
 import br.cefetmg.biosit.idao.IMedicamentoDAO;
 /**
  *
@@ -58,17 +59,41 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
     @Override
     public List<Medicamento> pesquisar(Medicamento medicamento) throws Exception {
         List<Medicamento> medicamentos = new ArrayList<Medicamento>();
-        if(!Util.verify(medicamento.getNome())) {
-            medicamentos.addAll(medicamentoDAO.pesquisarNome(medicamento.getNome()));
-        }
-        if(medicamento.getLote() == 0) {
-        }
-        if(!Util.verify(medicamento.getFornecedora())) {
-        }
-        if(!Util.verify(medicamento.getData())) {
-        }
-        if(medicamento.getQuantRestante() == 0){
-        }
-        return null;
-    }
+         if(Util.verify(medicamento)) {
+            medicamentos = medicamentoDAO.pesquisarTodos();
+        } else {
+            if(!Util.verify(medicamento.getNome())) {
+                medicamentos.addAll(medicamentoDAO.pesquisarNome(medicamento.getNome()));
+            }
+            if(!Util.verify(medicamento.getFornecedora())) {
+                List<Medicamento> aux = medicamentoDAO.pesquisarFornecedora(medicamento.getFornecedora());
+                boolean ver = true;
+                for(Medicamento pac : medicamentos) {
+                    if(pac.equals(aux)) {
+                        ver = false;
+                    }
+                }
+                if(ver) medicamentos.add((Equipamento) aux);
+            }
+            if(!Util.verify(medicamento.getData())) {
+                List<Medicamento> novos = medicamentoDAO.pesquisarData(medicamento.getData());
+                for(Medicamento novo : novos) {
+                    boolean ver = true;
+                    for(Medicamento exist : medicamentos) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) medicamentos.add(novo);
+                }
+            }
+            if(!Util.verify(medicamento.getLote())) {
+                List<Medicamento> novos = medicamentoDAO.pesquisarLote(medicamento.getSetor());
+                for(Medicamento novo : novos) {
+                    System.out.println(novo);
+                    boolean ver = true;
+                    for(Medicamento exist : medicamentos) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) medicamentos.add(novo);
+                }
+            }
 }
