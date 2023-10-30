@@ -25,7 +25,7 @@
         <ul class="lista">
             <a href="estoque.jsp"><li>Estoque</li></a>
             <a href="funcionarios.jsp"><li>Funcionários</li></a>
-            <a href="equipamentos.jsp"><li>Equipamentos</li></a>
+            <a href="equipamento.jsp"><li>Equipamentos</li></a>
             <a href="paciente.jsp"><li>Paciente</li></a>
             <a href="triagem.jsp"><li>Triagem</li></a>
             <a href="financeiro.jsp"><li>Financeiro</li></a>
