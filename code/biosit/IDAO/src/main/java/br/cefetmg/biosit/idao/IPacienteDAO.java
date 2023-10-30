@@ -13,7 +13,7 @@ import java.util.Date;
 public interface IPacienteDAO {
     boolean inserir(Paciente paciente) throws CadastroException, PacienteDuplicadoException;
     boolean atualizar(Paciente paciente) throws Exception;
-    boolean deletar(Paciente paciente) throws Exception;
+    boolean deletar(String cpf) throws Exception;
     List<Paciente> pesquisarNome(String nome) throws Exception;
     Paciente pesquisarCPF(String cpf) throws Exception;
     List<Paciente> pesquisarEndereco(String endereco) throws Exception;

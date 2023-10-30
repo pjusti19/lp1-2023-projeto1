@@ -76,8 +76,14 @@ public class ManterPaciente implements IManterPaciente {
         return null;
     }
     @Override
-    public String excluir(Paciente paciente) throws Exception {
+    public String excluir(String cpf) throws Exception {
         String id = "";
+        
+        if(Util.verify(cpf)) 
+            throw new CadastroException("Erro");
+        
+        pacienteDAO.deletar(cpf);
+        
         return id;
     }
     

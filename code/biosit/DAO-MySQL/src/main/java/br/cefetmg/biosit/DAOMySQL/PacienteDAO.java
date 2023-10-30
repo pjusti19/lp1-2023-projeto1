@@ -81,13 +81,15 @@ public class PacienteDAO implements IPacienteDAO {
     }
 
     @Override
-    public boolean deletar(Paciente paciente) throws Exception {
+    public boolean deletar(String cpf) throws Exception {
         String query = "DELETE FROM pacientes WHERE cpf = ?";
 
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, paciente.getCPF());
+            preparedStatement.setString(1, cpf);
 
             int r = preparedStatement.executeUpdate();
             if (!(r > 0)) {

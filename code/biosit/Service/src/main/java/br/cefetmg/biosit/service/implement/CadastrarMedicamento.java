@@ -59,8 +59,8 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
     @Override
     public List<Medicamento> pesquisar(Medicamento medicamento) throws Exception {
         List<Medicamento> medicamentos = new ArrayList<Medicamento>();
-         if(Util.verify(medicamento)) {
-            medicamentos = medicamentoDAO.pesquisarTodos();
+         if(true) { // ???
+            //medicamentos = medicamentoDAO.pesquisarTodos();
         } else {
             if(!Util.verify(medicamento.getNome())) {
                 medicamentos.addAll(medicamentoDAO.pesquisarNome(medicamento.getNome()));
@@ -73,7 +73,7 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
                         ver = false;
                     }
                 }
-                if(ver) medicamentos.add((Equipamento) aux);
+                if(ver) medicamentos.add((Medicamento) aux);
             }
             if(!Util.verify(medicamento.getData())) {
                 List<Medicamento> novos = medicamentoDAO.pesquisarData(medicamento.getData());
@@ -85,8 +85,9 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
                     if(ver) medicamentos.add(novo);
                 }
             }
-            if(!Util.verify(medicamento.getLote())) {
-                List<Medicamento> novos = medicamentoDAO.pesquisarLote(medicamento.getSetor());
+            if(medicamento.getLote() != 0) {
+                List<Medicamento> novos = null;
+                //novos = medicamentoDAO.pesquisarLote(medicamento.getSetor());
                 for(Medicamento novo : novos) {
                     System.out.println(novo);
                     boolean ver = true;
@@ -96,4 +97,7 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
                     if(ver) medicamentos.add(novo);
                 }
             }
+        }
+         return medicamentos;
+    }
 }

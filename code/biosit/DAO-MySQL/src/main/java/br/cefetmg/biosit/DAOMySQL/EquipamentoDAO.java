@@ -112,7 +112,6 @@ public class EquipamentoDAO implements IEquipamentoDAO {
         return equipamentos;
     }
 
-    @Override
     public List<Equipamento> pesquisarQuantidade(String cpf) throws Exception {
         String query = "SELECT * FROM equipamento WHERE quantidade = ?";
         List<Equipamento> equipamentos = new ArrayList<>();
@@ -175,15 +174,5 @@ public class EquipamentoDAO implements IEquipamentoDAO {
         return equipamentos;
     }
 
-    public static void main(String[] args) {
-        Date datas = Date.valueof(data);
-        try {
-            Equipamento p = new Equipamento("teste1", datas, "1345543", "fornecedora", "lote");
-            EquipamentoDAO q = new EquipamentoDAO();
-            q.inserir(p);
-        } catch (Exception e) {
-            System.out.println("erro: " + e.getMessage());
-        }
-    }
 
 }
