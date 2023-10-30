@@ -5,6 +5,8 @@ package br.cefetmg.biosit.controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import br.cefetmg.biosit.dto.*;
+import br.cefetmg.biosit.service.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -23,7 +25,7 @@ public class CadastrarEquipamento extends HttpServlet {
 
     
     public static String execute(HttpServletRequest request) {
-        String jsp = "";
+        String jsp = "/equipamento.jsp";
         
         try {
             String nome = request.getParameter("nome");
@@ -31,6 +33,12 @@ public class CadastrarEquipamento extends HttpServlet {
             Date data = new Date(request.getParameter("data"));
             String setor = request.getParameter("setor");
             int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+            
+            //Equipamento equipamento = new Equipamento(fornecedora, nome, data, setor, quantidade);
+            CadastrarEquipamento cad = new CadastrarEquipamento();
+            //cad.cadastrar(equipamento);
+            
+            
         } catch(Exception e) {
             e.printStackTrace();
             jsp = "";
