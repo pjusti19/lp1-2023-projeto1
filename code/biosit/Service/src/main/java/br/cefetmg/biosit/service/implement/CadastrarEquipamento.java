@@ -57,18 +57,43 @@ public class CadastrarEquipamento implements ICadastrarEquipamento {
     
     @Override
     public List<Equipamento> pesquisar(Equipamento equipamento) throws Exception {
-        List<Equipamento> equipamentos = new ArrayList<Equipamento>();
-        if(!Util.verify(equipamento.getNome())) {
-            equipamentos.addAll(equipamentoDAO.pesquisarNome(equipamento.getNome()));
+        List<Equipamento> equipamentos = new ArrayList<>();
+        if(Util.verify(equipamento)) {
+            equipamentos = EquipamentoDAO.pesquisarTodos();
+        } else {
+            if(!Util.verify(equipamento.getNome())) {
+                equipamentos.addAll(equipamentoDAO.pesquisarNome(equipamento.getNome()));
+            }
+            if(!Util.verify(equipamento.getFornecedora())) {
+                List<Equipamento> aux = equipamentoDAO.pesquisarFornecedora(equipamento.getFornecedora());
+                boolean ver = true;
+                for(Equipamento pac : equipamentos) {
+                    if(pac.equals(aux)) {
+                        ver = false;
+                    }
+                }
+                if(ver) equipamentos.add((Equipamento) aux);
+            }
+            if(!Util.verify(equipamento.getData())) {
+                List<Equipamento> novos = equipamentoDAO.pesquisarData(equipamento.getData());
+                for(Equipamento novo : novos) {
+                    boolean ver = true;
+                    for(Equipamento exist : equipamentos) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) equipamentos.add(novo);
+                }
+            }
+            if(!Util.verify(equipamento.getSetor())) {
+                List<Equipamento> novos = equipamentoDAO.pesquisarSetor(equipamento.getSetor());
+                for(Equipamento novo : novos) {
+                    System.out.println(novo);
+                    boolean ver = true;
+                    for(Equipamento exist : equipamentos) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) equipamentos.add(novo);
+                }
+            }
         }
-        if(!Util.verify(equipamento.getSetor())) {
-        }
-        if(!Util.verify(equipamento.getFornecedora())) {
-        }
-        if(!Util.verify(equipamento.getData())) {
-        }
-        if(equipamento.getQuant() == 0){
-        }
-        return null;
-    }
-}
+
