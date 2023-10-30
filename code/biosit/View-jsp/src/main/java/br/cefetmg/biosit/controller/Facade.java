@@ -45,8 +45,12 @@ public class Facade extends HttpServlet {
             jsp = BuscarPaciente.execute(request);
         } else if(act.equals("exibirPaciente")) {
             jsp = ExibirPaciente.execute(request);
-        } else if(act.equals("atualizaCadastro")) {
+        } else if(act.equals("atualizaPaciente")) {
             jsp = AtualizarPaciente.execute(request);
+        } else if(act.equals("excluirPaciente")) {
+            jsp = ExcluirPaciente.execute(request);
+        } else if(act.equals("cadastrarEquipamento")) {
+            jsp = CadastrarEquipamento.execute(request);
         }
         
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
