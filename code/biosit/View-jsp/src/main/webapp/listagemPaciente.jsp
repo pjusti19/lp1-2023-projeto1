@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pacientes Encontrados</title>
-        <link rel="stylesheet" href="estilos/estilos.css">
+        <link rel="stylesheet" href="estilos/mae.css">
         <link rel="stylesheet" href="estilos/paciente.css">
         <%@ page import="br.cefetmg.biosit.dto.Paciente" %>
         <%@ page import="java.util.ArrayList" %>

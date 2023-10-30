@@ -9,7 +9,7 @@
    <head>
       <link rel="stylesheet" href="estilos/triagem.css">
       <title>Triagem</title>
-      <link rel="stylesheet" href="estilos/estilos.css">
+      <link rel="stylesheet" href="estilos/mae.css">
       <style>
          .cadastro  {
          margin-left: 450px;

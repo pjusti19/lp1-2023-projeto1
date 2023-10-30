@@ -1,0 +1,86 @@
+/* css do calendário e agenda */
+
+#centro{
+    display: flex;
+    justify-content: center;
+}
+
+#calendario {
+    padding: 1%;
+    width: min-content;
+    text-align: center;
+}
+
+#cabecalhoCalendario {
+    margin-bottom: 1%;
+}
+
+.hoje{
+    background-color: rgb(212, 211, 211);
+}
+
+#agenda{
+    padding: 1%;
+}
+
+#agenda, #calendario{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.botaoDeBusca {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    height: min-content;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#inputBusca { 
+    border: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+#buscar {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#iconeBuscar{
+    height: 2vh;
+}
+
+/* css do botão de agendar consulta*/
+
+#divisao {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#agendar{
+   border: none;
+   color: #505053;
+   background-color: var(--azul);
+   height: 60px;
+   margin: 2vh auto;
+   padding-left: 2vh;
+   padding-right: 2vh;
+   text-align: center;
+}
+
+#agendar:hover{
+    background-color: rgb(15, 156, 221);
+}
+
+#agendar:active{
+    background-color: rgb(11, 129, 184);
+}
