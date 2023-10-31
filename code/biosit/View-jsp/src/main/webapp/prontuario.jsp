@@ -49,9 +49,9 @@
                     </section>
                 </section>
                 <section id="att-btn">
+                    <a id="btn-voltar" onclick="location.href = 'paciente.jsp'">Voltar</a>
                     <button id="atualiza-cadastro" type="submit" name="act" value="atualizaPaciente">Atualizar</button>
-                    <button id="btn-voltar" onclick="location.href = 'paciente.jsp'">Voltar</button>
-                    <button id="btn-delete" onclick="window.location='/biosit/Facade?act=excluirPaciente&cpfExcluir=<%=paciente.getCPF()%>'">Excluir</button>
+                    <a id="btn-delete" onclick="window.location='/biosit/Facade?act=excluirPaciente&cpfExcluir=<%=paciente.getCPF()%>'">Excluir</a>
                 </section>
                 <%
                     String erro = (String) request.getAttribute("error");
