@@ -29,6 +29,10 @@ public class Util {
         return Util.verify(equipamento.getNome()) && Util.verify(equipamento.getData()) && Util.verify(equipamento.getFornecedora()) && Util.verify(equipamento.getSetor());
     }
     
+    public static boolean verify(Financeiro financeiro) {
+        return Util.verify(financeiro.getCategoria()) && Util.verify(financeiro.getData()) && Util.verify(financeiro.getDataFinal());
+    }
+    
     public static String converter(String dataInicial) {
         DateTimeFormatter formatoInicial = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter formatoSaida = DateTimeFormatter.ofPattern("dd/MM/yyyy");
