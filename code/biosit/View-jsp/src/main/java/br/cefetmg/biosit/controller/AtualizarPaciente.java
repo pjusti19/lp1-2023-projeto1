@@ -31,7 +31,7 @@ public class AtualizarPaciente {
             Paciente paciente = new Paciente(nome, dataNasc, cpf, endereco);
             paciente.setRG(rg);
             paciente.setTel(tel);
-            
+            System.out.println(paciente);
             ManterPaciente manterPaciente = new ManterPaciente();
             manterPaciente.atualizar(paciente);
             

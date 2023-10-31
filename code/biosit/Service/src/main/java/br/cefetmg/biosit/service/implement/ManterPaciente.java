@@ -41,10 +41,10 @@ public class ManterPaciente implements IManterPaciente {
         if(paciente.getCPF().length() != 11) {
             throw new CadastroException("Insira um CPF válido");
         }
-        if(paciente.getNome().length() > 25) {
+        if(paciente.getNome().length() > 50) {
             throw new CadastroException("O nome não pode ter mais de 50 caracteres");
         }
-        if(paciente.getEndereco().length() > 50) {
+        if(paciente.getEndereco().length() > 100) {
             throw new CadastroException("O endereço não pode ter mais de 100 caracteres");
         }
         
@@ -70,7 +70,7 @@ public class ManterPaciente implements IManterPaciente {
             throw new CadastroException("Insira um CPF");
         }
         
-        
+        System.out.println(paciente);
         pacienteDAO.atualizar(paciente);
         
         return null;
