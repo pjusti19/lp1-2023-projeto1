@@ -24,7 +24,7 @@ public class ExcluirPaciente {
         
         try {
             
-            String cpf = request.getParameter("cpf");
+            String cpf = request.getParameter("cpfExcluir");
             ManterPaciente manterPaciente = new ManterPaciente();
             manterPaciente.excluir(cpf);
             

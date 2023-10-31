@@ -139,13 +139,45 @@ button:hover {
     font-size: 30px;
     margin: auto auto;
 }
-#listagemPaciente section {
+#listagemPaciente #container-lista-paciente {
     padding: 10px 50px;
 }
-#listagemPaciente section article {
+#listagemPaciente #container-lista-paciente .unidadeListaPac {
     padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
-#listagemPaciente section article:hover {
+.unidadeListaPac section {
+    padding: 5px 15px;
+}
+.cont-esq {
+    border-right: 1px solid rgb(185 185 185);
+    width: 100%;
+}
+.cont-dir {
+    width: fit-content;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.unidadeListaPac .lpnome {
+    font-size: 30px;
+}
+.unidadeListaPac .lpcpf {
+    font-size: 18px;
+    color: rgb(51 51 51);
+}
+.unidadeListaPac .lpnasc {
+    font-size: 20px;
+    color: rgb(51 51 51);
+}
+.unidadeListaPac .lpendereco {
+    font-size: 23px;
+    color: rgb(51 51 51);
+}
+#listagemPaciente #container-lista-paciente .unidadeListaPac:hover {
     cursor: pointer;
 }
 

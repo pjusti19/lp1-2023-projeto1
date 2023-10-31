@@ -4,6 +4,8 @@
 package br.cefetmg.biosit.service.util;
 
 import br.cefetmg.biosit.dto.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 /**
  *
  * @author Pedro Gabriel
@@ -25,5 +27,13 @@ public class Util {
     
     public static boolean verify(Equipamento equipamento) {
         return Util.verify(equipamento.getNome()) && Util.verify(equipamento.getData()) && Util.verify(equipamento.getFornecedora()) && Util.verify(equipamento.getSetor());
+    }
+    
+    public static String converter(String dataInicial) {
+        DateTimeFormatter formatoInicial = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatoSaida = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        LocalDate data = LocalDate.parse(dataInicial, formatoInicial);
+        return data.format(formatoSaida);
     }
 }

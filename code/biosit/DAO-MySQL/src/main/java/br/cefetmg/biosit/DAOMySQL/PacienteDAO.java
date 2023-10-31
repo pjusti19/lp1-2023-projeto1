@@ -57,7 +57,7 @@ public class PacienteDAO implements IPacienteDAO {
 
     @Override
     public boolean atualizar(Paciente paciente) throws CadastroException {
-        String query = "UPDATE pacientes SET nome = ?, dataNascimento = ?, endereco = ?, rg = ?, tel = ? WHERE cpf = ?";
+        String query = "UPDATE pacientes SET nome = ?, dataNascimento = ?, endereco = ?, rg = ?, telefone = ? WHERE cpf = ?";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, user, password);
@@ -73,6 +73,7 @@ public class PacienteDAO implements IPacienteDAO {
             preparedStatement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             throw new CadastroException(e.getMessage());
         } catch (ClassNotFoundException e) {
             throw new CadastroException(e.getMessage());
@@ -168,6 +169,8 @@ public class PacienteDAO implements IPacienteDAO {
                 String endereco = resultSet.getString("endereco");
                 String dataNascimento = resultSet.getString("dataNascimento");
                 paciente = new Paciente(nome, dataNascimento, cpf, endereco);
+                paciente.setRG(resultSet.getString("rg"));
+                paciente.setTel(resultSet.getString("telefone"));
             }
             
             connection.close();

@@ -77,22 +77,33 @@ main {
 
 #atualiza-cadastro {
     background-color: var(--azul);
-    width: 180px;
-    height: 60px;
     border-radius: 0px;
+    padding: 2vh 3vw;
     border: none;
     font-size: 30px;
     margin: auto auto;
     flex-wrap: wrap;
+    font-family: var(--fonte-principal);
 }
 #btn-voltar {
     background-color: var(--azul);
-    width: 180px;
-    height: 60px;
+    padding: 2vh 3vw;
     border-radius: 0px;
     border: none;
     font-size: 30px;
     margin: auto auto;
+}
+#btn-delete {
+    background-color: var(--azul);
+    padding: 2vh 3vw;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#btn-delete:hover,
+#btn-voltar:hover {
+    cursor: pointer;
 }
 #att-btn {
     margin: 30px auto;
@@ -126,7 +137,6 @@ main {
     width: 100%;
 }
 #prontuario {
-    border: 1px solid var(--azul);
     width: 40vw;
     margin: 0px 15px;
 }

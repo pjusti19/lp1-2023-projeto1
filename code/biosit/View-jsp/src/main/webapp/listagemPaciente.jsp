@@ -14,12 +14,13 @@
         <link rel="stylesheet" href="estilos/paciente.css">
         <%@ page import="br.cefetmg.biosit.dto.Paciente" %>
         <%@ page import="java.util.ArrayList" %>
+        <%@page import="br.cefetmg.biosit.service.util.Util" %>
 
     </head>
     <body>
         <%@include file="header.jsp" %>
         <main id="listagemPaciente">
-            <section>
+            <section id="container-lista-paciente">
                 <%
                         ArrayList<Paciente> pacientes = (ArrayList<Paciente>) request.getAttribute("pacientes");
                         if(pacientes.size() == 0) {
@@ -29,9 +30,15 @@
                         } else {
                             for (Paciente paciente: pacientes) {
                 %>
-                    <article onclick="window.location='/biosit/Facade?act=exibirPaciente&cpfExibir=<%=paciente.getCPF()%>'">
-                        <div><%=paciente.getNome()%></div>
-                        <div><%=paciente.getCPF()%></div>
+                    <article class="unidadeListaPac" onclick="window.location='/biosit/Facade?act=exibirPaciente&cpfExibir=<%=paciente.getCPF()%>'">
+                        <section class="cont-esq">
+                            <div class="lpnome"><%=paciente.getNome()%></div>
+                            <div class="lpendereco"><%=paciente.getEndereco()%></div>
+                        </section>
+                        <section class="cont-dir">
+                            <div class="lpcpf"><%=paciente.getCPF()%></div>
+                            <div class="lpnasc"><%=Util.converter(paciente.getNascimento())%></div>
+                        </section>
                     </article>
                 <%   }} %>
             </section>
