@@ -14,9 +14,10 @@ public interface IEquipamentoDAO {
     boolean atualizar(Equipamento equipamento) throws Exception;
     boolean deletar(Equipamento equipamento) throws Exception;
     List<Equipamento> pesquisarNome(String nome) throws Exception;
+    List<Equipamento> pesquisarQuantidade(int quantidade) throws Exception;
     List<Equipamento> pesquisarFornecedora(String fornecedora) throws Exception;
-    //List<Equipamento> pesquisarSetor(String setor) throws Exception;
-    //List<Equipamento> pesquisarQuantidade(int quantidade) throws Exception;
     List<Equipamento> pesquisarData(Date data) throws Exception;
+    List<Equipamento> pesquisarSetor(String setor) throws Exception;
+    List<Equipamento> pesquisarTodos() throws Exception;
 
 }

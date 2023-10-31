@@ -56,7 +56,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
 
     @Override
     public boolean atualizar(Medicamento medicamento) throws CadastroException {
-        String query = "UPDATE medicamento SET nome = ?, data = ?, fornecedora = ?, setor = ?, WHERE quantidade = ?";
+        String query = "UPDATE medicamento SET nome = ?, data = ?, fornecedora = ?, lote = ?, WHERE quantidade = ?";
         try (Connection connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
@@ -76,12 +76,18 @@ public class MedicamentoDAO implements IMedicamentoDAO {
 
     @Override
     public boolean deletar(Medicamento medicamento) throws Exception {
-        String query = "DELETE FROM medicamento WHERE quantidade = ?";
+        String query = "DELETE FROM medicamento WHERE nome = ?, data = ?,  quantidade = ?, fornecedora = ?, lote = ?";
 
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+        
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setInt(1, medicamento.getQuantRestante());
+             preparedStatement.setString(1, medicamento.getNome());
+            preparedStatement.setDate(2, new java.sql.Date(medicamento.getData().getTime()));
+            preparedStatement.setInt(3,    medicamento.getQuantRestante());
+            preparedStatement.setString(4, medicamento.getFornecedora());
+            preparedStatement.setInt(5, medicamento.getLote());
 
             int r = preparedStatement.executeUpdate();
             if (!(r > 0)) {
@@ -106,27 +112,27 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date(resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
         } catch (SQLException e) {
-            throw new Exception("Erro ao deletar o equipamento: " + e.getMessage());
+            throw new Exception("Erro ao deletar o medicamento: " + e.getMessage());
         }
         return medicamentos;
     }
-    public List<Medicamento> pesquisarQuantidade(String cpf) throws Exception {
+    public List<Medicamento> pesquisarQuantidade(int quantidade) throws Exception {
         String query = "SELECT * FROM medicamento WHERE quantidade = ?";
         List<Medicamento> medicamentos = new ArrayList<>();
         
         try (Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, cpf);
+            preparedStatement.setInt(1, quantidade);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date(resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
@@ -136,18 +142,18 @@ public class MedicamentoDAO implements IMedicamentoDAO {
         return medicamentos;
     }
     @Override
-    public List<Medicamento> pesquisarFornecedora(String endereco) throws Exception {
+    public List<Medicamento> pesquisarFornecedora(String fornecedora) throws Exception {
         String query = "SELECT * FROM equipamento WHERE fornecedora = ?";
         List<Medicamento> medicamentos = new ArrayList<>();
         
         try (Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, endereco);
+            preparedStatement.setString(1, fornecedora);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date(resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
@@ -156,18 +162,18 @@ public class MedicamentoDAO implements IMedicamentoDAO {
         }
         return medicamentos;
     }
-    public List<Medicamento> pesquisarValidade(Date nascimento) throws Exception {
+    public List<Medicamento> pesquisarValidade(Date validade) throws Exception {
         String query = "SELECT * FROM medicamento WHERE data = ?";
         List<Medicamento> medicamentos = new ArrayList<>();
         
         try (Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, nascimento.toString());
+            preparedStatement.setString(1, validade.toString());
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date(resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             connection.close();
@@ -177,14 +183,51 @@ public class MedicamentoDAO implements IMedicamentoDAO {
         return medicamentos;
     }
     
-    @Override
-    public List<Medicamento> pesquisarData(Date validade) throws Exception {
-        return null;
+    public List<Medicamento> pesquisarLote(int lote) throws Exception {
+        String query = "SELECT * FROM equipamento WHERE lote = ?";
+        List<Medicamento> medicamentos = new ArrayList<>();
+        
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, lote);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date(resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                medicamentos.add(medicamento);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception("Erro ao deletar o medicamento: " + e.getMessage());
+        }
+        return medicamentos;
     }
     
-    @Override
-    public List<Medicamento> pesquisarQuantidade(int quantidade) throws Exception {
-        return null;
+    public List<Medicamento> pesquisarTodos() throws Exception {
+        String query = "SELECT * FROM medicamentos";
+        List<Medicamento> medicamentos = new ArrayList<>();
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),new Date(resultSet.getString("data")),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                medicamentos.add(medicamento);
+            }
+            
+            connection.close();
+            
+        }catch (SQLException e) {
+            throw new CadastroException(e.getMessage());
+        }
+        
+        return medicamentos;
     }
+    
+    
     
 }

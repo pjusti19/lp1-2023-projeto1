@@ -1,25 +1,28 @@
+
 package br.cefetmg.biosit.controller;
 
-import java.io.IOException;
+import java.util.Date;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Date;
 import br.cefetmg.biosit.dto.Medicamento;
 import br.cefetmg.biosit.service.ICadastrarMedicamento;
 import br.cefetmg.biosit.service.implement.ManterMedicamento;
 import br.cefetmg.biosit.dto.exception.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@WebServlet(urlPatterns = {"/CadastrarMedicamento"})
-public class CadastrarMedicamento extends HttpServlet {
 
-    
+public class BuscarMedicamento {
     public static String execute(HttpServletRequest request) {
         String jsp = "/medicamento.jsp";
         
         try {
+            List<Medicamento> medicamentos = new ArrayList<Medicamento>();
+            
             String nome = request.getParameter("nome");
             String fornecedora = request.getParameter("fornecedora");
             Date dataValidade = new Date(request.getParameter("dataValidade"));           
@@ -27,15 +30,18 @@ public class CadastrarMedicamento extends HttpServlet {
             int quantidadeRestante = Integer.parseInt("quantidade");
             
             Medicamento medicamento = new Medicamento(nome, dataValidade, quantidadeRestante, fornecedora, lote);
+            
             ICadastrarMedicamento manterMedicamento = new ManterMedicamento();
-            manterMedicamento.cadastrar(medicamento);
-
+            
+            medicamentos = manterMedicamento.pesquisar(medicamento);
+            request.setAttribute("equipamentos", medicamentos);
+            
         } catch(Exception e) {
-            e.printStackTrace();
-            jsp = "";
+            request.setAttribute("tperror", "pesquisaMedicamento");
+            request.setAttribute("error", e.getMessage());
+            jsp = "/medicamento.jsp";
         }
         
         return jsp;
     }
-
 }

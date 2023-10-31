@@ -74,11 +74,18 @@ public class EquipamentoDAO implements IEquipamentoDAO {
 
     @Override
     public boolean deletar(Equipamento equipamento) throws Exception {
-        String query = "DELETE FROM equipamento WHERE quantidade = ?";
+        String query = "DELETE FROM equipamento WHERE nome = ?, data = ?,  quantidade = ?, fornecedora = ?, setor = ?";
 
-        try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-
-            preparedStatement.setInt(1, equipamento.getQuant());
+        try {
+            
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            preparedStatement.setString(1, equipamento.getNome());
+            preparedStatement.setDate(2, new java.sql.Date(equipamento.getData().getTime()));
+            preparedStatement.setInt(3,    equipamento.getQuant());
+            preparedStatement.setString(4, equipamento.getFornecedora());
+            preparedStatement.setString(5, equipamento.getSetor());
 
             int r = preparedStatement.executeUpdate();
             if (!(r > 0)) {
@@ -112,13 +119,13 @@ public class EquipamentoDAO implements IEquipamentoDAO {
         return equipamentos;
     }
 
-    public List<Equipamento> pesquisarQuantidade(String cpf) throws Exception {
+    public List<Equipamento> pesquisarQuantidade(int quantidade) throws Exception {
         String query = "SELECT * FROM equipamento WHERE quantidade = ?";
         List<Equipamento> equipamentos = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, cpf);
+            preparedStatement.setInt(1, quantidade);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -133,13 +140,13 @@ public class EquipamentoDAO implements IEquipamentoDAO {
     }
 
     @Override
-    public List<Equipamento> pesquisarFornecedora(String endereco) throws Exception {
+    public List<Equipamento> pesquisarFornecedora(String fornecedora) throws Exception {
         String query = "SELECT * FROM equipamento WHERE fornecedora = ?";
         List<Equipamento> equipamentos = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, endereco);
+            preparedStatement.setString(1, fornecedora);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -154,13 +161,13 @@ public class EquipamentoDAO implements IEquipamentoDAO {
     }
 
     @Override
-    public List<Equipamento> pesquisarData(Date nascimento) throws Exception {
+    public List<Equipamento> pesquisarData(Date data) throws Exception {
         String query = "SELECT * FROM equipamento WHERE data = ?";
         List<Equipamento> equipamentos = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, nascimento.toString());
+            preparedStatement.setString(1, data.toString());
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -171,6 +178,48 @@ public class EquipamentoDAO implements IEquipamentoDAO {
         } catch (SQLException e) {
             throw new Exception("Erro ao deletar o equipamento: " + e.getMessage());
         }
+        return equipamentos;
+    }
+    public List<Equipamento> pesquisarSetor(String setor) throws Exception {
+        String query = "SELECT * FROM equipamento WHERE setor = ?";
+        List<Equipamento> equipamentos = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, setor);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), new Date(resultSet.getString("data")), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                equipamentos.add(equipamento);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception("Erro ao deletar o equipamento: " + e.getMessage());
+        }
+        return equipamentos;
+    }
+    public List<Equipamento> pesquisarTodos() throws Exception {
+        String query = "SELECT * FROM equipamentos";
+        List<Equipamento> equipamentos = new ArrayList<>();
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), new Date(resultSet.getString("data")), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                equipamentos.add(equipamento);
+            }
+            
+            connection.close();
+            
+        }catch (SQLException e) {
+            throw new CadastroException(e.getMessage());
+        }
+        
         return equipamentos;
     }
 

@@ -26,7 +26,7 @@
                     <label id="fornecedora-medicamento">Fornecedora:</label><br>
                     <input type="text" id="fornecedora" name="fornecedora" required><br>
 
-                    <label id="data-aquiscao-medicamento">Validade:</label><br>
+                    <label id="validade-medicamento">Validade:</label><br>
                     <input type="date" id="data" name="data" required><br>
 
                     <label id="quantidade-medicamento">Quantidade restante:</label><br>
