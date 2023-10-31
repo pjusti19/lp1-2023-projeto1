@@ -11,13 +11,13 @@ import br.cefetmg.biosit.dto.Medicamento;
 import br.cefetmg.biosit.dto.exception.*;
 import br.cefetmg.biosit.service.util.Util;
 import br.cefetmg.biosit.DAOMySQL.MedicamentoDAO;
-import br.cefetmg.biosit.dto.Equipamento;
+import br.cefetmg.biosit.dto.Medicamento;
 import br.cefetmg.biosit.idao.IMedicamentoDAO;
 /**
  *
  * @author Aluno
  */
-public class CadastrarMedicamento implements ICadastrarMedicamento {
+public class ManterMedicamento implements ICadastrarMedicamento {
     private IMedicamentoDAO medicamentoDAO;
    
     
@@ -59,8 +59,8 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
     @Override
     public List<Medicamento> pesquisar(Medicamento medicamento) throws Exception {
         List<Medicamento> medicamentos = new ArrayList<Medicamento>();
-         if(true) { // ???
-            //medicamentos = medicamentoDAO.pesquisarTodos();
+         if(true) { 
+            medicamentos = medicamentoDAO.pesquisarTodos();
         } else {
             if(!Util.verify(medicamento.getNome())) {
                 medicamentos.addAll(medicamentoDAO.pesquisarNome(medicamento.getNome()));
@@ -76,7 +76,7 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
                 if(ver) medicamentos.add((Medicamento) aux);
             }
             if(!Util.verify(medicamento.getData())) {
-                List<Medicamento> novos = medicamentoDAO.pesquisarData(medicamento.getData());
+                List<Medicamento> novos = medicamentoDAO.pesquisarValidade(medicamento.getData());
                 for(Medicamento novo : novos) {
                     boolean ver = true;
                     for(Medicamento exist : medicamentos) {
@@ -86,8 +86,7 @@ public class CadastrarMedicamento implements ICadastrarMedicamento {
                 }
             }
             if(medicamento.getLote() != 0) {
-                List<Medicamento> novos = null;
-                //novos = medicamentoDAO.pesquisarLote(medicamento.getSetor());
+                List<Medicamento> novos = medicamentoDAO.pesquisarLote(medicamento.getLote());
                 for(Medicamento novo : novos) {
                     System.out.println(novo);
                     boolean ver = true;

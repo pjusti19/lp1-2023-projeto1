@@ -12,6 +12,14 @@ import java.util.Date;
         private Date data;
         private String setor;
         private int quant;
+       
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getFornecedora() {
         return fornecedora;
@@ -49,11 +57,6 @@ import java.util.Date;
 
         }
 
-        
-
-        public String getNome() {
-            return nome;
-        }
     
 }
 
