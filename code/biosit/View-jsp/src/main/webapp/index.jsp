@@ -54,7 +54,7 @@
                 </article>
             </div>
             <div id="divisao">
-                <button id="agendar">Agendar Consulta</button>
+                <a href="consulta.jsp"><button id="agendar">Agendar Consulta</button></a>
             </div>
         </main>
 

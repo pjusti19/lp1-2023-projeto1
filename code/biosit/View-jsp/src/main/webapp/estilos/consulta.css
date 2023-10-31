@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+    --fonte-principal: 'Raleway', sans-serif;
+}
+
+main#consulta {
+    height: 80vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 70px;
+}
+
+main#consulta section {
+    padding: 15px;
+}
+#consulta input {
+    box-sizing: border-box;
+}
+#consulta .agendamento {
+    background-color: white;
+    width: 30vw;
+    box-shadow: 1px 1px 17px 1px #7a8383;
+}
+
+#consulta .agendamento h3{
+    text-align: center;
+    font-size: 40px;
+}
+#consulta .agendamento form{
+    display: flex;
+    flex-direction: column;
+}
+#nome-medico{
+    width: 100%;
+}
+#nome-medico input{
+    width: 100%;
+}
+
+#consultorio {
+    width: 45%;
+}
+#consultorio input {
+    width: 100%;
+}
+
+#data-hora{
+    width: 45%;
+}
+#data-hora {
+    width: 100%;
+}
+
+#nome-paciente {
+    width: 100%;
+}
+#nome-paciente input {
+    width: 100%;
+}
+
+#especialidade {
+    width: 45%;
+}
+#especialidade input {
+    width: 100%;
+}
+
+#consulta .agendamento h3{
+    width: 100%;
+}
+
+#consulta .agendamento form button{
+    background-color: var(--azul);
+    width: 100%;
+    padding: 20px auto;
+}
+#consulta .agendamento form input {
+    background-color: var(--cinza);
+    height: 4vh;
+}
+#consulta .agendamento{
+    font-family: 'Raleway', sans-serif;;
+}
+#consulta .agendamento form input,
+#consulta .agendamento form button{
+    border-radius: 0px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#consulta .agendamento form h3,
+#consulta .agendamento form label,
+#consulta .agendamento form input,
+#consulta .agendamento form button {
+}
+#consulta .agendamento form label{
+    margin: 1vh 0px;
+}
+#consulta .agendamento form label,
+#consulta .agendamento form button{
+    color: #505053;
+}
+#consulta .agendamento form button{
+    height: 60px;
+    margin: 2vh auto;
+}
+
+
