@@ -12,19 +12,20 @@
         <main id="financeiro">           
             <section class="sla">
                 <h3>CONSULTA FINANCEIRA</h3>
-                <form>
+                <form action="Facade" method="GET">
                     <label id="setor-bucar">Setor:<br>
-                <input type="text" name="setor" >
-                </label>
+                        <input type="text" name="setor" >
+                    </label>
                     <label id="data-inicial-busca">Data inicial:<br>
-                <input type="date" name="data-inicial">
-                </label>
+                        <input type="date" name="data-inicial">
+                    </label>
                     <label id="data-final-busca">Data final:<br>
-                <input type="date" name="data-final">
-                </label>
-                <br>
-                <button type="submit">Buscar</button>
-                <button>Baixar relatório</button>
+                        <input type="date" name="data-final">
+                    </label>
+                    <br>
+                    <div id="planilha"></div>
+                    <button type="submit" id="buscar-financeiro" name="act" value="buscarFinanceiro">Buscar</button>
+                    <button id="baixar-financeiro" name="act" value="baixarRelatório">Baixar relatório</button>
                 </form>
              </section>                     
         </main>
