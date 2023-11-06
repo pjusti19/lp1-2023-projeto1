@@ -43,10 +43,10 @@ main#consulta section {
     width: 100%;
 }
 
-#consultorio {
+#urgencia {
     width: 45%;
 }
-#consultorio input {
+#urgencia input {
     width: 100%;
 }
 
@@ -64,10 +64,10 @@ main#consulta section {
     width: 100%;
 }
 
-#especialidade {
-    width: 45%;
+#descricao {
+    width: 100%;
 }
-#especialidade input {
+#descricao input {
     width: 100%;
 }
 
