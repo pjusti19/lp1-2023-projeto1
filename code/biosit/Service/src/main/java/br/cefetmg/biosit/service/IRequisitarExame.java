@@ -1,4 +1,3 @@
-
 package br.cefetmg.biosit.service;
 
 import br.cefetmg.biosit.dto.Exame;
@@ -15,4 +14,4 @@ public interface IRequisitarExame {
     
     public List<Exame> pesquisar(Exame exame) throws Exception;
     
-}
+} 

@@ -13,32 +13,40 @@ import br.cefetmg.biosit.service.implement.AgendarConsulta;
 import br.cefetmg.biosit.dto.exception.*;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *
+ * @author Aluno
+ */
 
-
-public class BuscarConsulta {
+public class CadastrarConsulta {
+    
     public static String execute(HttpServletRequest request) {
-        String jsp = "/listagemPaciente.jsp";
+        String jsp = "/consulta.jsp";
         
         try {
-            List<Consulta> consultas = new ArrayList<Consulta>();
-            
             String nomePaciente = request.getParameter("nomePaciente");
+//            System.out.println("pac:" + nomePaciente); 
             String descricao = request.getParameter("descricao");
+//            System.out.println("des:" + descricao); 
             String urgencia = request.getParameter("urgencia");
+//            System.out.println("urg:" + urgencia);            
             String medico = request.getParameter("medico");
+//            System.out.println("med:" + medico);            
             String data = request.getParameter("data");
-            String horario = request.getParameter("horario");
+//            System.out.println("data:" + data);
+            String horario = request.getParameter("horario");            
+//            System.out.println("hora:" + horario);
             Consulta consulta = new Consulta(nomePaciente, descricao, urgencia, medico, data, horario);
+//            System.out.println("con:" + consulta);
             
-            IAgendarConsulta agendarConsulta = new AgendarConsulta();
+            IAgendarConsulta manterPaciente = new AgendarConsulta();
+            manterPaciente.cadastrar(consulta);
             
-            consultas = agendarConsulta.pesquisar(consulta);
-            request.setAttribute("consultas", consultas);
+            request.setAttribute("sucess", "Paciente cadastrado com sucesso");
             
         } catch(Exception e) {
-            request.setAttribute("tperror", "pesquisaConsula");
-            request.setAttribute("error", e.getMessage());
-            jsp = "/consulta.jsp";
+            request.setAttribute("tperror", "cadastroConsulta");
+            request.setAttribute("error", "Não foi possível realizar o cadastro, tente novamente");
         }
         
         return jsp;
