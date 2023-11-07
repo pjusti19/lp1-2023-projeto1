@@ -176,3 +176,83 @@ main {
 .btn-secao.selected {
     background-color: var(--cinza);
 }
+
+/* prontuario */
+#container-form-prontuario {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px;
+}
+#form-prontuario {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: var(--fonte-principal);
+    justify-content: space-between;
+}
+#title-pron {
+    width: 70%;
+}
+#title-pron input {
+    width: 90%;
+}
+#categoria-pron {
+    width: 25%;
+}
+#categoria-pron select {
+    width: 100%;
+}
+#desc-pron {
+    margin-top: 15px;
+    width: 100%;
+}
+#desc-pron textarea {
+    width: 100%;
+    resize: none;
+    height: 18vh;
+}
+#title-pron input,
+#categoria-pron select,
+#desc-pron textarea {
+    background-color: var(--cinza);
+    border: none;
+}
+#title-pron input,
+#categoria-pron select {
+    height: 30px;
+}
+#cont-btn-pron-registrar {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+#cont-btn-pron-registrar button {
+    padding: 5px;
+    font-size: 22px;
+    font-family: var(--fonte-principal);
+    background-color: var(--azul);
+    border: none;
+}
+
+.reg-exib-art {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid var(--cinza);
+    padding: 3px 10px 8px 10px;
+    justify-content: space-between;
+}
+.reg-exib-title {
+    width: 70%;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+.reg-exib-data {
+    font-size: 14px;
+}
+.reg-exib-tipo {
+    font-size: 14px;
+}
+.reg-exib-desc {
+    width: 100%;
+}
