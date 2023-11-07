@@ -10,10 +10,9 @@ import java.util.List;
 import java.util.ArrayList;
 import br.cefetmg.biosit.service.IAgendarConsulta;
 import br.cefetmg.biosit.dto.Consulta;
-import br.cefetmg.biosit.dto.Consulta;
 import br.cefetmg.biosit.dto.exception.*;
 import br.cefetmg.biosit.service.util.Util;
-// import br.cefetmg.biosit.DAOMySQL.ConsultaDAO;
+import br.cefetmg.biosit.DAOMySQL.ConsultaDAO;
 import br.cefetmg.biosit.idao.IConsultaDAO;
 /**
  *
@@ -21,10 +20,16 @@ import br.cefetmg.biosit.idao.IConsultaDAO;
  */
 public class AgendarConsulta implements IAgendarConsulta{
     
+    private IConsultaDAO consultaDAO;
+    
+    public AgendarConsulta() {
+        consultaDAO = new ConsultaDAO();
+    }
+    
     @Override
     public String cadastrar(Consulta consulta) throws CadastroException{
         
-        if(Util.verify(consulta.getNomeConsulta())) {
+        if(Util.verify(consulta.getNomePaciente())) {
             throw new CadastroException("Cadastro Incompleto, insira um nome");
         }
         if(Util.verify(consulta.getDescricao())) {
@@ -43,7 +48,7 @@ public class AgendarConsulta implements IAgendarConsulta{
             throw new CadastroException("Cadastro Incompleto, insira um horário");
         }
 
-        if(consulta.getNomeConsulta().length() > 50) {
+        if(consulta.getNomePaciente().length() > 50) {
             throw new CadastroException("O nome não pode ter mais de 50 caracteres");
         }
         if(consulta.getMedico().length() > 50) {
@@ -58,7 +63,7 @@ public class AgendarConsulta implements IAgendarConsulta{
     @Override
     public String atualizar(Consulta consulta) throws Exception {
         String id = "";
-        if(Util.verify(consulta.getNomeConsulta())) {
+        if(Util.verify(consulta.getNomePaciente())) {
             throw new CadastroException("Insira um nome");
         }
         if(Util.verify(consulta.getDescricao())) {
@@ -84,25 +89,25 @@ public class AgendarConsulta implements IAgendarConsulta{
     }
     
     @Override
-    public String excluir(String nomeConsulta) throws Exception {
+    public String excluir(String nomePaciente) throws Exception {
         String id = "";
         
-        if(Util.verify(nomeConsulta)) 
+        if(Util.verify(nomePaciente)) 
             throw new CadastroException("Erro");
         
-        consultaDAO.deletar(nomeConsulta);
+        consultaDAO.deletar(nomePaciente);
         
         return id;
     }
     
     @Override
     public List<Consulta> pesquisar(Consulta consulta) throws Exception {
-        List<Consulta> consultas = new ArrayList<Consulta>();
+        List<Consulta> consultas = new ArrayList<>();
         if(Util.verify(consulta)) {
             consultas = consultaDAO.pesquisarTodos();
         } else {
             if(!Util.verify(consulta.getNomePaciente())) {
-                consultas.addAll(consultaDAO.pesquisarNomePaciente(consulta.getNomePaciente()));
+                consultas.addAll(consultaDAO.pesquisarListaNomePaciente(consulta.getNomePaciente()));
             }
             if(!Util.verify(consulta.getMedico())) {
                 Consulta aux = consultaDAO.pesquisarNomeMedico(consulta.getMedico());

@@ -8,7 +8,7 @@ public class Consulta {
     private String nomePaciente;
     private String descricao;
     private String urgencia;
-     private String medico;
+    private String medico;
     private String data;
     private String horario;       
     

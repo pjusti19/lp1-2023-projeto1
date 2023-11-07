@@ -1,5 +1,6 @@
 package br.cefetmg.biosit.DAOMySQL;
 
+/*
 import br.cefetmg.biosit.dto.Exame;
 import br.cefetmg.biosit.idao.IExameDAO;
 import br.cefetmg.biosit.dto.exception.*;
@@ -176,3 +177,4 @@ public class ExameDAO implements IExameDAO {
 
 
 }
+*/

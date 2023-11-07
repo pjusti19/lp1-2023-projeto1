@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package br.cefetmg.biosit.controller;
 
 import java.util.Date;
@@ -12,16 +16,15 @@ import br.cefetmg.biosit.service.IAgendarConsulta;
 import br.cefetmg.biosit.service.implement.AgendarConsulta;
 import br.cefetmg.biosit.dto.exception.*;
 import java.util.ArrayList;
-import java.util.List;
 
-
-public class BuscarConsulta {
+/**
+ *
+ * @author pjusti19
+ */
+public class AtualizarConsulta {
     public static String execute(HttpServletRequest request) {
-        String jsp = "/listagemPaciente.jsp";
-        
+        String jsp = "/infoConsultas.jsp";
         try {
-            List<Consulta> consultas = new ArrayList<Consulta>();
-            
             String nomePaciente = request.getParameter("nomePaciente");
             String descricao = request.getParameter("descricao");
             String urgencia = request.getParameter("urgencia");
@@ -29,18 +32,17 @@ public class BuscarConsulta {
             String data = request.getParameter("data");
             String horario = request.getParameter("horario");
             Consulta consulta = new Consulta(nomePaciente, descricao, urgencia, medico, data, horario);
+            System.out.println(consulta);
+            AgendarConsulta agendarConsulta = new AgendarConsulta();
+            agendarConsulta.atualizar(consulta);
             
-            IAgendarConsulta agendarConsulta = new AgendarConsulta();
+            request.setAttribute("paciente_exib", consulta);
+            request.setAttribute("sucess", "Dados atualizados com sucesso");
             
-            consultas = agendarConsulta.pesquisar(consulta);
-            request.setAttribute("consultas", consultas);
-            
-        } catch(Exception e) {
-            request.setAttribute("tperror", "pesquisaConsula");
+        } catch (Exception e) {
             request.setAttribute("error", e.getMessage());
-            jsp = "/consulta.jsp";
+            jsp = "/index.jsp";
         }
-        
         return jsp;
     }
 }
