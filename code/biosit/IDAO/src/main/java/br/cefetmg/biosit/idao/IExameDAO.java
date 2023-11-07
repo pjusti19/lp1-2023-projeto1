@@ -1,6 +1,6 @@
 package br.cefetmg.biosit.idao;
 
-/* import java.util.List;
+import java.util.List;
 import java.util.ArrayList;
 import br.cefetmg.biosit.dto.Exame;
 import br.cefetmg.biosit.dto.exception.CadastroException;
@@ -15,4 +15,4 @@ public interface IExameDAO {
     List<Exame> pesquisarPaciente(String paciente) throws Exception;
     List<Exame> pesquisarDataHora(String dataHora) throws Exception;
 
-} */
+} 

@@ -1,6 +1,5 @@
 package br.cefetmg.biosit.service;
 
-/* 
 import br.cefetmg.biosit.dto.Exame;
 import br.cefetmg.biosit.dto.exception.*;
 import java.util.Date;
@@ -15,4 +14,4 @@ public interface IRequisitarExame {
     
     public List<Exame> pesquisar(Exame exame) throws Exception;
     
-} */
+} 
