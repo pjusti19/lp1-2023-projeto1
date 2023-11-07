@@ -1,9 +1,3 @@
-<%-- 
-    Document   : estoque
-    Created on : 16 de out. de 2023, 15:18:46
-    Author     : Aluno
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
