@@ -33,6 +33,11 @@ public class Util {
         return Util.verify(financeiro.getCategoria()) && Util.verify(financeiro.getData()) && Util.verify(financeiro.getDataFinal());
     }
     
+     public static boolean verify(Consulta consulta) {
+        return Util.verify(consulta.getNomePaciente()) && Util.verify(consulta.getDescricao()) && Util.verify(consulta.getUrgencia())&& 
+                Util.verify(consulta.getMedico()) && Util.verify(consulta.getData()) && Util.verify(consulta.getHorario());
+    }
+    
     public static String converter(String dataInicial) {
         DateTimeFormatter formatoInicial = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter formatoSaida = DateTimeFormatter.ofPattern("dd/MM/yyyy");

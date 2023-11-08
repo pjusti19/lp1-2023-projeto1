@@ -1,21 +1,158 @@
-.buscar > input {
-    width: 90%;
-    height: 7%;
-    margin-bottom: 1%;
-}
-.cinza button {
-    background-color: rgb(44, 182, 248);
-    color: white;
-    border: none;
-    margin-bottom: 1%;
-    
-}
-.buscar-nome-equipamento{
-    font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+    --fonte-principal: 'Raleway', sans-serif;
 }
 
-/* css telas de cadastro e busca genéricos */
-.cadastro h3,
-.buscar h3 {
-    color: var(--azul);
+main#equipamento {
+    height: 62vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 70px;
+}
+
+main#equipamento section {
+    padding: 15px;
+}
+#equipamento input {
+    box-sizing: border-box;
+    width: 1450px;
+}
+#equipamento .cadastro {
+    background-color: white;
+    width: 30vw;
+}
+
+#equipamento .buscar {
+    width: 30vw;
+}
+#equipamento .cadastro h3,
+#equipamento .buscar h3{
+    text-align: center;
+    font-size: 40px;
+}
+#equipamento .cadastro form,
+#equipamento .buscar form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#nome-cadastro, #nome-buscar {
+    width: 100%;
+}
+#nome-cadastro input, #nome-buscar input {
+    width: 100%;
+}
+
+#fornecedora-cadastro, #fornecedora-buscar {
+    width: 45%;
+}
+#fornecedora-cadastro input, #fornecedora-buscar input {
+    width: 100%;
+}
+
+#data-cadastro, #data-buscar {
+    width: 45%;
+}
+#data-cadastro input, #data-buscar input {
+    width: 100%;
+}
+
+#quantidade-cadastro, #quantidade-buscar {
+    width: 100%;
+}
+#quantidade-cadastro input, #quantidade-buscar input {
+    width: 100%;
+}
+
+#equipamento .cadastro h3, #equipamento .buscar h3 {
+    width: 100%;
+}
+
+#equipamento .cadastro form button, #equipamento .buscar form button {
+    background-color: var(--azul);
+    width: 100%;
+    padding: 20px auto;
+}
+#equipamento .cadastro form input {
+    background-color: var(--cinza);
+    height: 30px;
+}
+#equipamento .buscar form input {
+    height: 70%;
+}
+#equipamento .cadastro, #equipamento .buscar {
+    font-family: 'Raleway', sans-serif;;
+}
+#equipamento .cadastro form input,
+#equipamento .cadastro form button,
+#equipamento .buscar form input,
+#equipamento .buscar form button{
+    border-radius: 0px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#equipamento .cadastro form h3,
+#equipamento .cadastro form label,
+#equipamento .cadastro form input,
+#equipamento .cadastro form button {
+}
+#equipamento .cadastro form label,
+#equipamento .buscar form label{
+    margin: 1vh 0px;
+}
+#equipamento .cadastro form label,
+#equipamento .cadastro form button,
+#equipamento .buscar form label,
+#equipamento .buscar form button{
+    color: #505053;
+}
+#equipamento .cadastro form button,
+#equipamento .buscar form button{
+    height: 60px;
+    margin: 2vh auto;
+}
+
+
+/*  listagem de equipamentos   */
+#listagemEquipamentos {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;;
+    align-content: center;
+}
+#listagemEquipamentos .btn-voltar {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#listagemEquipamentos section {
+    padding: 10px 50px;
+}
+#listagemEquipamentos section article {
+    padding: 10px 20px;
+}
+#listagemEquipamentos section article:hover {
+    cursor: pointer;
+}
+
+#data {
+    width: 45%;
+}
+#fornecedora {
+    width: 45%;
 }
