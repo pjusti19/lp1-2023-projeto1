@@ -14,16 +14,23 @@
          @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
          
          .cadastro  {
-         margin-left: 800px;
-         margin-right: 800px;
+             
+         
+        
          
          
          }
          
          .div-cadastro {
+             margin: 0 auto;
+             width:25%; /* Altere para o valor da largura desejada. */
              box-shadow: 1px 1px 17px 1px #7a8383;
-             margin-top: 60px;
-                 font-family: 'Raleway', sans-serif;
+             font-family: 'Raleway', sans-serif;
+             background-color: white;
+             padding: 20px;
+             margin-top: 70px;
+             margin-bottom: 70px;
+      
          }
          .cadastro h3 {
          text-align: center;
@@ -46,9 +53,17 @@
          background-color: #d9d9d9;
          font-size: 22px;}
          
+         
+         
          label {
          margin-bottom: 0; /* Remove a margem na parte inferior da label */
          font-family: 'Raleway', sans-serif;
+         }
+         
+         .botaotriagem {
+             border: none;
+             background-color: var(--azul);
+             height: 50px;
          }
          .dropdown {
          position: relative;
@@ -93,7 +108,7 @@
       <%@include file="header.jsp" %>
       <div class="cinza" style="background-color: rgb(209, 209, 209);">
          <div class="cadastro" style="display: flex;">
-            <div class= "div-cadastro" style="flex: 1; padding: 20px; background-color: white; margin: 2%; ">
+            <div class= "div-cadastro">
                <form action="Facade" method="GET" >
                   <h3>Triagem</h3>
                   <label id="paciente-triagem">Paciente:</label><br>
@@ -111,7 +126,7 @@
                   </div>
                   <br>
                   <br>
-                  <button type="submit" name="act" value="cadastrarTriagem">Confirmar</button>
+                  <button class="botaotriagem" type="submit" name="act" value="cadastrarTriagem">Confirmar</button>
                </form>
             </div>
          </div>
