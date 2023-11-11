@@ -3,12 +3,12 @@ package br.cefetmg.biosit.service.implement;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
-import br.cefetmg.biosit.service.IManterPaciente;
-import br.cefetmg.biosit.dto.Paciente;
+import br.cefetmg.biosit.service.*;
+import br.cefetmg.biosit.dto.*;
 import br.cefetmg.biosit.dto.exception.*;
 import br.cefetmg.biosit.service.util.Util;
-import br.cefetmg.biosit.DAOMySQL.PacienteDAO;
-import br.cefetmg.biosit.idao.IPacienteDAO;
+import br.cefetmg.biosit.DAOMySQL.*;
+import br.cefetmg.biosit.idao.*;
 
 /**
  *
@@ -55,7 +55,7 @@ public class ManterPaciente implements IManterPaciente {
     }
     
     @Override
-    public String atualizar(Paciente paciente) throws Exception {
+    public Paciente atualizar(Paciente paciente) throws Exception {
         String id = "";
         if(Util.verify(paciente.getNome())) {
             throw new CadastroException("Insira um nome");
@@ -73,7 +73,11 @@ public class ManterPaciente implements IManterPaciente {
         System.out.println(paciente);
         pacienteDAO.atualizar(paciente);
         
-        return null;
+        IManterProntuario manterProntuario = new ManterProntuario();
+        Prontuario prontuario = manterProntuario.pesquisar(paciente.getCPF());
+        paciente.setProntuario(prontuario);
+        
+        return paciente;
     }
     @Override
     public String excluir(String cpf) throws Exception {
@@ -135,6 +139,10 @@ public class ManterPaciente implements IManterPaciente {
     public Paciente pesquisar(String cpf) throws Exception {
         Paciente paciente = null;
         paciente = pacienteDAO.pesquisarCPF(cpf);
+        
+        IManterProntuario manterProntuario = new ManterProntuario();
+        Prontuario prontuario = manterProntuario.pesquisar(cpf);
+        paciente.setProntuario(prontuario);
         
         return paciente;
     }

@@ -256,3 +256,10 @@ main {
 .reg-exib-desc {
     width: 100%;
 }
+#display-registros {
+    border-top:1px solid var(--cinza);
+    margin: 0px 45px;
+}
+#notfound {
+    margin: 10px;
+}

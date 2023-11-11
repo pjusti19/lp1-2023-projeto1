@@ -14,13 +14,15 @@
         <link rel="stylesheet" href="estilos/paciente.css">
         <link rel="stylesheet" href="estilos/prontuario.css">
         <%@ page import="br.cefetmg.biosit.dto.Paciente" %>
+        <%@ page import="br.cefetmg.biosit.dto.Prontuario" %>
+        <%@ page import="br.cefetmg.biosit.dto.RegistroProntuario" %>
         <%@ page import="java.util.ArrayList" %>
     </head>
     <body>
         <%@include file="header.jsp" %>
         <main id="pron">
             <section id="containerwt">
-            <form id="frm" action="Facade" method="GET">
+            <form id="frm" action="Facade" method="POST">
                 <section id="att-dados">
                     <section id="menu-att-paciente">
                         <div id="sec-geral" class="btn-secao selected">Dados Gerais</div>
@@ -61,10 +63,10 @@
                         <section id="container-form-prontuario">
                             <article id="form-prontuario">
                                 <label id="title-pron">Título<br>
-                                    <input type="text">
+                                    <input type="text" name="titulo-reg">
                                 </label>
                                 <label id="categoria-pron">Categoria<br>
-                                    <select>
+                                    <select name="tipo-reg">
                                         <option value="alergia">Alergia</option>
                                         <option value="diagnostico">Diagnóstico</option>
                                         <option value="observacao">Observação</option>
@@ -72,20 +74,30 @@
                                     </select>
                                 </label>
                                 <label id="desc-pron">Descrição<br>
-                                    <textarea></textarea>
+                                    <textarea name="desc-reg"></textarea>
                                 </label>
                             </article>
                             <article id="cont-btn-pron-registrar">
-                                <button>Registrar</button>
+                                <button type="submit" name="act" value="AdicionaRegistroProntuario">Registrar</button>
                             </article>
                         </section>
-                        <section>
-                            <article class="reg-exib-art">
-                                <div class="reg-exib-title">Registro foda</div>
-                                <div class="reg-exib-data"> 07/11/2023 11:31</div>
-                                <div class="reg-exib-tipo"> Registro</div>
-                                <div class="reg-exib-desc">ah mas n sei oq la nao sei oq la</div>
-                            </article>
+                        <section id="display-registros">
+                            <%
+                                ArrayList<RegistroProntuario> registros = paciente.getProntuario().listRegistros();
+                                if(registros.size() == 0) {
+                            %>
+                                <div class="notfound">Nenhum registro encontrado.</div>
+                            <%
+                                    } else {
+                                        for (RegistroProntuario reg: registros) {
+                            %>
+                                <article class="reg-exib-art">
+                                    <div class="reg-exib-title"><%=reg.getTitulo()%></div>
+                                    <div class="reg-exib-tipo"><%=reg.getTipo()%></div>
+                                    <div class="reg-exib-data"><%=reg.getData()%></div>
+                                    <div class="reg-exib-desc"><%=reg.getDescricao()%></div>
+                                </article>
+                            <%   }} %>
                         </section>
                     </section>
                     <section class="secao-sel secao-oculta">

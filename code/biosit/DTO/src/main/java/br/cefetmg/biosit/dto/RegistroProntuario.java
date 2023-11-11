@@ -12,7 +12,7 @@ import java.util.Date;
 public class RegistroProntuario {
     private String tipo;
     private String titulo;
-    private Date data;
+    private String data;
     private String descricao;
     
     private String cpf;
@@ -27,7 +27,7 @@ public class RegistroProntuario {
         this.cpf = cpf;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
     public String getDescricao() {
@@ -39,8 +39,14 @@ public class RegistroProntuario {
     public String getTitulo() {
         return titulo;
     }
+    public int getID() {
+        return id;
+    }
+    public String getCPF() {
+        return cpf;
+    }
     
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
     public void setDescricao(String descricao) {
