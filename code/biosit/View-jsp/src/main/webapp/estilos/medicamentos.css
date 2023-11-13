@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+    --fonte-principal: 'Raleway', sans-serif;
+}
+
+main#medicamento {
+    height: 62vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 70px;
+}
+
+main#medicamento section {
+    padding: 15px;
+}
+#medicamento input {
+    box-sizing: border-box;
+}
+#medicamento .cadastro {
+    background-color: white;
+    width: 30vw;
+}
+#medicamento .buscar {
+    width: 30vw;
+}
+#medicamento .cadastro h3,
+#medicamento .buscar h3{
+    text-align: center;
+    font-size: 40px;
+}
+#medicamento .cadastro form,
+#medicamento .buscar form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#nome-cadastro, #nome-buscar {
+    width: 100%;
+}
+#nome-cadastro input, #nome-buscar input {
+    width: 100%;
+}
+
+#fornecedora-cadastro, #fornecedora-buscar {
+    width: 45%;
+}
+#fornecedora-cadastro input, #fornecedora-buscar input {
+    width: 100%;
+}
+
+#data-cadastro, #data-buscar {
+    width: 45%;
+}
+#data-cadastro input, #data-buscar input {
+    width: 100%;
+}
+
+#quantidade-cadastro, #quantidade-buscar {
+    width: 100%;
+}
+#quantidade-cadastro input, #quantidade-buscar input {
+    width: 100%;
+}
+
+#medicamento .cadastro h3, #medicamento .buscar h3 {
+    width: 100%;
+}
+
+#medicamento .cadastro form button, #medicamento .buscar form button {
+    background-color: var(--azul);
+    width: 100%;
+    padding: 20px auto;
+}
+#medicamento .cadastro form input {
+    background-color: var(--cinza);
+    height: 70%;
+}
+#medicamento .buscar form input {
+    height: 70%;
+}
+#medicamento .cadastro, #medicamento .buscar {
+    font-family: 'Raleway', sans-serif;;
+}
+#medicamento .cadastro form input,
+#medicamento .cadastro form button,
+#medicamento .buscar form input,
+#medicamento .buscar form button{
+    border-radius: 0px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#medicamento .cadastro form h3,
+#medicamento .cadastro form label,
+#medicamento .cadastro form input,
+#medicamento .cadastro form button {
+}
+#medicamento .cadastro form label,
+#medicamento .buscar form label{
+    margin: 1vh 0px;
+}
+#medicamento .cadastro form label,
+#medicamento .cadastro form button,
+#medicamento .buscar form label,
+#medicamento .buscar form button{
+    color: #505053;
+}
+#medicamento .cadastro form button,
+#medicamento .buscar form button{
+    height: 60px;
+    margin: 2vh auto;
+}
+
+
+/*  listagem de medicamentos   */
+#listagemMedicamentos {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;;
+    align-content: center;
+}
+#listagemMedicamentos .btn-voltar {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#listagemMedicamentos section {
+    padding: 10px 50px;
+}
+#listagemMedicamentos section article {
+    padding: 10px 20px;
+}
+#listagemMedicamentos section article:hover {
+    cursor: pointer;
+}
+

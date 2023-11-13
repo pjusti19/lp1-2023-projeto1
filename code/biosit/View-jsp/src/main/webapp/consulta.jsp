@@ -14,23 +14,46 @@
               <form action="Facade" method="GET"> 
                     <h3>AGENDAR CONSULTA</h3>
                     <label id="nome-paciente">Paciente:<br>
-                        <input type="text" name="data-nascimento">
+                        <input type="text" name="nomePaciente">
                     </label>
                     <label id="descricao">Descrição:<br>
-                        <input type="text" name="especialidade" maxlength="50">
+                        <input type="text" name="descricao" maxlength="50">
                     </label>
                     <label id="urgencia">Urgência:<br>
-                        <input type="text" name="consultorio">
+                        <input type="text" name="urgencia">
                     </label>
                     <label id="nome-medico">Médico:<br>
-                        <input type="text" name="nome" maxlength="50">
+                        <input type="text" name="medico" maxlength="50">
                     </label> 
-                    <label id="data-hora">Data e hora:<br>
-                        <input type="text" name="data-hora" maxlength="50">
+                    <label id="data-hora">Data:<br>
+                        <input type="text" name="data" maxlength="50">
+                    </label>
+                    <label id="data-hora">Horário:<br>
+                        <input type="text" name="horario" maxlength="50">
                     </label>
                  
-                    <button id="envia-consulta" type="submit" value="agendarConsulta">Agendar</button>
-                    
+                    <button id="enviaConsulta" type="submit" name="act" value="cadastrarConsulta">Agendar</button>
+                    <%
+                    String error2 = (String) request.getAttribute("error");
+                    String tperror2 = (String) request.getAttribute("tperror");
+                    if (error2 != null && !error2.isEmpty() && tperror2.equals("cadastrarConsulta")) {
+                    %>
+                    <div class="mensagem-erro">
+                        <%= error2 %>
+                    </div>
+                    <%
+                    } else {
+                        String sucess = (String) request.getAttribute("sucess");
+                        if(sucess != null && !sucess.isEmpty()) {
+                    %>
+                    <div class="mensagem-sucesso">
+                        <%= sucess %>
+                    </div>
+                    <%
+                        } }
+                    %>
+              </form>
+            </section>
                     
               
                     

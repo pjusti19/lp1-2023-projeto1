@@ -12,9 +12,12 @@ import br.cefetmg.biosit.dto.exception.*;
 public interface IConsultaDAO {
     boolean inserir(Consulta consulta) throws CadastroException;
     boolean atualizar(Consulta consulta) throws Exception;
-    boolean deletar(Consulta consulta) throws Exception;
-    List<Consulta> pesquisarNome(String medico) throws Exception;
-    List<Consulta> pesquisarDataHora(String dataHora) throws Exception;
-    List<Consulta> pesquisarPaciente (String nomePaciente) throws Exception;
+    boolean deletar(String nomePaciente) throws Exception;
+    List<Consulta> pesquisarListaNomePaciente (String nomePaciente) throws Exception;
+    Consulta pesquisarNomePaciente (String nome) throws Exception;
+    List<Consulta> pesquisarData(String data) throws Exception;
+    List<Consulta> pesquisarHorario(String horario) throws Exception;
+    List<Consulta> pesquisarListaNomeMedico(String medico) throws Exception;
+    Consulta pesquisarNomeMedico (String nome) throws Exception;
     List<Consulta> pesquisarTodos() throws Exception;
 }
