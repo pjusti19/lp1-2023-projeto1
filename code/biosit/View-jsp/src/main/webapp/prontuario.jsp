@@ -21,7 +21,7 @@
     <body>
         <%@include file="header.jsp" %>
         <main id="pron">
-            <section id="containerwt">
+            <section id="containerwt" class="">
             <form id="frm" action="Facade" method="POST">
                 <section id="att-dados">
                     <section id="menu-att-paciente">
@@ -96,6 +96,10 @@
                                     <div class="reg-exib-tipo"><%=reg.getTipo()%></div>
                                     <div class="reg-exib-data"><%=reg.getData()%></div>
                                     <div class="reg-exib-desc"><%=reg.getDescricao()%></div>
+                                    <div class="container-btn-reg">
+                                        <a data-id="<%=reg.getID()%>" class="btn-edit-reg btn-reg">Editar</a>
+                                        <a class="btn-excluir-reg btn-reg">Excluir</a>
+                                    </div>
                                 </article>
                             <%   }} %>
                         </section>
@@ -134,6 +138,30 @@
                         } }
                     %>
             </form>
+            </section>
+            <section id="container-editar-registro" class="editar-off">
+                <form>
+                    <input id="id-reg-edit" type="hidden" name="id" value="">
+                    <article id="form-prontuario-edit">
+                        <label id="title-pron-edit">Título<br>
+                            <input type="text" name="titulo-reg">
+                        </label>
+                        <label id="categoria-pron-edit">Categoria<br>
+                            <select name="tipo-reg">
+                                <option value="alergia">Alergia</option>
+                                <option value="diagnostico">Diagnóstico</option>
+                                <option value="observacao">Observação</option>
+                                <option value="registro" selected>Registro</option>
+                            </select>
+                        </label>
+                        <label id="desc-pron-edit">Descrição<br>
+                            <textarea name="desc-reg"></textarea>
+                        </label>
+                    </article>
+                    <article id="cont-btn-pron-registrar-edit">
+                        <button type="submit" name="act" value="EditarRegistroProntuario">Registrar</button>
+                    </article>
+                </form>
             </section>
         </main>
         <script src="scripts/prontuario.js"></script>

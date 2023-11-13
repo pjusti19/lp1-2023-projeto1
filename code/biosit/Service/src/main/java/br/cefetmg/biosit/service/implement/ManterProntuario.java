@@ -38,6 +38,11 @@ public class ManterProntuario implements IManterProntuario {
         prontuarioDAO.inserir(registro);
     }
     
+    @Override
+    public void editarRegistro(String idRegistro) throws Exception {
+        
+    }
+    
     
     @Override
     public Prontuario pesquisar(String cpf) throws Exception {

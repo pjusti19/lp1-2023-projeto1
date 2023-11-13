@@ -86,3 +86,15 @@ function init() {
     } 
 }
 init();
+
+
+let arrayEditReg = document.querySelectorAll(".btn-edit-reg");
+for(let i = 0; i < arrayEditReg.lenght; i++) {
+    arrayEditReg[i].addEventListener('click', function(evt) {
+        id = evt.target.dataset.id;
+        document.querySelector("#id-reg-edit").value = id;
+        
+        document.querySelector("#containerwt").classList.add("display-total-off");
+        document.querySelector("#container-editar-registro").remove("editar-off");
+    });
+}
