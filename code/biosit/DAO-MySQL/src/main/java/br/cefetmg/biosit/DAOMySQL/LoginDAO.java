@@ -11,6 +11,7 @@ public class LoginDAO {
         user = "root";
     }
     
+    // teste
     public boolean Buscar() {
         
     return true;
