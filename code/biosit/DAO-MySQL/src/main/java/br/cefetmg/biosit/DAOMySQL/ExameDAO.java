@@ -33,7 +33,7 @@ public class ExameDAO implements IExameDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, exame.getExame());
-            preparedStatement.setInt(2, exame.getPaciente());
+            preparedStatement.setString(2, exame.getPaciente());
             preparedStatement.setString(3, exame.getDataHora());
 
             preparedStatement.executeUpdate();
@@ -52,7 +52,7 @@ public class ExameDAO implements IExameDAO {
         try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, exame.getExame());
-            preparedStatement.setInt(2, exame.getPaciente());
+            preparedStatement.setString(2, exame.getPaciente());
             preparedStatement.setString(3, exame.getDataHora());
 
             preparedStatement.executeUpdate();
@@ -73,7 +73,7 @@ public class ExameDAO implements IExameDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
             preparedStatement.setString(1, exame.getExame());
-            preparedStatement.setInt(2, exame.getPaciente());
+            preparedStatement.setString(2, exame.getPaciente());
             preparedStatement.setString(3, exame.getDataHora());
 
             int r = preparedStatement.executeUpdate();
@@ -108,13 +108,14 @@ public class ExameDAO implements IExameDAO {
         return exames;
     }
 
-    public List<Exame> pesquisarPaciente(int CPFpaciente) throws Exception {
+    @Override
+    public List<Exame> pesquisarPaciente(String CPFpaciente) throws Exception {
         String query = "SELECT * FROM exame WHERE paciente = ?";
         List<Exame> exames = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setInt(2, CPFpaciente);
+            preparedStatement.setString(2, CPFpaciente);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {

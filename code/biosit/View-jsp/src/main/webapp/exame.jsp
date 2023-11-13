@@ -23,6 +23,27 @@
                         <input type="text" name="data-hora" maxlength="100">
                     </label>
                     <button id="envia-cadastro" type="submit" name="act" value="requisitarExame">Requisitar exame</button>
+                    <div class="exame"> 
+                        <label>Exame</label>
+                        <select class="escolha" name="exame">
+                            <option value="ultrassonografia">Ultrassonografia</option> 
+                            <option value="angiografia">Angiografia</option>
+                            <option value="ressonancia">Ressonância magnética</option>
+                            <option value="tomografia">Tomografia</option>
+                            <option value="raio-x">Raio-x</option>
+                            <option value="ecocardiograma">Ecocardiograma</option>
+                            <option value="hemograma">Hemograma</option> 
+                        </select>
+                    </div>
+                      <%
+                        List<Paciente> listPaciente = (List<Paciente>) request.getAttribute("listPaciente");
+                        for (Paciente paciente: listPaciente) {
+                    %>
+                            <tr>
+                                <td>
+                                    <a href="/biosit/servletweb?acao=AlterarCliente&CodCliente=<%=cliente.getId()%>"><%=cliente.getId()%></a>
+                                </td>
+                            </tr>
 
                 </form>
             </section>    

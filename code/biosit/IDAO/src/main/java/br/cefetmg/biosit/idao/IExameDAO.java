@@ -13,7 +13,7 @@ public interface IExameDAO {
     boolean atualizar(Exame exame) throws Exception;
     boolean deletar(Exame exame) throws Exception;
     List<Exame> pesquisarExame(String exame) throws Exception;
-    List<Exame> pesquisarPaciente(int CPFpaciente) throws Exception;
+    List<Exame> pesquisarPaciente(String CPFpaciente) throws Exception;
     List<Exame> pesquisarDataHora(String dataHora) throws Exception;
 
 }
