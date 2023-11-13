@@ -25,10 +25,10 @@
                     <label id="nome-medico">Médico:<br>
                         <input type="text" name="medico" maxlength="50">
                     </label> 
-                    <label id="data-hora">Data:<br>
-                        <input type="text" name="data" maxlength="50">
+                    <label id="data">Data:<br>
+                        <input type="date" name="data" maxlength="50">
                     </label>
-                    <label id="data-hora">Horário:<br>
+                    <label id="hora">Horário:<br>
                         <input type="text" name="horario" maxlength="50">
                     </label>
                  

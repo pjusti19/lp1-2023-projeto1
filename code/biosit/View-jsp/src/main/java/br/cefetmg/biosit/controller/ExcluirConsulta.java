@@ -23,7 +23,7 @@ public class ExcluirConsulta {
         
         try {
             
-            String nomePaciente = request.getParameter("consultaExcluir");
+            String nomePaciente = request.getParameter("nomeExcluir");
             AgendarConsulta agendarConsulta = new AgendarConsulta();
             agendarConsulta.excluir(nomePaciente);
             

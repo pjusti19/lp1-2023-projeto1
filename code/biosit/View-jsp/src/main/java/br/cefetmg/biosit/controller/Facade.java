@@ -7,9 +7,7 @@ package br.cefetmg.biosit.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -82,7 +80,7 @@ public class Facade extends HttpServlet {
             jsp = BuscarConsulta.execute(request);
         } else if(act.equals("exibirConsulta")) {
             jsp = ExibirConsulta.execute(request);
-        } else if(act.equals("atualizaConsulta")) {
+        } else if(act.equals("atualizarConsulta")) {
             jsp = AtualizarConsulta.execute(request);
         } else if(act.equals("excluirConsulta")) {
             jsp = ExcluirConsulta.execute(request);

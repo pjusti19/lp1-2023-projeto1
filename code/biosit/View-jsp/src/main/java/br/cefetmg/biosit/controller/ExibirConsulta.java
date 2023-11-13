@@ -1,18 +1,8 @@
 package br.cefetmg.biosit.controller;
 
-import java.util.Date;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Consulta;
-import br.cefetmg.biosit.service.IAgendarConsulta;
 import br.cefetmg.biosit.service.implement.AgendarConsulta;
-import br.cefetmg.biosit.dto.exception.*;
-import java.util.ArrayList;
-import java.util.List;
 /**
  *
  * @author Pedro Gabriel
@@ -29,8 +19,8 @@ public class ExibirConsulta {
             request.setAttribute("consulta_exib", consulta);
         } catch(Exception e) {
             request.setAttribute("error", e.getMessage());
-            request.setAttribute("tperror", "pesquisaConsulta");
-            jsp = "/index.jsp";
+            request.setAttribute("tperror", "buscar Consulta");
+            jsp = "/listagemConsultas.jsp";
         }
         return jsp;
     }
