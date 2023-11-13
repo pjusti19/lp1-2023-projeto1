@@ -25,9 +25,9 @@
         function avaliarGravidade() {
             let gravidade = "Baixo";
 
-            if (sintomasSelecionados.includes("Dor no Peito")) {
+            if (sintomasSelecionados.includes("urgente")) {
                 gravidade = "Urgente";
-            } else if (sintomasSelecionados.some(sintoma => moderada.includes(sintoma))) {
+            } else if (sintomasSelecionados.includes("moderado")) {
                 gravidade = "Moderado";
             } else if (sintomasSelecionados.some(sintoma => urgente.includes(sintoma))) {
                 gravidade = "Urgente";
@@ -50,30 +50,138 @@
    </head>
    <body>
       <%@include file="header.jsp" %>
-      <div class="cinza" style="background-color: rgb(209, 209, 209);">
-         <div class="cadastro" style="display: flex;">
+      <main class="cinza" style="background-color: rgb(209, 209, 209);">
             <div class= "cadastrotriagem">
                <form action="Facade" method="GET" >
                   <h3>Novo Paciente</h3>
-                  <label id="nome-cadastrotriagem">Paciente:</label><br>
-                  <input type="text" id="nome" name="nome" required><br>
                   
-                  <label id="datanasc-cadastrotriagem">Data de nascimento:</label><br>
-                  <input type="date" id="datanasc" name="datanasc"><br>
+  
                   
-                  <label id="rg-cadastrotriagem">RG:</label><br>
-                  <input type="number" id="rg" name="rg"><br>
+                  <label style="width:100%;" id="nome-cadastrotriagem">Nome:
+                  <input style="width:100%;"type="text" id="nome" name="nome"><br></label>
                   
-                  <label id="sintomas-triagem">Sintomas:</label><br>
-                  <textarea id="sintomas" name="sintomas" rows="4" cols="40" required></textarea>
+                  <label style="width:100%;" id="endereco-cadastrotriagem">Endereço:
+                  <input style="width:100%;" type="text" id="rg" name="endereco"><br></label>
                   
-                  <label> 
-                  <input type="checkbox" value="Febre" onchange="atualizarSintomas(this, this.checked)">
-                     Febre
+                
+                  <label style="width:48%;" id="datanasc-cadastrotriagem">Data de nascimento:
+                  <input style="width:100%;"type="date" id="datanasc" name="datanasc"><br></label>
+                  
+                  
+                  
+                  <label style="width:48%;" id="cpf-cadastrotriagem">CPF:
+                  <input style="width:100%;" type="number" id="rg" name="cpf"><br></label>
+                  
+                  <br>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <label style="width: 100%;">
+                      Sintomas gerais:<br>
+                      <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                          Febre</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                          Calafrios</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Perda de Apetite</label><br>
+                      
+                       <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                           Perda de peso</label><br><br>
+                          
+                          
+                       Sintomas Respiratórios:<br>
+                      <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Tosse</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="urgencia" onchange="atualizarSintomas(this, this.checked)">
+                          Falta de ar</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="urgencia" onchange="atualizarSintomas(this, this.checked)">
+                          Dor no peito ao respirar</label><br>
+                      
+                       <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                           Expectoração de catarro</label><br><br>
+                           
+                         
+                           Sintomas Gastrointestinais:<br>
+                      <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Náuseas</label><br>
+                           
+                           <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                          Vômitos</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                          Diarreia</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Dor abdominal</label><br>
+                      
+                       <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                           Sangramento Gastrointestinal</label><br><br>
+                           
+                           
+                         Sintomas Cardiovasculares:<br>
+                      <label style="width:100%"> <input type="checkbox" value="urgente" onchange="atualizarSintomas(this, this.checked)">
+                          Dor ou desconforto no peito</label><br>
+                           
+                           <label style="width:100%"> <input type="checkbox" value="urgente" onchange="atualizarSintomas(this, this.checked)">
+                          Palpitações</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="urgente" onchange="atualizarSintomas(this, this.checked)">
+                          Tontura</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="urgente" onchange="atualizarSintomas(this, this.checked)">
+                          Desmaio</label><br><br>
+                          
+                          
+                          Sintomas Neurológicos:<br>
+                      <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                          Dor de cabeça</label><br>
+                           
+                           <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Tontura</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                          Fraqueza</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Problemas de visão</label><br>
+                          
+                          
+                       <label style="width:100%"> <input type="checkbox" value="urgente" onchange="atualizarSintomas(this, this.checked)">
+                           Confusão</label><br><br>
+                           
+                           
+                           Sintomas Musculares e Articulares:<br>
+            
+                           
+                           <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                          Tontura</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Fraqueza</label><br>
+                      
+                      <label style="width:100%"> <input type="checkbox" value="baixo" onchange="atualizarSintomas(this, this.checked)">
+                          Problemas de visão</label><br>
+                          
+                          
+                       <label style="width:100%"> <input type="checkbox" value="moderado" onchange="atualizarSintomas(this, this.checked)">
+                           Confusão</label><br><br>
+                      
+                       
+                            
                   </label>
                   
+                  
+                  
+                  
                   <label>
-        <input type="checkbox" value="Dor no Peito" onchange="atualizarSintomas(this, this.checked)">
+        
         Dor no Peito
     </label>
                   
@@ -93,11 +201,14 @@
                   <br>
                   <br>
                   <p id="gravidade">Urgência: Baixo</p>
+                  <label style="width:100%;" id="sintomas-triagem">Sintomas:
+                      <textarea style="width:100%;" id="sintomas" name="sintomas" rows="4" cols="40" required></textarea><br></label>
                   <button class="botaotriagem" type="submit" name="act" value="cadastrarTriagem">Confirmar</button>
                </form>
             </div>
-         </div>
-      </div>
+         
+      </main>
+      
       <script src="scripts/triagem.js"></script>
    </body>
 </html>

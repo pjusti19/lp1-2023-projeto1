@@ -21,20 +21,24 @@
          }
          
          .cadastrotriagem {
-             display: inline;
+                 display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
              margin: 0 auto;
              width:50%; /* Altere para o valor da largura desejada. */
              box-shadow: 1px 1px 17px 1px #7a8383;
              font-family: 'Raleway', sans-serif;
              background-color: white;
              padding: 20px;
-             margin-top: 70px;
-             margin-bottom: 70px;
+             margin-top: 10px;
+             margin-bottom: 10px;
              
          }
-         .cadastro h3 {
+         h3 {
          text-align: center;
          font-size: 30px;
+         width: 100%;
          }
          .cadastro button {
          width: 100%;}
@@ -42,28 +46,30 @@
  
          }
          
-         input {
-             display: inline;
+        form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
              
          }
          
+         input {
+             border: none;
+             font-size: 22px;
+             background-color: #d9d9d9;
+         }
          #nome {
-         width: 50%;
-         font-size: 22px;
-         border: none;
-         background-color: #d9d9d9;}
+
+}
          
          #rg {
-         width: 20%;
-         font-size: 22px;
-         border: none;
-         background-color: #d9d9d9;}
+
+}
          
          #datanasc {
-         width: 160px;
-         font-size: 22px;
-         border: none;
-         background-color: #d9d9d9;}
+
+}
          
          textarea {
          resize: none;
@@ -77,6 +83,7 @@
          label {
          margin-bottom: 0; /* Remove a margem na parte inferior da label */
          font-family: 'Raleway', sans-serif;
+         font-size: 90%;
          }
          
          .botaotriagem {
@@ -84,6 +91,7 @@
              background-color: var(--azul);
              height: 50px;
          }
+         
          .dropdown {
          position: relative;
          display: inline-block;
@@ -120,3 +128,6 @@
          display: block;
          }
          
+         label {
+             margin: 1%;
+         }
