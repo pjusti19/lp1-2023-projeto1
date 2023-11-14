@@ -5,6 +5,13 @@ public class Usuario {
     private String nomeUsuario;
     private String senhaUsuario;
     private String tipoUsuario;
+    
+    public Usuario(int idUsuario, String tipoUsuario, String nomeUsuario, String senhaUsuario) {
+        this.idUsuario = idUsuario;
+        this.tipoUsuario = tipoUsuario;
+        this.nomeUsuario = nomeUsuario;
+        this.senhaUsuario = senhaUsuario;
+    }
 
     public int getIdUsuario() {
         return idUsuario;

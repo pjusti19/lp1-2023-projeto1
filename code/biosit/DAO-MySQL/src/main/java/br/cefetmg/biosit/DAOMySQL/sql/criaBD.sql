@@ -16,3 +16,16 @@ CREATE TABLE IF NOT EXISTS Pacientes (
     rg VARCHAR(20),
     telefone VARCHAR(20)
 );
+
+
+CREATE TABLE IF NOT EXISTS Usuario (
+    idUsuario INT PRIMARY KEY,
+    nomeUsuario VARCHAR(50),
+    senhaUsuario VARCHAR(50),
+    tipoUsuario VARCHAR(20)
+);
+
+INSERT INTO Usuario (idUsuario, nomeUsuario, senhaUsuario, tipoUsuario)
+VALUES
+    (1, 'admin', '123', 'admin'),
+    (2, 'medico', '123', 'medico');

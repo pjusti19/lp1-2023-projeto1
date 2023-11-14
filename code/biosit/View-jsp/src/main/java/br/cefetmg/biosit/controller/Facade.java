@@ -86,6 +86,8 @@ public class Facade extends HttpServlet {
             jsp = AtualizarConsulta.execute(request);
         } else if(act.equals("excluirConsulta")) {
             jsp = ExcluirConsulta.execute(request);
+        } else if(act.equals("fazerLogin")) {
+            jsp = FazerLogin.execute(request);
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
