@@ -90,8 +90,9 @@ public class Facade extends HttpServlet {
             jsp = EditarRegistroProntuario.execute(request);
         } else if(act.equals("excluirRegistro")) {
             jsp = ExcluirRegistroProntuario.execute(request);
+        } else if(act.equals("fazerLogin")) {
+            jsp = FazerLogin.execute(request);
         }
-
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }
