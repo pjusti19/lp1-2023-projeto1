@@ -295,15 +295,28 @@ main {
     cursor: pointer;
 }
 #container-editar-registro {
-    position: absolute;
+    position: fixed;
     width: 60vw;
     height: 50vh;
     top: 25vh;
     left: 20vw;
+    background-color: white;
 }
 #container-editar-registro.editar-off {
     display: none;
 }
 #containerwt.display-total-off {
     opacity: 0.5;
+}
+#form-editar-reg {
+    background-color: white;
+}
+#fechar-edicao {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--azul);
+}
+#fechar-edicao:hover {
+    cursor: pointer;
 }

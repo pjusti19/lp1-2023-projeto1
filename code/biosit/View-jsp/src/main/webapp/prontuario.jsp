@@ -17,6 +17,7 @@
         <%@ page import="br.cefetmg.biosit.dto.Prontuario" %>
         <%@ page import="br.cefetmg.biosit.dto.RegistroProntuario" %>
         <%@ page import="java.util.ArrayList" %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -67,10 +68,10 @@
                                 </label>
                                 <label id="categoria-pron">Categoria<br>
                                     <select name="tipo-reg">
-                                        <option value="alergia">Alergia</option>
-                                        <option value="diagnostico">Diagnóstico</option>
-                                        <option value="observacao">Observação</option>
-                                        <option value="registro" selected>Registro</option>
+                                        <option value="Alergia">Alergia</option>
+                                        <option value="Diagnostico">Diagnóstico</option>
+                                        <option value="Observacao">Observação</option>
+                                        <option value="Registro" selected>Registro</option>
                                     </select>
                                 </label>
                                 <label id="desc-pron">Descrição<br>
@@ -97,8 +98,13 @@
                                     <div class="reg-exib-data"><%=reg.getData()%></div>
                                     <div class="reg-exib-desc"><%=reg.getDescricao()%></div>
                                     <div class="container-btn-reg">
-                                        <a data-id="<%=reg.getID()%>" class="btn-edit-reg btn-reg">Editar</a>
-                                        <a class="btn-excluir-reg btn-reg">Excluir</a>
+                                        <a data-id="<%=reg.getID()%>" class="btn-edit-reg btn-reg"
+                                           data-titulo="<%=reg.getTitulo()%>"
+                                           data-descricao="<%=reg.getDescricao()%>">
+                                            Editar
+                                        </a>
+                                        <a class="btn-excluir-reg btn-reg"
+                                           onclick="window.location='/biosit/Facade?act=excluirRegistro&cpf=<%=paciente.getCPF()%>&id=<%=reg.getID()%>'">Excluir</a>
                                     </div>
                                 </article>
                             <%   }} %>
@@ -140,8 +146,10 @@
             </form>
             </section>
             <section id="container-editar-registro" class="editar-off">
-                <form>
+                <i id="fechar-edicao" class="fa fa-times" aria-hidden="true"></i>
+                <form id="form-editar-reg">
                     <input id="id-reg-edit" type="hidden" name="id" value="">
+                    <input type="hidden" name="cpf" value="<%=paciente.getCPF()%>">
                     <article id="form-prontuario-edit">
                         <label id="title-pron-edit">Título<br>
                             <input type="text" name="titulo-reg">
@@ -159,7 +167,7 @@
                         </label>
                     </article>
                     <article id="cont-btn-pron-registrar-edit">
-                        <button type="submit" name="act" value="EditarRegistroProntuario">Registrar</button>
+                        <button type="submit" name="act" value="EditarRegistroProntuario">Atualizar</button>
                     </article>
                 </form>
             </section>

@@ -51,11 +51,11 @@ public class AdicionarRegistroProntuario {
         }
         
         // coloca o objeto do paciente na requisição de novo para exibir na tela
-            ManterPaciente manterPaciente = new ManterPaciente();
-            Paciente paciente = null;
-            try { paciente = manterPaciente.pesquisar(cpf); } catch(Exception e) {}
-            request.setAttribute("paciente_exib", paciente);
-            request.setAttribute("sucess", "Registro adicionado com sucesso");
+        ManterPaciente manterPaciente = new ManterPaciente();
+        Paciente paciente = null;
+        try { paciente = manterPaciente.pesquisar(cpf); } catch(Exception e) {}
+        request.setAttribute("paciente_exib", paciente);
+        request.setAttribute("sucess", "Registro adicionado com sucesso");
             
         return jsp;
     }

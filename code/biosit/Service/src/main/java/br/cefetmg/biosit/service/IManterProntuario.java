@@ -16,6 +16,7 @@ import br.cefetmg.biosit.idao.*;
  */
 public interface IManterProntuario {
     void adicionarRegistro(RegistroProntuario registro) throws Exception;
-    public void editarRegistro(String idRegistro) throws Exception;
+    public void editarRegistro(RegistroProntuario registro) throws Exception;
     Prontuario pesquisar(String cpf) throws Exception;
+    void excluir(int id) throws Exception;
 }

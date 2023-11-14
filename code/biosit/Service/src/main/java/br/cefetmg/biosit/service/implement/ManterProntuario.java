@@ -39,8 +39,16 @@ public class ManterProntuario implements IManterProntuario {
     }
     
     @Override
-    public void editarRegistro(String idRegistro) throws Exception {
+    public void editarRegistro(RegistroProntuario registro) throws Exception {
+        if(Util.verify(registro.getDescricao())) {
+            throw new Exception("Insira uma descrição");
+        } if(Util.verify(registro.getTipo())) {
+            throw new Exception("Selecione um tipo");
+        } if(Util.verify(registro.getTitulo())) {
+            throw new Exception("Insira um título");
+        }
         
+        prontuarioDAO.atualizar(registro);
     }
     
     
@@ -48,5 +56,10 @@ public class ManterProntuario implements IManterProntuario {
     public Prontuario pesquisar(String cpf) throws Exception {
         Prontuario prontuario = prontuarioDAO.pesquisar(cpf);
         return prontuario;
+    }
+    
+    @Override
+    public void excluir(int id) throws Exception {
+        prontuarioDAO.deletar(id);
     }
 }

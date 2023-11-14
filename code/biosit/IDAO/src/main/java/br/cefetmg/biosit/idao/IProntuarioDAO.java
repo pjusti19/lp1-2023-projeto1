@@ -13,6 +13,6 @@ import java.util.Date;
 public interface IProntuarioDAO {
     boolean inserir(RegistroProntuario registro) throws Exception;
     boolean atualizar(RegistroProntuario registro) throws Exception;
-    boolean deletar(String cpf) throws Exception;
+    boolean deletar(int id) throws Exception;
     Prontuario pesquisar(String cpf) throws Exception;
 }

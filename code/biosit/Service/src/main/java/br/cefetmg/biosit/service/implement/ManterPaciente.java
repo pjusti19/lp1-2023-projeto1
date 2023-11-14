@@ -70,7 +70,6 @@ public class ManterPaciente implements IManterPaciente {
             throw new CadastroException("Insira um CPF");
         }
         
-        System.out.println(paciente);
         pacienteDAO.atualizar(paciente);
         
         IManterProntuario manterProntuario = new ManterProntuario();
@@ -85,6 +84,12 @@ public class ManterPaciente implements IManterPaciente {
         
         if(Util.verify(cpf)) 
             throw new CadastroException("Erro");
+        
+        IManterProntuario manterProntuario = new ManterProntuario();
+        Prontuario pron = manterProntuario.pesquisar(cpf);
+        if(!(pron.getRegistros().isEmpty())) {
+            throw new PacienteRegistradoException();
+        }
         
         pacienteDAO.deletar(cpf);
         

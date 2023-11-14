@@ -18,6 +18,14 @@ public class RegistroProntuario {
     private String cpf;
     private int id;
     
+    public RegistroProntuario() {
+        this.tipo = null;
+        this.titulo = null;
+        this.data = null;
+        this.descricao = null;
+        this.cpf = null;
+    }
+    
     public RegistroProntuario(String cpf) {
         this.tipo = null;
         this.titulo = null;
@@ -60,5 +68,8 @@ public class RegistroProntuario {
     }
     public void setID(int id) {
         this.id  = id;
+    }
+    public void setCPF(String cpf) {
+        this.cpf = cpf;
     }
 }

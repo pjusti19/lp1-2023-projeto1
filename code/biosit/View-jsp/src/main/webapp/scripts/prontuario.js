@@ -89,12 +89,34 @@ init();
 
 
 let arrayEditReg = document.querySelectorAll(".btn-edit-reg");
-for(let i = 0; i < arrayEditReg.lenght; i++) {
-    arrayEditReg[i].addEventListener('click', function(evt) {
+arrayEditReg.forEach(function(btn) {
+    btn.addEventListener('click', function(evt) {
+        titulo = evt.target.dataset.titulo;
+        descricao = evt.target.dataset.descricao;
         id = evt.target.dataset.id;
         document.querySelector("#id-reg-edit").value = id;
+        document.querySelector("#title-pron-edit input").value = titulo;
+        document.querySelector("#desc-pron-edit textarea").value = descricao;
         
         document.querySelector("#containerwt").classList.add("display-total-off");
-        document.querySelector("#container-editar-registro").remove("editar-off");
+        document.querySelector("#container-editar-registro").classList.remove("editar-off");
     });
-}
+});
+
+
+//for(let i = 0; i < arrayEditReg.lenght; i++) {;
+//    console.log(i);
+//    arrayEditReg[i].addEventListener('click', function(evt) {
+//        id = evt.target.dataset.id;
+//        document.querySelector("#id-reg-edit").value = id;
+//        
+//        document.querySelector("#containerwt").classList.add("display-total-off");
+//        document.querySelector("#container-editar-registro").remove("editar-off");
+//    });
+//}
+
+let btnFecharEdicao = document.querySelector("#fechar-edicao");
+btnFecharEdicao.addEventListener('click', ()=> {
+    document.querySelector("#containerwt").classList.remove("display-total-off");
+    document.querySelector("#container-editar-registro").classList.add("editar-off");
+});
