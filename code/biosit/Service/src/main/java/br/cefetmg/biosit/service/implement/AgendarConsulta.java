@@ -164,9 +164,9 @@ public class AgendarConsulta implements IAgendarConsulta{
         return consultas;
     }
     
-    public Consulta pesquisar(String nomeMedico) throws Exception {
-       Consulta consulta = null;
-        consulta = consultaDAO.pesquisarNomeMedico(nomeMedico);
+    public Consulta pesquisar(String nomePaciente) throws Exception {
+        Consulta consulta = null;
+        consulta = consultaDAO.pesquisarNomePaciente(nomePaciente);
         
         return consulta;
     }

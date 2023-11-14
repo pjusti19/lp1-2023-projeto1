@@ -38,7 +38,7 @@ public class BuscarConsulta {
         } catch(Exception e) {
             request.setAttribute("tperror", "buscarConsulta");
             request.setAttribute("error", e.getMessage());
-            jsp = "/index.jsp";
+            jsp = "/listagemConsultas.jsp";
         }
         
         return jsp;

@@ -17,28 +17,31 @@
             <section id="container-lista-consulta">
                 <%
                         ArrayList<Consulta> consultas = (ArrayList<Consulta>) request.getAttribute("consultas");
-                        if(consultas.size() == 0) {
+                        if(consultas == null) { %>
+                <div>Nenhuma consulta encontrada.</div>  
+                <% 
+            }else if(consultas.size() == 0) {
                 %>
-                    <div>Nenhuma consulta encontrada.</div>
+                <div>Nenhuma consulta encontrada.</div>
                 <%
                         } else {
                             for (Consulta consulta: consultas) {
                 %> 
-                    <article class="unidadeListaCon" onclick="window.location='/biosit/Facade?act=exibirConsulta&nomeExibir=<%=consulta.getNomePaciente()%>'">
-                        <section class="cont-esq">
-                            <div class="lcnomePaciente"><%=consulta.getNome()%></div>
-                            <div class="lcdescricao"><%=consulta.getDescricao()%></div>
-                            <div class="lcurgencia"><%=consulta.getUrgencia()%></div>
-                        </section>
-                        <section class="cont-dir">
-                            <div class="lcmedico"><%=consulta.getNomeMedico()%></div>
-                            <div class="lcdata"><%=Util.converter(consulta.getData())%></div>
-                            <div class="lchora"><%=consulta.getHorario()%></div>
-                        </section>
-                    </article>
+                <article class="unidadeListaCon" onclick="window.location = '/biosit/Facade?act=exibirConsulta&nomeExibir=<%=consulta.getNomePaciente()%>'">
+                    <section class="cont-esq">
+                        <div class="lcnomePaciente"><%=consulta.getNomePaciente()%></div>
+                        <div class="lcdescricao"><%=consulta.getDescricao()%></div>
+                        <div class="lcurgencia"><%=consulta.getUrgencia()%></div>
+                    </section>
+                    <section class="cont-dir">
+                        <div class="lcmedico"><%=consulta.getMedico()%></div>
+                        <div class="lcdata"><%=consulta.getData()%></div>
+                        <div class="lchora"><%=consulta.getHorario()%></div>
+                    </section>
+                </article>
                 <%   }} %>
             </section>
-            <button class="btn-voltar" onclick="window.location='/biosit/index.jsp'">Voltar</button>
+            <button class="btn-voltar" onclick="window.location = '/biosit/index.jsp'">Voltar</button>
         </main>
     </body>
 </html>

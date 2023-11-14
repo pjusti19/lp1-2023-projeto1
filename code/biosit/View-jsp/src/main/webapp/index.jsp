@@ -53,13 +53,14 @@
                         <input type="text" name="medico" maxlength="50">
                     </label>
                     <label id="data-busca">Data:
-                        <input type="date" name="data" maxlength="50">
+                        <input type="text" name="data" maxlength="50">
                     </label>
                     <label id="hora-busca">Horário:
                         <input type="text" name="horario" maxlength="50">
                     </label>
                  
                     <button id="buscaConsulta" type="submit" name="act" value="buscarConsulta">Buscar</button>
+                    
               </form>
                     </section>
                 </article>

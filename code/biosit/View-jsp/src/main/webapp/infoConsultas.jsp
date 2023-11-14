@@ -16,6 +16,7 @@
                 <form id="frm" action="Facade" method="GET">
                         <h3>Dados Gerais</h3>
                         <% Consulta consulta = (Consulta) request.getAttribute("consulta_exib");
+                            if(consulta != null){
                         %>                         
                             <label id="nome-paciente-att">Paciente:<br>
                                 <input type="text" name="nomePaciente" value='<%=consulta.getNomePaciente()%>'>
@@ -30,7 +31,7 @@
                                 <input type="text" name="medico" value='<%=consulta.getMedico()%>'>
                             </label> 
                             <label id="data-att">Data:<br>
-                                <input type="date" name="data" value='<%=consulta.getData()%>'>
+                                <input type="text" name="data" value='<%=consulta.getData()%>'>
                             </label>
                             <label id="hora-att">Horário:<br>
                                 <input type="text" name="horario" value='<%=consulta.getHorario()%>'>
@@ -38,9 +39,10 @@
                     <section id="att-btn">
                         <a id="btn-voltar" onclick="location.href = 'index.jsp'">Voltar</a>
                         <button id="atualiza-consulta" type="submit" name="act" value="atualizarConsulta">Atualizar</button>
-                        <a id="btn-delete">Excluir</a>
+                        <a id="btn-delete" onclick="window.location='/biosit/Facade?act=excluirConsulta&nomeExcluir=<%=consulta.getNomePaciente()%>'">Excluir</a>
                     </section>
                     <%
+                        }
                         String erro = (String) request.getAttribute("error");
                         if (erro != null && !erro.isEmpty()) {
                     %>
