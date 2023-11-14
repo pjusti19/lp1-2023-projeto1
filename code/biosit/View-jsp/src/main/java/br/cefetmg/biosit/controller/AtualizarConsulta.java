@@ -4,18 +4,9 @@
  */
 package br.cefetmg.biosit.controller;
 
-import java.util.Date;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Consulta;
-import br.cefetmg.biosit.service.IAgendarConsulta;
 import br.cefetmg.biosit.service.implement.AgendarConsulta;
-import br.cefetmg.biosit.dto.exception.*;
-import java.util.ArrayList;
 
 /**
  *
@@ -36,12 +27,12 @@ public class AtualizarConsulta {
             AgendarConsulta agendarConsulta = new AgendarConsulta();
             agendarConsulta.atualizar(consulta);
             
-            request.setAttribute("paciente_exib", consulta);
+            request.setAttribute("consulta_exib", consulta);
             request.setAttribute("sucess", "Dados atualizados com sucesso");
             
         } catch (Exception e) {
             request.setAttribute("error", e.getMessage());
-            jsp = "/index.jsp";
+            jsp = "/infoConsultas.jsp";
         }
         return jsp;
     }

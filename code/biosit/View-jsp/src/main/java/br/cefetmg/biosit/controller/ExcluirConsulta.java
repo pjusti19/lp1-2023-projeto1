@@ -19,18 +19,18 @@ import java.util.List;
  */
 public class ExcluirConsulta {
     public static String execute(HttpServletRequest request) {
-        String jsp = "/consulta.jsp";
+        String jsp = "/index.jsp";
         
         try {
             
-            String nomePaciente = request.getParameter("consultaExcluir");
+            String nome = request.getParameter("nomeExcluir");
             AgendarConsulta agendarConsulta = new AgendarConsulta();
-            agendarConsulta.excluir(nomePaciente);
+            agendarConsulta.excluir(nome);
             
         } catch(Exception e) {
             request.setAttribute("tperror", "excluirConsulta");
             request.setAttribute("error", e.getMessage());
-            jsp = "/consulta.jsp";
+            jsp = "/infoConsultas.jsp";
         }
         
         return jsp;

@@ -7,9 +7,7 @@ package br.cefetmg.biosit.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -74,16 +72,18 @@ public class Facade extends HttpServlet {
             jsp = AtualizarMedicamento.execute(request);
         } else if(act.equals("excluirMedicamento")) {
             jsp = ExcluirMedicamento.execute(request);
+        } else if(act.equals("cadastrarTriagem")) {
+            jsp = CadastrarTriagem.execute(request);
         } else if(act.equals("cadastrarConsulta")) {
-            jsp = CadastrarPaciente.execute(request);
+            jsp = CadastrarConsulta.execute(request);
         } else if(act.equals("buscarConsulta")) {
-            jsp = BuscarPaciente.execute(request);
+            jsp = BuscarConsulta.execute(request);
         } else if(act.equals("exibirConsulta")) {
-            jsp = ExibirPaciente.execute(request);
-        } else if(act.equals("atualizaConsulta")) {
-            jsp = AtualizarPaciente.execute(request);
+            jsp = ExibirConsulta.execute(request);
+        } else if(act.equals("atualizarConsulta")) {
+            jsp = AtualizarConsulta.execute(request);
         } else if(act.equals("excluirConsulta")) {
-            jsp = ExcluirPaciente.execute(request);
+            jsp = ExcluirConsulta.execute(request);
         } else if(act.equals("AdicionaRegistroProntuario")) {
             jsp = AdicionarRegistroProntuario.execute(request);
         } else if(act.equals("EditarRegistroProntuario")) {
@@ -91,6 +91,7 @@ public class Facade extends HttpServlet {
         } else if(act.equals("excluirRegistro")) {
             jsp = ExcluirRegistroProntuario.execute(request);
         }
+
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }

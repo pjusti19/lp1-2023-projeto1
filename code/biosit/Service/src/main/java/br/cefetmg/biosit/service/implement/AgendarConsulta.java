@@ -61,7 +61,7 @@ public class AgendarConsulta implements IAgendarConsulta{
     }
     
     @Override
-    public String atualizar(Consulta consulta) throws Exception {
+    public String atualizar(Consulta consulta) throws CadastroException, Exception {
         String id = "";
         if(Util.verify(consulta.getNomePaciente())) {
             throw new CadastroException("Insira um nome");
@@ -119,6 +119,26 @@ public class AgendarConsulta implements IAgendarConsulta{
                 }
                 if(ver) consultas.add(aux);
             }
+            if(!Util.verify(consulta.getUrgencia())) {
+                Consulta aux = consultaDAO.pesquisarNomeMedico(consulta.getUrgencia());
+                boolean ver = true;
+                for(Consulta pac : consultas) {
+                    if(pac.equals(aux)) {
+                        ver = false;
+                    }
+                }
+                if(ver) consultas.add(aux);
+            }
+            if(!Util.verify(consulta.getDescricao())) {
+                Consulta aux = consultaDAO.pesquisarNomeMedico(consulta.getDescricao());
+                boolean ver = true;
+                for(Consulta pac : consultas) {
+                    if(pac.equals(aux)) {
+                        ver = false;
+                    }
+                }
+                if(ver) consultas.add(aux);
+            }
             if(!Util.verify(consulta.getData())) {
                 List<Consulta> novos = consultaDAO.pesquisarData(consulta.getData());
                 for(Consulta novo : novos) {
@@ -145,7 +165,7 @@ public class AgendarConsulta implements IAgendarConsulta{
     }
     
     public Consulta pesquisar(String nomePaciente) throws Exception {
-       Consulta consulta = null;
+        Consulta consulta = null;
         consulta = consultaDAO.pesquisarNomePaciente(nomePaciente);
         
         return consulta;
