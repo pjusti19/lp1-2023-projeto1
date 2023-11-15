@@ -35,7 +35,7 @@
         %>
         <ul class="lista">
             <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="requisicao.jsp"><li>Requisição de Exames</li></a>
+            <a href="exame.jsp"><li>Requisição de Exames</li></a>
         </ul>
         <% } if (tipoUsuario.toString().contains("secretario")) {
         %>
@@ -46,7 +46,7 @@
         %>
         <ul class="lista">
             <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="requisicao.jsp"><li>Requisição de Exames</li></a>
+            <a href="exame.jsp"><li>Requisição de Exames</li></a>
         </ul>
         <% } if (tipoUsuario.toString().contains("secretarioTriagem")) {
         %>
@@ -54,7 +54,7 @@
             <a href="triagem.jsp"><li>Triagem</li></a>
         </ul>
         <%
-    } else { %>
+    } if (tipoUsuario.toString().contains("admin")) { %>
         <ul class="lista">
             <a href="estoque.jsp"><li>Estoque</li></a>
             <a href="funcionarios.jsp"><li>Funcionários</li></a>
@@ -63,7 +63,7 @@
             <a href="triagem.jsp"><li>Triagem</li></a>
             <a href="financeiro.jsp"><li>Financeiro</li></a>
             <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="requisicao.jsp"><li>Requisição de Exames</li></a>
+            <a href="exame.jsp"><li>Requisição de Exames</li></a>
         </ul>
         <% } %>
     </section>

@@ -13,9 +13,16 @@
             <section class="cadastro">
                 <form action="Facade" method="GET">
                     <h3>Requisição de exame:</h3>
-                    <label id="tipo-exame">Exame:<br>
-                        <input type="text" name="tipo-exame" maxlength="50">
-                    </label>
+                    <label>Exame</label>
+                    <select class="escolha" name="exame">
+                        <option value="ultrassonografia">Ultrassonografia</option> 
+                        <option value="angiografia">Angiografia</option>
+                        <option value="ressonancia">Ressonância magnética</option>
+                        <option value="tomografia">Tomografia</option>
+                        <option value="raio-x">Raio-x</option>
+                        <option value="ecocardiograma">Ecocardiograma</option>
+                        <option value="hemograma">Hemograma</option> 
+                    </select>
                     <label id="nome-cadastro">Paciente:<br>
                         <input type="text" name="paciente" maxlength="50">
                     </label>
@@ -23,7 +30,7 @@
                         <input type="text" name="data-hora" maxlength="100">
                     </label>
                     <button id="envia-cadastro" type="submit" name="act" value="requisitarExame">Requisitar exame</button>
-
+                
                 </form>
             </section>    
         </main>

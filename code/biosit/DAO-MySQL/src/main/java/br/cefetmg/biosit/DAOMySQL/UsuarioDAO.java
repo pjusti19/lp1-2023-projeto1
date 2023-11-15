@@ -14,7 +14,7 @@ public class UsuarioDAO implements IUsuarioDAO {
     private final String user;
 
     public UsuarioDAO() {
-        url = "jdbc:mysql://localhost:3306/biositbd";
+        url = "jdbc:mysql://localhost:3306/biositdb";
         password = "";
         user = "root";
     }        
