@@ -36,6 +36,7 @@
                 <button id="envia-cadastro" type="submit" name="act" value="requisitarExame">Requisitar exame</button>
 
                 <div class="exame"> 
+                  
                     <label>Exame</label>
                     <select class="escolha" name="exame">
                         <option value="ultrassonografia">Ultrassonografia</option> 
@@ -46,9 +47,16 @@
                         <option value="ecocardiograma">Ecocardiograma</option>
                         <option value="hemograma">Hemograma</option> 
                     </select>
-                </div>
-            </form>
-        </section>    
-    </main>
-</body>
+                    <label id="nome-cadastro">Paciente:<br>
+                        <input type="text" name="paciente" maxlength="50">
+                    </label>
+                    <label id="data-hora">Data e hora disponíveis:<br>
+                        <input type="text" name="data-hora" maxlength="100">
+                    </label>
+                    <button id="envia-cadastro" type="submit" name="act" value="requisitarExame">Requisitar exame</button>
+                
+                </form>
+            </section>    
+        </main>
+    </body>
 </html>

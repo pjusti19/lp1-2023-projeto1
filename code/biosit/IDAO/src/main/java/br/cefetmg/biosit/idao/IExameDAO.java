@@ -8,6 +8,7 @@ import br.cefetmg.biosit.dto.exception.CadastroException;
  *
  * @author Aluno
  */
+
 public interface IExameDAO {
     boolean inserir(Exame exame) throws CadastroException;
     boolean atualizar(Exame exame) throws Exception;
@@ -17,4 +18,4 @@ public interface IExameDAO {
     List<Exame> pesquisarDataHora(String dataHora) throws Exception;
     List<Exame> pesquisarTodos() throws Exception;
 
-}
+} 

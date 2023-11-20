@@ -1,4 +1,3 @@
-
 package br.cefetmg.biosit.service;
 
 import br.cefetmg.biosit.dto.Exame;
@@ -14,4 +13,4 @@ public interface IRequisitarExame {
     public String excluir(String dataHora) throws Exception;
     public List<Exame> pesquisar(Exame exame) throws Exception;
     
-}
+} 

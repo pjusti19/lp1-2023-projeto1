@@ -1,58 +1,46 @@
 package br.cefetmg.biosit.controller;
 
+import java.util.Date;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import br.cefetmg.biosit.dto.Consulta;
+import br.cefetmg.biosit.service.IAgendarConsulta;
+import br.cefetmg.biosit.service.implement.AgendarConsulta;
+import br.cefetmg.biosit.dto.exception.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
 
-@WebServlet("/consulta")
-public class BuscarConsulta extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+public class BuscarConsulta {
+    public static String execute(HttpServletRequest request) {
+        String jsp = "/listagemConsultas.jsp";
         
-        //obtém a data atual
-        LocalDate currentDate = LocalDate.now();
-        String data = String.valueOf(currentDate.getDayOfMonth());
-        
-        //cria uma lista para cada dado desejado
-        List<String> nomes = new ArrayList<>();
-        List<String> horarios = new ArrayList<>();
-        
-        Connection connection = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/biositdb";
-            String username = "";
-            String password = "root";
+            List<Consulta> consultas = new ArrayList<Consulta>();
             
-            connection = DriverManager.getConnection(url, username, password);
-            String sql = "SELECT nome, horario FROM funcionários WHERE data = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, data);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                nomes.add(resultSet.getString("nome"));
-                horarios.add(resultSet.getString("horario"));
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            String nomePaciente = request.getParameter("nomePaciente");
+            String descricao = request.getParameter("descricao");
+            String urgencia = request.getParameter("urgencia");
+            String medico = request.getParameter("medico");
+            String data = request.getParameter("data");
+            String horario = request.getParameter("horario");
+            Consulta consulta = new Consulta(nomePaciente, descricao, urgencia, medico, data, horario);
+            
+            IAgendarConsulta agendarConsulta = new AgendarConsulta();
+            
+            consultas = agendarConsulta.pesquisar(consulta);
+            request.setAttribute("consultas", consultas);
+            
+        } catch(Exception e) {
+            request.setAttribute("tperror", "buscarConsulta");
+            request.setAttribute("error", e.getMessage());
+            jsp = "/listagemConsultas.jsp";
         }
-
-        request.setAttribute("nomes", nomes);
-        request.setAttribute("horarios", horarios);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+        return jsp;
     }
 }

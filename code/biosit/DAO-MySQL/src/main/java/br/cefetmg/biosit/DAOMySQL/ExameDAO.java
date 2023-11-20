@@ -189,7 +189,7 @@ public class ExameDAO implements IExameDAO {
             preparedStatement.setString(3, cpf);
             preparedStatement.setString(4, dataNascimento);
             preparedStatement.setString(5, endereco);
-
+          
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -202,7 +202,3 @@ public class ExameDAO implements IExameDAO {
         }
         return exames;
     }
-}
-
-
-
