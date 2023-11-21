@@ -14,6 +14,8 @@ import br.cefetmg.biosit.dto.exception.*;
 import br.cefetmg.biosit.service.util.Util;
 import br.cefetmg.biosit.DAOMySQL.ConsultaDAO;
 import br.cefetmg.biosit.idao.IConsultaDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author pjusti19
@@ -27,7 +29,7 @@ public class AgendarConsulta implements IAgendarConsulta{
     }
     
     @Override
-    public String cadastrar(Consulta consulta) throws CadastroException{
+    public String cadastrar(Consulta consulta) throws CadastroException, MedicoIndisponivelException{
         
         if(Util.verify(consulta.getNomePaciente())) {
             throw new CadastroException("Cadastro Incompleto, insira um nome");
@@ -55,7 +57,15 @@ public class AgendarConsulta implements IAgendarConsulta{
             throw new CadastroException("O nome não pode ter mais de 50 caracteres");
         }
         
-        consultaDAO.inserir(consulta);
+        try {
+            if(consultaDAO.pesquisarDisponibilidade(consulta.getMedico(), consulta.getData(), consulta.getHorario())){
+                consultaDAO.inserir(consulta);}
+            else{
+                throw new MedicoIndisponivelException(consulta.getMedico(), consulta.getData(), consulta.getHorario());
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AgendarConsulta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return "";
     }

@@ -8,7 +8,7 @@ import br.cefetmg.biosit.dto.exception.*;
  * @author pjusti19
  */
 public interface IAgendarConsulta {
-    public String cadastrar(Consulta consulta) throws CadastroException, PacienteDuplicadoException;
+    public String cadastrar(Consulta consulta) throws CadastroException, MedicoIndisponivelException;
     public String atualizar(Consulta consulta) throws Exception;
     public String excluir(String nomePaciente) throws Exception;
     
