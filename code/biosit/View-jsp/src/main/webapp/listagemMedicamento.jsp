@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,7 +32,7 @@
                             
                         </section>
                         <section class="cont-dir">
-                            <div class="lpquantidade"><%=medicamento.getQuantidade()%></div>
+                            <div class="lpquantidade"><%=Util.converter(medicamento.getQuant())%></div>
                             <div class="lpvalidade"><%=Util.converter(medicamento.getValidade())%></div>
                         </section>
                     </article>
