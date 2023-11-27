@@ -12,6 +12,7 @@ public class Profissional {
    private String id;
    private String email;
    private String cargo;
+   private String registro;
    private double salario;
 
     public Profissional(String cargo) {
@@ -43,6 +44,9 @@ public class Profissional {
     public double getSalario() {
         return salario;
     }
+    public String getRegistro() {
+        return registro;
+    }
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
@@ -65,6 +69,8 @@ public class Profissional {
     public void setSalario(double salario) {
         this.salario = salario;
     }
-   
+    public void setRegistro(String registro) {
+        this.registro = registro;
+    }
    
 }

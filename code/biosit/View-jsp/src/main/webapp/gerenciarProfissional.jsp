@@ -42,13 +42,6 @@
                             <option value="medico">Médico</option>
                         </select>
                     </label>
-                    <!--                    <label>Especialidade: <br>
-                                            <select name="especialidade">
-                                                <option value="cardiologia">Cardiologia</option>
-                                                <option value="cirurgia">Cirurgia</option>
-                                                <option value="pediatria">Pediatria</option>
-                                            </select>
-                                        </label>-->
                     <button type="submit" name="act" value="cadastrarProfissional">Cadastrar</button>
                 </form>
                 
