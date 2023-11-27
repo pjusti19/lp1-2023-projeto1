@@ -30,9 +30,9 @@
                     </label>
                     <label id="nome-medico">Médico:<br>
                         <select name="medico" maxlength="100">
-                            <% ArrayList<Funcionario> funcionarios = (ArrayList<Funcionario>) request.getAttribute("funcionarios");
-                            for (Funcionario funcionario: funcionarios){ %>
-                            <option value='<%=funcionario.getNome()%>'><%=funcionario.getNome()%></option>
+                            <% ArrayList<Medico> medicos = (ArrayList<Medico>) request.getAttribute("medicos");
+                            for (Medico medico: medicos){ %>
+                            <option value='<%=medico.getNome()%>'><%=medico.getNome()%></option>
                             <% } %>
                         </select>
                     </label> 
