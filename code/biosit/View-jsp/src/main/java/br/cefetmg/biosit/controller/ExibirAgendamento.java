@@ -16,7 +16,7 @@ public class ExibirAgendamento {
         String jsp = "/consulta.jsp";
 
         try {
-            List<Medico> medicos = new ArrayList<Medico>();
+            List<Medico> medicos = new ArrayList<>();
             List<Paciente> pacientes = new ArrayList<Paciente>();
 
             Paciente paciente = new Paciente(null, null, null, null);
