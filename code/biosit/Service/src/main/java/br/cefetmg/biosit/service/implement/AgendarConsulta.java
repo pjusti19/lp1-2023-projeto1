@@ -50,13 +50,6 @@ public class AgendarConsulta implements IAgendarConsulta{
             throw new CadastroException("Cadastro Incompleto, insira um horário");
         }
 
-        if(consulta.getNomePaciente().length() > 50) {
-            throw new CadastroException("O nome não pode ter mais de 50 caracteres");
-        }
-        if(consulta.getMedico().length() > 50) {
-            throw new CadastroException("O nome não pode ter mais de 50 caracteres");
-        }
-        
         try {
             if(consultaDAO.pesquisarDisponibilidade(consulta.getMedico(), consulta.getData(), consulta.getHorario())){
                 consultaDAO.inserir(consulta);}

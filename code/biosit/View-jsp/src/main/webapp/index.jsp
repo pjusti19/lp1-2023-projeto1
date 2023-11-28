@@ -32,7 +32,7 @@
                         </thead>
                         <tbody id="corpoCalendario"></tbody>
                     </table>
-                <button id="agendar" name="act" value="exibirMedicos">Agendar Consulta</button>
+                <button id="agendar" name="act" value="exibirAgendamento">Agendar Consulta</button>
                 </article>
                 <article id="agenda" class="sombreado">
                     <h1 id="dataPorExtenso"></h1>
