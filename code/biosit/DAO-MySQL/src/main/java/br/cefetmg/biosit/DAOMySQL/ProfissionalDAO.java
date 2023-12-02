@@ -62,28 +62,79 @@ public class ProfissionalDAO implements IProfissionalDAO {
     }
     
     @Override
-    public List<Profissional> pesquisar(Profissional pro) throws Exception {
-        return null;
+    public List<Profissional> pesquisarTodos() throws Exception {
+        String query = "SELECT * FROM profissional";
+        List<Profissional> profissionais = new ArrayList<>();
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Profissional pro = new Profissional(resultSet.getString("cargo"));
+                pro.setCpf(resultSet.getString("cpf"));
+                pro.setEmail(resultSet.getString("email"));
+                pro.setEspecialidade(resultSet.getString("especialidade"));
+                pro.setId(resultSet.getString("id"));
+                pro.setNascimento(resultSet.getString("nascimento"));
+                pro.setNome(resultSet.getString("nome"));
+                profissionais.add(pro);
+            }
+            
+            connection.close();
+            
+        }catch (SQLException e) {
+            throw new CadastroException(e.getMessage());
+        }
+        
+        return profissionais;
     }
     
     @Override
-    public Profissional pesquisar(String cpf) throws Exception {
-        return null;
+    public List<Profissional> pesquisarNome(String nome) throws Exception {
+        List<Profissional> lista = new ArrayList<>();
+        
+        return lista;
+    }
+
+    @Override
+    public Profissional pesquisarCPF(String cpf) throws Exception {
+        Profissional pro = null;
+        
+        return pro;
+    }
+
+    @Override
+    public List<Profissional> pesquisarRegistro(String registro) throws Exception {
+        List<Profissional> lista = new ArrayList<>();
+        
+        return lista;
+    }
+
+    @Override
+    public List<Profissional> pesquisarCargo(String cargo) throws Exception {
+        List<Profissional> lista = new ArrayList<>();
+        
+        return lista;
+    }
+
+    @Override
+    public List<Profissional> pesquisarEspecialidade(String especialidade) throws Exception {
+        List<Profissional> lista = new ArrayList<>();
+        
+        return lista;
     }
     
+    // Teste
     public static void main(String[] args) {
         try {
-            Profissional pro = new Profissional("medico");
-            pro.setNascimento("05/07/1999");
-            pro.setNome("Nome teste");
-            pro.setCpf("12345678900");
-            pro.setEmail("email@email.com");
-            pro.setRegistro("reg");
-            
             ProfissionalDAO dao = new ProfissionalDAO();
-            dao.inserir(pro);
-            
-            System.out.println("deu certo: " + pro);
+            List<Profissional> pros = dao.pesquisarTodos();
+            for(Profissional pro : pros) {
+                System.out.println(pro.getCpf() + "    " + pro.getNome());
+            }
         } catch (Exception e) {
             System.out.println("errro:  " + e.getMessage());
         }

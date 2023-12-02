@@ -43,6 +43,64 @@ public class ManterProfissional {
         dao.inserir(pro);
     }
     
+    public List<Profissional> pesquisarTodos() throws Exception {
+        return dao.pesquisarTodos();
+    }
+    
+    public List<Profissional> pesquisar(Profissional pro) throws Exception {
+        List<Profissional> profissionais = new ArrayList<>();
+        
+        if(Util.verify(pro)) {
+            profissionais = dao.pesquisarTodos();
+        } else {
+            if(!Util.verify(pro.getNome())) {
+                profissionais.addAll(dao.pesquisarNome(pro.getNome()));
+            }
+            if(!Util.verify(pro.getCpf())) {
+                Profissional aux = dao.pesquisarCPF(pro.getCpf());
+                boolean ver = true;
+                for(Profissional p : profissionais) {
+                    if(p.equals(aux)) {
+                        ver = false;
+                    }
+                }
+                if(ver) profissionais.add(aux);
+            }
+            if(!Util.verify(pro.getRegistro())) {
+                List<Profissional> novos = dao.pesquisarRegistro(pro.getRegistro());
+                for(Profissional novo : novos) {
+                    boolean ver = true;
+                    for(Profissional exist : profissionais) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) profissionais.add(novo);
+                }
+            }
+            if(!Util.verify(pro.getCargo())) {
+                List<Profissional> novos = dao.pesquisarCargo(pro.getCargo());
+                for(Profissional novo : novos) {
+                    boolean ver = true;
+                    for(Profissional exist : profissionais) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) profissionais.add(novo);
+                }
+            }
+            if(!Util.verify(pro.getEspecialidade())) {
+                List<Profissional> novos = dao.pesquisarEspecialidade(pro.getEspecialidade());
+                for(Profissional novo : novos) {
+                    boolean ver = true;
+                    for(Profissional exist : profissionais) {
+                        if(exist.equals(novo)) ver = false;
+                    }
+                    if(ver) profissionais.add(novo);
+                }
+            }
+        }
+        
+        return profissionais;
+    }
+    
     public void atualizar(Profissional pro) throws Exception {
         
     }

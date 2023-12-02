@@ -16,6 +16,12 @@ public interface IProfissionalDAO {
     boolean inserir(Profissional profissional) throws Exception;
     boolean atualizar(Profissional profissional) throws Exception;
     boolean excluir(String cpf) throws Exception;
-    List<Profissional> pesquisar(Profissional pro) throws Exception;
-    Profissional pesquisar(String cpf) throws Exception;
+    
+    List<Profissional> pesquisarTodos() throws Exception;
+    List<Profissional> pesquisarNome(String nome) throws Exception;
+    Profissional pesquisarCPF(String cpf) throws Exception;
+    List<Profissional> pesquisarRegistro(String registro) throws Exception;
+    List<Profissional> pesquisarCargo(String cargo) throws Exception;
+    List<Profissional> pesquisarEspecialidade(String especialidade) throws Exception;
+    
 }
