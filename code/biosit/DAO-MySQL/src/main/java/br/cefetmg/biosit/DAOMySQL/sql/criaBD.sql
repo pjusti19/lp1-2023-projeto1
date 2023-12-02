@@ -51,3 +51,18 @@ VALUES
     (3, 'secretario','123','secretario'),
     (4, 'sec2','123','secretarioTriagem'),
     (5, 'enfermeiro','123','enfermeiro');
+
+
+CREATE TABLE profissional (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
+    email VARCHAR(20),
+    cpf VARCHAR(11),
+    nascimento VARCHAR(20),
+    registro VARCHAR(20),
+    cargo VARCHAR(20),
+    dataAdmissao VARCHAR(20),
+    salario DOUBLE,
+    especialidade VARCHAR(25),
+    UNIQUE(cpf)
+);

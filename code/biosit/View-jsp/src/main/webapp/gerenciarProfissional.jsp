@@ -42,13 +42,6 @@
                             <option value="medico">Médico</option>
                         </select>
                     </label>
-                    <!--                    <label>Especialidade: <br>
-                                            <select name="especialidade">
-                                                <option value="cardiologia">Cardiologia</option>
-                                                <option value="cirurgia">Cirurgia</option>
-                                                <option value="pediatria">Pediatria</option>
-                                            </select>
-                                        </label>-->
                     <button type="submit" name="act" value="cadastrarProfissional">Cadastrar</button>
                 </form>
                 
@@ -57,14 +50,8 @@
                     <label class="nome-pro">Nome: <br>
                         <input type="text" name="nome">
                     </label>
-                    <label class="nasc-pro">Nascimento: <br>
-                        <input type="date" name="nascimento">
-                    </label>
                     <label class="cpf-pro">CPF: <br>
                         <input type="number" name="cpf">
-                    </label>
-                    <label class="email-pro">Email: <br>
-                        <input type="email" name="email">
                     </label>
                     <label class="reg-pro">Registro: <br>
                         <input type="text" name="registro">
@@ -83,7 +70,7 @@
                             <option value="pediatria">Pediatria</option>
                         </select>
                     </label>
-                    <button type="submit" name="act" value="pesquisarProfissional">Cadastrar</button>
+                    <button type="submit" name="act" value="pesquisarProfissional">Pesquisar</button>
                 </form>
             </section>
         </main>

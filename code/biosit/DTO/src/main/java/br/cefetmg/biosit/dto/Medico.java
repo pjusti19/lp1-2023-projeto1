@@ -11,4 +11,11 @@ public class Medico extends Profissional {
         super("medico");
     }
     
+    public String getRegistro() {
+        return super.getRegistro();
+    }
+    
+    public void setRegistro(String registro) {
+        super.setRegistro(registro);
+    }
 }

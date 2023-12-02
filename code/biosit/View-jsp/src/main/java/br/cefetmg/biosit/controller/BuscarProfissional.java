@@ -12,25 +12,25 @@ import br.cefetmg.biosit.dto.*;
 import br.cefetmg.biosit.service.*;
 import br.cefetmg.biosit.service.implement.*;
 import br.cefetmg.biosit.dto.exception.*;
-
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Pedro Gabriel
  */
-public class CadastrarProfissional {
+public class BuscarProfissional {
     public static String execute(HttpServletRequest request) {
         String jsp = "/gerenciarProfissional.jsp";
-        
+        List<Profissional> profissionais = new ArrayList<>();
         try {
             Profissional pro = null;
             
             String nome = request.getParameter("nome");
-            String nasc = request.getParameter("nascimento");
             String cpf = request.getParameter("cpf");
-            String email = request.getParameter("email");
             String registro = request.getParameter("registro");
             String cargo = request.getParameter("cargo");
+            String especialidade = request.getParameter("especialidade");
             
             if(cargo.equals("medico")) {
                 pro = new Medico();
@@ -44,18 +44,18 @@ public class CadastrarProfissional {
             }
             
             pro.setCpf(cpf);
-            pro.setEmail(email);
-            pro.setNascimento(nasc);
             pro.setNome(nome);
+            pro.setEspecialidade(especialidade);
+            pro.setRegistro(registro);
             
             ManterProfissional service = new ManterProfissional();
-            service.cadastrar(pro);
+            //profissionais = service.pesquisar(pro);
+            profissionais = service.pesquisarTodos();
             
-            jsp = "/gerenciarProfissional.jsp";
-            System.out.println("cadastrou com sucesso");
-        } catch(Exception e) {
-            System.out.println("erro: " + e.getMessage());
-            jsp = "/index.jsp";
+            jsp = "/listagemProfissional.jsp";
+            request.setAttribute("profissionais", profissionais);
+        } catch (Exception e) {
+            jsp = "index.jsp";
         }
         
         return jsp;
