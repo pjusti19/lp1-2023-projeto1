@@ -15,7 +15,7 @@
                     <h3>AGENDAR CONSULTA</h3>
                     <label id="nome-paciente">Paciente:<br>
                         <select name="nomePaciente" maxlength="100">
-                        <% ArrayList<Paciente> pacientes = (ArrayList<Medico>) request.getAttribute("pacientes");
+                        <% ArrayList<Paciente> pacientes = (ArrayList<Paciente>) request.getAttribute("pacientes");
                             for (Paciente paciente: pacientes){ %>
                             <option value='<%=paciente.getNome()%>' name="nomePaciente"><%=paciente.getNome()%></option>
                             <% } %>
@@ -33,14 +33,14 @@
                     </label
                     <label id="nome-medico">Médico:<br>
                         <select name="medico" maxlength="100">
-                            <% ArrayList<Medico> medicos = (ArrayList<Medico>) request.getAttribute("medicos");
-                            for (Medico medico: medicos){ %>
-                            <option value='<%=medico.getNome()%>'><%=medico.getNome()%></option>
+                            <% ArrayList<Profissional> profissionais = (ArrayList<Profissional>) request.getAttribute("profissionais");
+                            for (Profissional profissional: profissionais){ %>
+                            <option value='<%=profissional.getNome()%>'><%=profissional.getNome()%></option>
                             <% } %>
                         </select>
                     </label> 
                     <label id="data">Data:<br>
-                        <input type="text" name="data" maxlength="10">
+                        <input type="date" name="data" maxlength="10">
                     </label>
                     <label id="hora">Horário:<br>
                         <input type="text" name="horario" maxlength="10">

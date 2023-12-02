@@ -44,12 +44,9 @@ public class CadastrarConsulta {
             agendarConsulta.cadastrar(consulta);
 
             request.setAttribute("sucess", "Consulta cadastrada com sucesso");
-        } catch(MedicoIndisponivelException e) {
+        } catch(MedicoIndisponivelException | CadastroException e) {
             request.setAttribute("tperror", "cadastrarConsulta");
             request.setAttribute("error", e.getMessage());    
-        } catch (CadastroException e) {
-            request.setAttribute("tperror", "cadastrarConsulta");
-            request.setAttribute("error", e.getMessage());
         } catch (Exception e) {
             request.setAttribute("tperror", "cadastrarConsulta");
             request.setAttribute("error", "Não foi possível realizar o cadastro, tente novamente");

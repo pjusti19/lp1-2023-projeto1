@@ -16,17 +16,17 @@ public class ExibirAgendamento {
         String jsp = "/consulta.jsp";
 
         try {
-            List<Medico> medicos = new ArrayList<>();
+            List<Profissional> profissionais = new ArrayList<>();
             List<Paciente> pacientes = new ArrayList<Paciente>();
-
             Paciente paciente = new Paciente(null, null, null, null);
-            // Medico medico = new Medico(null, null, null, null);
+            
             ManterPaciente manterPaciente = new ManterPaciente();
             pacientes = manterPaciente.pesquisar(paciente);
-            // ManterMedico manterMedico = new ManterMedico());
-            // medicos = manterMedico.pesquisar(medico);
+            ManterProfissional manterProfissional = new ManterProfissional();
+            profissionais = manterProfissional.pesquisarTodos();
+            
             request.setAttribute("pacientes", pacientes);
-            request.setAttribute("medicos", medicos);
+            request.setAttribute("profissionais", profissionais);
 
         } catch (Exception e) {
             request.setAttribute("tperror", "buscarConsulta");
