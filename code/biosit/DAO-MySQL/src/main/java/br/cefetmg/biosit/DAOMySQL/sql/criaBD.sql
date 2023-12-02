@@ -25,12 +25,24 @@ CREATE TABLE prontuario (
     descricao VARCHAR(500) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS consultas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomePaciente VARCHAR(100),
+    descricao VARCHAR(100),
+    urgencia VARCHAR(100),
+    medico VARCHAR(100),
+    dataCon VARCHAR(10),
+    horario VARCHAR(10)
+);
+
 CREATE TABLE IF NOT EXISTS Usuario (
     idUsuario INT PRIMARY KEY,
     nomeUsuario VARCHAR(50),
     senhaUsuario VARCHAR(50),
     tipoUsuario VARCHAR(20)
 );
+
+
 
 INSERT INTO Usuario (idUsuario, nomeUsuario, senhaUsuario, tipoUsuario)
 VALUES
