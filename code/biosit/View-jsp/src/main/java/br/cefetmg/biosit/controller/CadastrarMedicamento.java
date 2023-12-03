@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Medicamento;
-import br.cefetmg.biosit.service.ICadastrarMedicamento;
+import br.cefetmg.biosit.service.IManterMedicamento;
 import br.cefetmg.biosit.service.implement.ManterMedicamento;
 import br.cefetmg.biosit.dto.exception.*;
 
@@ -23,21 +23,15 @@ public class CadastrarMedicamento extends HttpServlet {
             String dataValidade = request.getParameter("data");           
             int lote = Integer.parseInt(request.getParameter("lote"));
             int quantidadeRestante = Integer.parseInt(request.getParameter("quantidade"));
-            System.out.println(nome);
-            System.out.println(fornecedora);
-            System.out.println(dataValidade);
-            System.out.println(lote);
-            System.out.println(quantidadeRestante);
-            
             
             Medicamento medicamento = new Medicamento(nome, dataValidade, quantidadeRestante, fornecedora, lote);
-            ICadastrarMedicamento manterMedicamento = new ManterMedicamento();
-            System.out.println("controller");
-            manterMedicamento.cadastrar(medicamento); 
-            System.out.println("controller try");
-            } catch (CadastroException ex) {
-                System.out.println("Erro" + ex);
-            }
+            IManterMedicamento manterMedicamento = new ManterMedicamento();
+            manterMedicamento.cadastrar(medicamento);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsp = "";
+        }
         
         return jsp;
     }

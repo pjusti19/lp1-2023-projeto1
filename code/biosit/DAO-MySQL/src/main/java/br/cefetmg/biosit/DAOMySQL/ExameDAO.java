@@ -202,3 +202,4 @@ public class ExameDAO implements IExameDAO {
         }
         return exames;
     }
+}

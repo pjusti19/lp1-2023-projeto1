@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Equipamento;
-import br.cefetmg.biosit.service.ICadastrarEquipamento;
+import br.cefetmg.biosit.service.IManterEquipamento;
 import br.cefetmg.biosit.service.implement.ManterEquipamento;
 
 @WebServlet("/excluirEquipamento")
@@ -23,7 +23,7 @@ public class ExcluirEquipamento extends HttpServlet {
             Equipamento equipamento = new Equipamento(nome, data, quantidade, fornecedora, setor);
 
             ManterEquipamento manterEquipamento = new ManterEquipamento();
-            manterEquipamento.excluir(equipamento); 
+            manterEquipamento.excluir(nome); 
 
 
         } catch(Exception e) {
