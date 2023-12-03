@@ -62,4 +62,7 @@ public class Equipamento {
         this.setor = setor;
     }
 
+    public Equipamento() {
+    }
+
 }

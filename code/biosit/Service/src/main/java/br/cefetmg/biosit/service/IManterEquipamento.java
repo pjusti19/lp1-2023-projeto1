@@ -9,5 +9,6 @@ public interface IManterEquipamento {
     public Equipamento atualizar(Equipamento equipamento) throws Exception;
     public String excluir(String nome) throws Exception;
     
+    
     public List<Equipamento> pesquisar(Equipamento equipamento) throws Exception;
 }

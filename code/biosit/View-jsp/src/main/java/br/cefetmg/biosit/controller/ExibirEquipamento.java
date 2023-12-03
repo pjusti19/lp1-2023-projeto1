@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Equipamento;
-import br.cefetmg.biosit.service.ICadastrarEquipamento;
+import br.cefetmg.biosit.service.IManterEquipamento;
 import br.cefetmg.biosit.service.implement.ManterEquipamento;
 import br.cefetmg.biosit.dto.exception.*;
 import java.util.ArrayList;

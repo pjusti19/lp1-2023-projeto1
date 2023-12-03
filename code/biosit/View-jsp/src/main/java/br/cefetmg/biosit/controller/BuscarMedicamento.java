@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Medicamento;
-import br.cefetmg.biosit.service.ICadastrarMedicamento;
+import br.cefetmg.biosit.service.IManterMedicamento;
 import br.cefetmg.biosit.service.implement.ManterMedicamento;
 import br.cefetmg.biosit.dto.exception.*;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class BuscarMedicamento {
             
             Medicamento medicamento = new Medicamento(nome, dataValidade, quantidadeRestante, fornecedora, lote);
             
-            ICadastrarMedicamento manterMedicamento = new ManterMedicamento();
+            IManterMedicamento manterMedicamento = new ManterMedicamento();
             
             medicamentos = manterMedicamento.pesquisar(medicamento);
             request.setAttribute("medicamentos", medicamentos);

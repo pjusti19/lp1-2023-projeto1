@@ -42,6 +42,27 @@ CREATE TABLE IF NOT EXISTS Usuario (
     tipoUsuario VARCHAR(20)
 );
 
+CREATE TABLE Equipamento (
+    nome VARCHAR(50),
+    dia VARCHAR(10),
+    quantidade INT,
+    fornecedora VARCHAR(50),
+    setor VARCHAR(50)
+);
+
+CREATE TABLE Medicamento (
+    nome VARCHAR(50),
+    validade VARCHAR(10),
+    quantidade INT,
+    fornecedora VARCHAR(50),
+    lote VARCHAR(50)
+);
+
+CREATE TABLE Exame (
+    exame VARCHAR(50),
+    paciente VARCHAR(50),
+    dataHora VARCHAR(10)
+);
 
 
 INSERT INTO Usuario (idUsuario, nomeUsuario, senhaUsuario, tipoUsuario)

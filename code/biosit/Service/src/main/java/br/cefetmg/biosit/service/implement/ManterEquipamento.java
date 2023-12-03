@@ -6,7 +6,7 @@ package br.cefetmg.biosit.service.implement;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
-import br.cefetmg.biosit.service.ICadastrarEquipamento;
+import br.cefetmg.biosit.service.IManterEquipamento;
 import br.cefetmg.biosit.dto.Equipamento;
 import br.cefetmg.biosit.dto.exception.*;
 import br.cefetmg.biosit.service.util.Util;
@@ -16,7 +16,7 @@ import br.cefetmg.biosit.idao.IEquipamentoDAO;
  *
  * @author Aluno
  */
-public class ManterEquipamento implements ICadastrarEquipamento {
+public class ManterEquipamento implements IManterEquipamento {
     private IEquipamentoDAO equipamentoDAO;
    
     public ManterEquipamento() {
@@ -47,12 +47,12 @@ public class ManterEquipamento implements ICadastrarEquipamento {
     }
     
     @Override
-    public String atualizar(Equipamento equipamento) throws Exception {
+    public Equipamento atualizar(Equipamento equipamento) throws Exception {
         String id = "";
-        return id;
+        return equipamento;
     }
     @Override
-    public String excluir(Equipamento equipamento) throws Exception {
+    public String excluir(String nome) throws Exception {
         String id = "";
         return id;
     }
@@ -100,6 +100,10 @@ public class ManterEquipamento implements ICadastrarEquipamento {
             }
         }
         return equipamentos;
+    }
+    
+    public Equipamento pesquisar(String nome) throws Exception {
+        return equipamentoDAO.pesquisarNome(nome).get(0);
     }
 }
 

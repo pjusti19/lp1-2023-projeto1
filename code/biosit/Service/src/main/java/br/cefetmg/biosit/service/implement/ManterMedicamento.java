@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.cefetmg.biosit.service.implement;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
-import br.cefetmg.biosit.service.ICadastrarMedicamento;
+import br.cefetmg.biosit.service.IManterMedicamento;
 import br.cefetmg.biosit.dto.Medicamento;
 import br.cefetmg.biosit.dto.exception.*;
 import br.cefetmg.biosit.service.util.Util;
@@ -17,7 +13,7 @@ import br.cefetmg.biosit.idao.IMedicamentoDAO;
  *
  * @author Aluno
  */
-public class ManterMedicamento implements ICadastrarMedicamento {
+public class ManterMedicamento implements IManterMedicamento {
     
     public ManterMedicamento() {
         this.medicamentoDAO = new MedicamentoDAO();
@@ -50,12 +46,11 @@ public class ManterMedicamento implements ICadastrarMedicamento {
     }
     
     @Override
-    public String atualizar(Medicamento medicamento) throws Exception {
+    public Medicamento atualizar(Medicamento medicamento) throws Exception {
         String id = "";
-        return id;
+        return medicamento;
     }
-    @Override
-    public String excluir(Medicamento medicamento) throws Exception {
+    public String excluir(String nome) throws Exception {
         String id = "";
         return id;
     }
@@ -103,5 +98,9 @@ public class ManterMedicamento implements ICadastrarMedicamento {
             }
         }
          return medicamentos;
+    }
+    
+    public Medicamento pesquisar(String nome) throws Exception {
+        return medicamentoDAO.pesquisarNome(nome).get(0);
     }
 }
