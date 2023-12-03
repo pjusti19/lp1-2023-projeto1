@@ -149,3 +149,82 @@ form button:hover {
     cursor: pointer;
     background-color: var(--azul);
 }
+
+
+#listagemPro {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;;
+    align-content: center;
+}
+#listagemPro .btn-voltar {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#listagemPro #containerPro {
+    padding: 10px 50px;
+}
+#listagemPro #containerPro .unidadeListaPac {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.unidadeListaPac section {
+    padding: 5px 15px;
+}
+.cont-esq {
+    border-right: 1px solid rgb(185 185 185);
+    width: 100%;
+}
+.cont-dir {
+    width: fit-content;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.unidadeListaPac .lpnome {
+    font-size: 30px;
+}
+.unidadeListaPac .lpcpf {
+    font-size: 18px;
+    color: rgb(51 51 51);
+}
+.unidadeListaPac .lpnasc {
+    font-size: 20px;
+    color: rgb(51 51 51);
+}
+.unidadeListaPac .lpcargo {
+    font-size: 23px;
+    color: rgb(51 51 51);
+}
+#listagemPro #containerPro .unidadeListaPac:hover {
+    cursor: pointer;
+}
+
+.mensagem-erro {
+    border: 1px solid red;
+    padding: 10px;
+    font-size: 24px;
+    color: red;
+    background-color: #d11d1d63;
+    width: 100%;
+}
+.mensagem-sucesso {
+    border: 1px solid blue;
+    padding: 10px;
+    font-size: 24px;
+    color: blue;
+    background-color: #203fca4a;
+    width: 100%;
+}
+
+.btn-voltar:hover {
+    cursor: pointer;
+}

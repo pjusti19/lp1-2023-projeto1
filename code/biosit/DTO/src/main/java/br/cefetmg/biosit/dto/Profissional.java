@@ -24,6 +24,17 @@ public class Profissional {
         return cpf.equals(profissional.getCpf());
     }
 
+    public String viewCargo() {
+        switch (cargo) {
+            case "medico":
+                return "Médico";
+            case "secretario":
+                return "Secretário";
+            case "gerente":
+                return "Gerente";
+        }
+        return Character.toUpperCase(cargo.charAt(0)) + cargo.substring(1);
+    }
     public String getCargo() {
         return cargo;
     }

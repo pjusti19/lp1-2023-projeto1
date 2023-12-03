@@ -47,6 +47,10 @@ public class ManterProfissional {
         return dao.pesquisarTodos();
     }
     
+    public Profissional pesquisar(String cpf) throws Exception {
+        return dao.pesquisarCPF(cpf);
+    }
+    
     public List<Profissional> pesquisar(Profissional pro) throws Exception {
         List<Profissional> profissionais = new ArrayList<>();
         
@@ -97,11 +101,24 @@ public class ManterProfissional {
                 }
             }
         }
-        
         return profissionais;
     }
     
     public void atualizar(Profissional pro) throws Exception {
         
     }
+    
+//    public static void main(String[] args) {
+//        try {
+//            ManterProfissional service = new ManterProfissional();
+//            Profissional pro = new Profissional("");
+//            pro.setCpf("12345678985");
+//            List<Profissional> pros = service.pesquisar(pro);
+//            for(Profissional p : pros) {
+//                System.out.println(p.getNome());
+//            }
+//        } catch(Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
 }

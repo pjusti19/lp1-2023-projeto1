@@ -94,44 +94,163 @@ public class ProfissionalDAO implements IProfissionalDAO {
     
     @Override
     public List<Profissional> pesquisarNome(String nome) throws Exception {
-        List<Profissional> lista = new ArrayList<>();
+        String query = "SELECT * FROM profissional WHERE nome = ?";
+        List<Profissional> profissionais = new ArrayList<>();
         
-        return lista;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, nome);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Profissional pro = new Profissional(resultSet.getString("cargo"));
+                pro.setCpf(resultSet.getString("cpf"));
+                pro.setEmail(resultSet.getString("email"));
+                pro.setEspecialidade(resultSet.getString("especialidade"));
+                pro.setId(resultSet.getString("id"));
+                pro.setNascimento(resultSet.getString("nascimento"));
+                pro.setNome(resultSet.getString("nome"));
+                profissionais.add(pro);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        }
+        return profissionais;
     }
 
     @Override
     public Profissional pesquisarCPF(String cpf) throws Exception {
+        String query = "SELECT * FROM profissional WHERE cpf = ?";
         Profissional pro = null;
         
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, cpf);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            if (resultSet.next()) {
+                pro = new Profissional(resultSet.getString("cargo"));
+                pro.setCpf(resultSet.getString("cpf"));
+                pro.setEmail(resultSet.getString("email"));
+                pro.setEspecialidade(resultSet.getString("especialidade"));
+                pro.setId(resultSet.getString("id"));
+                pro.setNascimento(resultSet.getString("nascimento"));
+                pro.setNome(resultSet.getString("nome"));
+            }
+            
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        }
         return pro;
     }
 
     @Override
     public List<Profissional> pesquisarRegistro(String registro) throws Exception {
-        List<Profissional> lista = new ArrayList<>();
+        String query = "SELECT * FROM profissional WHERE registro = ?";
+        List<Profissional> profissionais = new ArrayList<>();
         
-        return lista;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, registro);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Profissional pro = new Profissional(resultSet.getString("cargo"));
+                pro.setCpf(resultSet.getString("cpf"));
+                pro.setEmail(resultSet.getString("email"));
+                pro.setEspecialidade(resultSet.getString("especialidade"));
+                pro.setId(resultSet.getString("id"));
+                pro.setNascimento(resultSet.getString("nascimento"));
+                pro.setNome(resultSet.getString("nome"));
+                profissionais.add(pro);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        }
+        return profissionais;
     }
 
     @Override
     public List<Profissional> pesquisarCargo(String cargo) throws Exception {
-        List<Profissional> lista = new ArrayList<>();
+        String query = "SELECT * FROM profissional WHERE cargo = ?";
+        List<Profissional> profissionais = new ArrayList<>();
         
-        return lista;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, cargo);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Profissional pro = new Profissional(resultSet.getString("cargo"));
+                pro.setCpf(resultSet.getString("cpf"));
+                pro.setEmail(resultSet.getString("email"));
+                pro.setEspecialidade(resultSet.getString("especialidade"));
+                pro.setId(resultSet.getString("id"));
+                pro.setNascimento(resultSet.getString("nascimento"));
+                pro.setNome(resultSet.getString("nome"));
+                profissionais.add(pro);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        }
+        return profissionais;
     }
 
     @Override
     public List<Profissional> pesquisarEspecialidade(String especialidade) throws Exception {
-        List<Profissional> lista = new ArrayList<>();
+        String query = "SELECT * FROM profissional WHERE especialidade = ?";
+        List<Profissional> profissionais = new ArrayList<>();
         
-        return lista;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, especialidade);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Profissional pro = new Profissional(resultSet.getString("cargo"));
+                pro.setCpf(resultSet.getString("cpf"));
+                pro.setEmail(resultSet.getString("email"));
+                pro.setEspecialidade(resultSet.getString("especialidade"));
+                pro.setId(resultSet.getString("id"));
+                pro.setNascimento(resultSet.getString("nascimento"));
+                pro.setNome(resultSet.getString("nome"));
+                profissionais.add(pro);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        }
+        return profissionais;
     }
     
     // Teste
     public static void main(String[] args) {
         try {
             ProfissionalDAO dao = new ProfissionalDAO();
-            List<Profissional> pros = dao.pesquisarTodos();
+//            List<Profissional> pros = dao.pesquisarTodos();
+//            for(Profissional pro : pros) {
+//                System.out.println(pro.getCpf() + "    " + pro.getNome());
+//            }
+            List<Profissional> pros = dao.pesquisarCargo("medico");
             for(Profissional pro : pros) {
                 System.out.println(pro.getCpf() + "    " + pro.getNome());
             }

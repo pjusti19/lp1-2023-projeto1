@@ -32,12 +32,13 @@ public class CadastrarProfissional {
             String registro = request.getParameter("registro");
             String cargo = request.getParameter("cargo");
             
+            
             if(cargo.equals("medico")) {
                 pro = new Medico();
                 pro.setRegistro(request.getParameter("registro"));
-            } if(cargo.equals("secretario")) {
+            } else if(cargo.equals("secretario")) {
                 pro = new Profissional("secretario");
-            } if (cargo.equals("gerente")) {
+            } else if (cargo.equals("gerente")) {
                 pro = new Profissional("gerente");
             } else {
                 pro = new Profissional(null);
@@ -52,10 +53,15 @@ public class CadastrarProfissional {
             service.cadastrar(pro);
             
             jsp = "/gerenciarProfissional.jsp";
-            System.out.println("cadastrou com sucesso");
+            request.setAttribute("sucess", "Profissional cadastrado com sucesso");
+            request.setAttribute("profissional", pro);
         } catch(Exception e) {
-            System.out.println("erro: " + e.getMessage());
-            jsp = "/index.jsp";
+            jsp = "/gerenciarProfissional.jsp";
+            if(e.getMessage().substring(0, 9).equals("Duplicate")) {
+                request.setAttribute("error", "CPF já está cadastrado");
+            } else {
+                request.setAttribute("error", e.getMessage());
+            }
         }
         
         return jsp;
