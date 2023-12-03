@@ -30,13 +30,13 @@ public class CadastrarConsulta {
             String descricao = request.getParameter("descricao");
 //            System.out.println("des:" + descricao); 
             String urgencia = request.getParameter("urgencia");
-//            System.out.println("urg:" + urgencia);            
-            String medico = request.getParameter("medico");
-//            System.out.println("med:" + medico);            
+//            System.out.println("urg:" + urgencia);                        
             String data = request.getParameter("data");
 //            System.out.println("data:" + data);
             String horario = request.getParameter("horario");
 //            System.out.println("hora:" + horario);
+            String medico = request.getParameter("medico");
+//            System.out.println("med:" + medico);
             Consulta consulta = new Consulta(nomePaciente, descricao, urgencia, medico, data, horario);
 //            System.out.println("con:" + consulta);
 
@@ -44,9 +44,9 @@ public class CadastrarConsulta {
             agendarConsulta.cadastrar(consulta);
 
             request.setAttribute("sucess", "Consulta cadastrada com sucesso");
-        } catch (CadastroException e) {
+        } catch(MedicoIndisponivelException | CadastroException e) {
             request.setAttribute("tperror", "cadastrarConsulta");
-            request.setAttribute("error", e.getMessage());
+            request.setAttribute("error", e.getMessage());    
         } catch (Exception e) {
             request.setAttribute("tperror", "cadastrarConsulta");
             request.setAttribute("error", "Não foi possível realizar o cadastro, tente novamente");

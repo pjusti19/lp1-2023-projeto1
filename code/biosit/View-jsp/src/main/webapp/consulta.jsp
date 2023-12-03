@@ -14,24 +14,37 @@
               <form action="Facade" method="GET"> 
                     <h3>AGENDAR CONSULTA</h3>
                     <label id="nome-paciente">Paciente:<br>
-                        <input type="text" name="nomePaciente">
+                        <select name="nomePaciente" maxlength="100">
+                        <% ArrayList<Paciente> pacientes = (ArrayList<Paciente>) request.getAttribute("pacientes");
+                            for (Paciente paciente: pacientes){ %>
+                            <option value='<%=paciente.getNome()%>' name="nomePaciente"><%=paciente.getNome()%></option>
+                            <% } %>
+                        </select>
                     </label>
                     <label id="descricao">Descrição:<br>
-                        <input type="text" name="descricao" maxlength="100">
+                        <input type="text" name="descricao" maxlength="200">
                     </label>
                     <label id="urgencia">Urgência:<br>
-                        <input type="text" name="urgencia">
-                    </label>
+                        <select name="urgencia">
+                            <option value="leve" id="leve">leve</option>
+                            <option value="média" id="media">média</option>
+                            <option value="grave" id="grave">grave</option>
+                        </select>
+                    </label
                     <label id="nome-medico">Médico:<br>
-                        <input type="text" name="medico" maxlength="100">
+                        <select name="medico" maxlength="100">
+                            <% ArrayList<Profissional> profissionais = (ArrayList<Profissional>) request.getAttribute("profissionais");
+                            for (Profissional profissional: profissionais){ %>
+                            <option value='<%=profissional.getNome()%>'><%=profissional.getNome()%></option>
+                            <% } %>
+                        </select>
                     </label> 
                     <label id="data">Data:<br>
-                        <input type="text" name="data" maxlength="10">
+                        <input type="date" name="data" maxlength="10">
                     </label>
                     <label id="hora">Horário:<br>
                         <input type="text" name="horario" maxlength="10">
                     </label>
-                 
                     <button id="enviaConsulta" type="submit" name="act" value="cadastrarConsulta">Agendar</button>
                     <%
                     String error2 = (String) request.getAttribute("error");

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+:root {
+    --azul: rgb(44, 182, 248);
+    --cinza: rgb(221 218 218);
+    --fonte-principal: 'Raleway', sans-serif;
+}
+
+/* 
+    Created on : 25 de nov. de 2023, 23:58:16
+    Author     : Pedro Gabriel
+*/
+
+main#profissional {
+    height: 70vh;
+    padding: 30px;
+}
+
+main#profissional section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 70px;
+}
+
+form#pesquisa {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 30vw;
+    justify-content: space-between;
+}
+
+form#pesquisa h3 {
+    font-family: var(--fonte-principal);
+    color: var(--azul);
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+form#cadastro {
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 30vw;
+    box-shadow: 1px 1px 17px 1px #7a8383;
+    justify-content: space-between;
+}
+
+form#cadastro h3 {
+    font-family: var(--fonte-principal);
+    color: var(--azul);
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+form#cadastro input,
+form#cadastro select {
+    background-color: var(--cinza);
+}
+form#cadastro input {
+    border: none;
+}
+form input {
+    height: 50%;
+    box-sizing: border-box;
+}
+form select {
+    height: 50%;
+}
+
+form {
+    font-family: var(--fonte-principal);
+}
+form label {
+    font-size: 21px;
+    margin: 5px 0px;
+}
+
+.nome-pro {
+    width: 100%;
+}
+.nome-pro input {
+    width: 100%;
+}
+
+.cpf-pro {
+    width: 45%;
+}
+.cpf-pro input {
+    width: 100%;
+}
+
+.nasc-pro {
+    width: 45%;
+}
+.nasc-pro input {
+    width: 100%;
+}
+
+.email-pro {
+    width: 100%;
+}
+.email-pro input {
+    width: 100%;
+}
+
+.reg-pro input {
+    width: 100%;
+}
+.cargo-pro select {
+    width: 100%;
+}
+.esp-pro select {
+    width: 100%;
+}
+
+form#cadastro .reg-pro {
+    width: 60%;
+}
+form#cadastro .cargo-pro {
+    width: 30%;
+}
+form#pesquisa .reg-pro {
+    width: 45%;
+}
+form#pesquisa .cargo-pro {
+    width: 45%;
+}
+form#pesquisa .esp-pro {
+    width: 45%;
+}
+
+
+form button {
+    margin: 2vh auto;
+    width: 100%;
+    background-color: var(--azul);
+    border: none;
+    height: 60px;
+}
+form button:hover {
+    cursor: pointer;
+    background-color: var(--azul);
+}

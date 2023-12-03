@@ -25,6 +25,10 @@ public class Util {
         return Util.verify(paciente.getCPF()) && Util.verify(paciente.getEndereco()) && Util.verify(paciente.getNome()) && Util.verify(paciente.getNascimento());
     }
     
+    public static boolean verify(Profissional pro) {
+        return Util.verify(pro.getCpf()) && Util.verify(pro.getCargo()) && Util.verify(pro.getEmail()) && Util.verify(pro.getNascimento()) && Util.verify(pro.getNome());
+    }
+    
     public static boolean verify(Equipamento equipamento) {
         return Util.verify(equipamento.getNome()) && Util.verify(equipamento.getData()) && Util.verify(equipamento.getFornecedora()) && Util.verify(equipamento.getSetor());
     }

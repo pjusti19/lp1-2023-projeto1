@@ -26,14 +26,15 @@ public class ConsultaDAO implements IConsultaDAO{
     private final String user;
     
     public ConsultaDAO() {
-        url = "jdbc:mysql://localhost:3306/biositdb?serverTimezone=America/Sao_Paulo";
+        url = "jdbc:mysql://localhost:3306/biositdb?serverTimezone=UTC";
         password = "";
         user = "root";
     }
     
     @Override
     public boolean inserir(Consulta consulta) throws CadastroException{
-        String query = "INSERT INTO consultas (nomePaciente, descricao, urgencia, medico, data, horario) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO consultas (nomePaciente, descricao, urgencia, medico, dataCon, horario) VALUES (?, ?, ?, ?, ?, ?)";
+                
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, user, password);
@@ -49,9 +50,6 @@ public class ConsultaDAO implements IConsultaDAO{
             preparedStatement.executeUpdate();
             connection.close();
         }catch (SQLException e) {
-            /* if(e.getMessage().substring(0, 9).equals("Duplicate")) {
-                throw new ConsultaDuplicadoException(consulta.getCPF());
-            } */
             throw new CadastroException(e.getMessage());
         } catch (ClassNotFoundException e) {
             throw new CadastroException(e.getMessage());
@@ -61,7 +59,7 @@ public class ConsultaDAO implements IConsultaDAO{
     
     @Override
     public boolean atualizar(Consulta consulta) throws CadastroException {
-    String query = "UPDATE consultas SET descricao = ?, urgencia = ?, medico = ?, data = ?, horario = ? WHERE nomePaciente = ?";
+    String query = "UPDATE consultas SET descricao = ?, urgencia = ?, medico = ?, dataCon = ?, horario = ? WHERE nomePaciente = ?";
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, user, password);
@@ -189,8 +187,31 @@ public class ConsultaDAO implements IConsultaDAO{
     }
     
     @Override
+    public boolean pesquisarDisponibilidade(String medico, String data, String horario) throws Exception {
+        String query = "SELECT * FROM consultas WHERE medico = ? AND dataCon = ? AND horario = ?";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, medico);
+            preparedStatement.setString(2, data);
+            preparedStatement.setString(3, horario);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return false;
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        }
+        return true;
+    }
+    
+    @Override
     public List<Consulta> pesquisarData(String data) throws Exception {
-        String query = "SELECT * FROM consultas WHERE data = ?";
+        String query = "SELECT * FROM consultas WHERE dataCon = ?";
         List<Consulta> consultas = new ArrayList<>();
         
         try {
