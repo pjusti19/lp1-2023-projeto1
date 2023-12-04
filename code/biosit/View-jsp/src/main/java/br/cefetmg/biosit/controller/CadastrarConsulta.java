@@ -8,9 +8,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import br.cefetmg.biosit.dto.Consulta;
+import br.cefetmg.biosit.dto.Paciente;
+import br.cefetmg.biosit.dto.Profissional;
 import br.cefetmg.biosit.service.IAgendarConsulta;
 import br.cefetmg.biosit.service.implement.AgendarConsulta;
 import br.cefetmg.biosit.dto.exception.*;
+import br.cefetmg.biosit.service.implement.ManterPaciente;
+import br.cefetmg.biosit.service.implement.ManterProfissional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +23,12 @@ import java.util.List;
  * @author Aluno
  */
 
+
+// ISSO DAQUI TA MUITO FEIO, MAS FUNCIONA!
+
 public class CadastrarConsulta {
 
-    public static String execute(HttpServletRequest request) {
+    public static String execute(HttpServletRequest request) throws Exception {
         String jsp = "/consulta.jsp";
 
         try {
@@ -42,12 +49,46 @@ public class CadastrarConsulta {
 
             IAgendarConsulta agendarConsulta = new AgendarConsulta();
             agendarConsulta.cadastrar(consulta);
-
+            
+            List<Profissional> profissionais = new ArrayList<>();
+            List<Paciente> pacientes = new ArrayList<Paciente>();
+            Paciente paciente = new Paciente(null, null, null, null);
+            
+            ManterPaciente manterPaciente = new ManterPaciente();
+            pacientes = manterPaciente.pesquisar(paciente);
+            ManterProfissional manterProfissional = new ManterProfissional();
+            profissionais = manterProfissional.pesquisarTodos();
+            
+            request.setAttribute("pacientes", pacientes);
+            request.setAttribute("profissionais", profissionais);
+            
             request.setAttribute("sucess", "Consulta cadastrada com sucesso");
         } catch(MedicoIndisponivelException | CadastroException e) {
+            List<Profissional> profissionais = new ArrayList<>();
+            List<Paciente> pacientes = new ArrayList<Paciente>();
+            Paciente paciente = new Paciente(null, null, null, null);
+            
+            ManterPaciente manterPaciente = new ManterPaciente();
+            pacientes = manterPaciente.pesquisar(paciente);
+            ManterProfissional manterProfissional = new ManterProfissional();
+            profissionais = manterProfissional.pesquisarTodos();
+            
+            request.setAttribute("pacientes", pacientes);
+            request.setAttribute("profissionais", profissionais);
             request.setAttribute("tperror", "cadastrarConsulta");
             request.setAttribute("error", e.getMessage());    
         } catch (Exception e) {
+            List<Profissional> profissionais = new ArrayList<>();
+            List<Paciente> pacientes = new ArrayList<Paciente>();
+            Paciente paciente = new Paciente(null, null, null, null);
+            
+            ManterPaciente manterPaciente = new ManterPaciente();
+            pacientes = manterPaciente.pesquisar(paciente);
+            ManterProfissional manterProfissional = new ManterProfissional();
+            profissionais = manterProfissional.pesquisarTodos();
+            
+            request.setAttribute("pacientes", pacientes);
+            request.setAttribute("profissionais", profissionais);
             request.setAttribute("tperror", "cadastrarConsulta");
             request.setAttribute("error", "Não foi possível realizar o cadastro, tente novamente");
         }

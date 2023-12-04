@@ -4,9 +4,9 @@
  * Created: 29 de out. de 2023
  */
 
-CREATE DATABASE IF NOT EXISTS biositbd;
+CREATE DATABASE IF NOT EXISTS biositdb;
 
-USE biositbd;
+USE biositdb;
 
 CREATE TABLE IF NOT EXISTS pacientes (
     nome VARCHAR(50) NOT NULL,
@@ -85,5 +85,10 @@ CREATE TABLE profissional (
     dataAdmissao VARCHAR(20),
     salario DOUBLE,
     especialidade VARCHAR(25),
+    rg VARCHAR(20),
+    instituicao VARCHAR(25),
+    anoGrad VARCHAR(6),
+    telefone VARCHAR(20),
+    acess INT,
     UNIQUE(cpf)
 );

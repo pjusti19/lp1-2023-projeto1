@@ -1,9 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : 3 de out. de 2023, 18:45:04
-    Author     : Pedro Gabriel
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <!DOCTYPE html>
@@ -22,49 +16,52 @@
         <div class="bloco" id="menu">
             <button id="mostrar-notificacoes"><img src="imgs/sino.png" id="sino"></button>
             <button id="mostrar-menu"><img src="imgs/iconemenu.png" id="sino"></button>
-
         </div>
     </header>
     <section id="opcoes" class="menu-escondido">
         <h1>Menu</h1>
         <%
-    HttpSession sessionObj = request.getSession(false);
-    Object tipoUsuario = (session != null) ? session.getAttribute("tipoUsuario") : null;
+            HttpSession sessionObj = request.getSession(false);
+            Object tipoUsuario = (sessionObj != null) ? sessionObj.getAttribute("tipoUsuario") : null;
 
-    if (tipoUsuario.toString().contains("medico")) {
+            if (tipoUsuario != null && tipoUsuario.toString().contains("medico")) {
         %>
-        <ul class="lista">
-            <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="exame.jsp"><li>Requisição de Exames</li></a>
-        </ul>
-        <% } if (tipoUsuario.toString().contains("secretario")) {
+            <ul class="lista">
+                <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
+                <a href="exame.jsp"><li>Requisição de Exames</li></a>
+            </ul>
+        <% } 
+           if (tipoUsuario != null && tipoUsuario.toString().contains("secretario")) {
         %>
-        <ul class="lista">
-            <a href="paciente.jsp"><li>Paciente</li></a>
-        </ul>
-        <% } if (tipoUsuario.toString().contains("enfermeiro")) {
+            <ul class="lista">
+                <a href="paciente.jsp"><li>Paciente</li></a>
+            </ul>
+        <% } 
+           if (tipoUsuario != null && tipoUsuario.toString().contains("enfermeiro")) {
         %>
-        <ul class="lista">
-            <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="exame.jsp"><li>Requisição de Exames</li></a>
-        </ul>
-        <% } if (tipoUsuario.toString().contains("secretarioTriagem")) {
+            <ul class="lista">
+                <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
+                <a href="exame.jsp"><li>Requisição de Exames</li></a>
+            </ul>
+        <% } 
+           if (tipoUsuario != null && tipoUsuario.toString().contains("secretarioTriagem")) {
         %>
-        <ul class="lista">
-            <a href="triagem.jsp"><li>Triagem</li></a>
-        </ul>
-        <%
-    } if (tipoUsuario.toString().contains("admin")) { %>
-        <ul class="lista">
-            <a href="estoque.jsp"><li>Estoque</li></a>
-            <a href="gerenciarProfissional.jsp"><li>Funcionários</li></a>
-            <a href="equipamento.jsp"><li>Equipamentos</li></a>
-            <a href="paciente.jsp"><li>Paciente</li></a>
-            <a href="triagem.jsp"><li>Triagem</li></a>
-            <a href="financeiro.jsp"><li>Financeiro</li></a>
-            <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="exame.jsp"><li>Requisição de Exames</li></a>
-        </ul>
+            <ul class="lista">
+                <a href="triagem.jsp"><li>Triagem</li></a>
+            </ul>
+        <% }
+           if (tipoUsuario != null && tipoUsuario.toString().contains("admin")) { 
+        %>
+            <ul class="lista">
+                <a href="estoque.jsp"><li>Estoque</li></a>
+                <a href="gerenciarProfissional.jsp"><li>Funcionários</li></a>
+                <a href="equipamento.jsp"><li>Equipamentos</li></a>
+                <a href="paciente.jsp"><li>Paciente</li></a>
+                <a href="triagem.jsp"><li>Triagem</li></a>
+                <a href="financeiro.jsp"><li>Financeiro</li></a>
+                <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
+                <a href="exame.jsp"><li>Requisição de Exames</li></a>
+            </ul>
         <% } %>
     </section>
     <section id="notificacoes" class="menu-escondido">
