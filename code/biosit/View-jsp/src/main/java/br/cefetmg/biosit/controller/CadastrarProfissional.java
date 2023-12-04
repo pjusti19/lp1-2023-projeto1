@@ -12,6 +12,7 @@ import br.cefetmg.biosit.dto.*;
 import br.cefetmg.biosit.service.*;
 import br.cefetmg.biosit.service.implement.*;
 import br.cefetmg.biosit.dto.exception.*;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -29,20 +30,25 @@ public class CadastrarProfissional {
             String nasc = request.getParameter("nascimento");
             String cpf = request.getParameter("cpf");
             String email = request.getParameter("email");
-            String registro = request.getParameter("registro");
+            String tel = request.getParameter("tel");
             String cargo = request.getParameter("cargo");
+            
+            Date dt = new Date();
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            String data = formato.format(dt);
             
             if(cargo.equals("medico")) {
                 pro = new Medico();
-                pro.setRegistro(request.getParameter("registro"));
-            } if(cargo.equals("secretario")) {
+            } else if(cargo.equals("secretario")) {
                 pro = new Profissional("secretario");
-            } if (cargo.equals("gerente")) {
+            } else if (cargo.equals("gerente")) {
                 pro = new Profissional("gerente");
             } else {
                 pro = new Profissional(null);
             }
             
+            pro.setTel(tel);
+            pro.setAdmissao(data);
             pro.setCpf(cpf);
             pro.setEmail(email);
             pro.setNascimento(nasc);
@@ -51,11 +57,16 @@ public class CadastrarProfissional {
             ManterProfissional service = new ManterProfissional();
             service.cadastrar(pro);
             
-            jsp = "/gerenciarProfissional.jsp";
-            System.out.println("cadastrou com sucesso");
+            jsp = "/profissional.jsp";
+            request.setAttribute("sucess", "Profissional cadastrado com sucesso");
+            request.setAttribute("profissional", pro);
         } catch(Exception e) {
-            System.out.println("erro: " + e.getMessage());
-            jsp = "/index.jsp";
+            jsp = "/gerenciarProfissional.jsp";
+            if(e.getMessage().substring(0, 9).equals("Duplicate")) {
+                request.setAttribute("error", "CPF já está cadastrado");
+            } else {
+                request.setAttribute("error", e.getMessage());
+            }
         }
         
         return jsp;

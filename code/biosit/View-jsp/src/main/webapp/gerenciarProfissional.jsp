@@ -32,8 +32,8 @@
                     <label class="email-pro">Email: <br>
                         <input type="email" name="email">
                     </label>
-                    <label class="reg-pro">Registro: <br>
-                        <input type="text" name="registro">
+                    <label class="reg-pro">Telefone: <br>
+                        <input type="text" name="tel">
                     </label>
                     <label class="cargo-pro">Cargo: <br>
                         <select name="cargo">
@@ -43,6 +43,26 @@
                         </select>
                     </label>
                     <button type="submit" name="act" value="cadastrarProfissional">Cadastrar</button>
+                    
+                    <%
+                    String errorr = (String) request.getAttribute("error");
+                    if (errorr != null && !errorr.isEmpty()) {
+                    %>
+                    <div class="mensagem-erro">
+                        <%= errorr %>
+                    </div>
+                    <%
+                    } else {
+                        String sucess = (String) request.getAttribute("sucess");
+                        if(sucess != null && !sucess.isEmpty()) {
+                    %>
+                    <div class="mensagem-sucesso">
+                        <%= sucess %>
+                    </div>
+                    <%
+                        } }
+                    %>
+                    
                 </form>
                 
                 <form id="pesquisa" action="Facade" method="GET">
@@ -58,6 +78,7 @@
                     </label>
                     <label class="cargo-pro">Cargo: <br>
                         <select name="cargo">
+                            <option value="">Selecionar</option>
                             <option value="gerente">Gerente</option>
                             <option value="secretario">Secretário</option>
                             <option value="medico">Médico</option>
@@ -65,6 +86,7 @@
                     </label>
                     <label class="esp-pro">Especialidade: <br>
                         <select name="especialidade">
+                            <option value="">Selecionar</option>
                             <option value="cardiologia">Cardiologia</option>
                             <option value="cirurgia">Cirurgia</option>
                             <option value="pediatria">Pediatria</option>

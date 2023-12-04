@@ -149,3 +149,236 @@ form button:hover {
     cursor: pointer;
     background-color: var(--azul);
 }
+
+
+#listagemPro {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;;
+    align-content: center;
+}
+#listagemPro .btn-voltar {
+    background-color: var(--azul);
+    width: 180px;
+    height: 60px;
+    border-radius: 0px;
+    border: none;
+    font-size: 30px;
+    margin: auto auto;
+}
+#listagemPro #containerPro {
+    padding: 10px 50px;
+}
+#listagemPro #containerPro .unidadeListaPac {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.unidadeListaPac section {
+    padding: 5px 15px;
+}
+.cont-esq {
+    border-right: 1px solid rgb(185 185 185);
+    width: 100%;
+}
+.cont-dir {
+    width: fit-content;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.unidadeListaPac .lpnome {
+    font-size: 30px;
+}
+.unidadeListaPac .lpcpf {
+    font-size: 18px;
+    color: rgb(51 51 51);
+}
+.unidadeListaPac .lpnasc {
+    font-size: 20px;
+    color: rgb(51 51 51);
+}
+.unidadeListaPac .lpcargo {
+    font-size: 23px;
+    color: rgb(51 51 51);
+}
+#listagemPro #containerPro .unidadeListaPac:hover {
+    cursor: pointer;
+}
+
+.mensagem-erro {
+    border: 1px solid red;
+    padding: 10px;
+    font-size: 24px;
+    color: red;
+    background-color: #d11d1d63;
+    width: 100%;
+}
+.mensagem-sucesso {
+    border: 1px solid blue;
+    padding: 10px;
+    font-size: 24px;
+    color: blue;
+    background-color: #203fca4a;
+    width: 100%;
+}
+
+.btn-voltar:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+/*    EDIÇÂO DE PROFISSIONAIS     */
+main {
+    font-family: var(--fonte-principal);
+}
+#container {
+    background-color: white;
+    margin: 25px;
+    box-shadow: 1px 1px 17px 1px #7a8383;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+}
+#container input {
+    background-color: var(--cinza);
+    border: none;
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+#menuu {
+    width: fit-content;
+    white-space: nowrap;
+    margin: 5px 0px;
+}
+
+.opcao-menu {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.opcao-menu.selected {
+    background-color: var(--cinza);
+}
+
+.containersec {
+    margin: 5px auto;
+    border-left: 1px var(--cinza) solid;
+    padding: 0px 12px 16px 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.containersec.secao-oculta {
+    display: none !important;
+}
+
+#dados-gerais {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#principal {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3px;
+    height: fit-content;
+}
+#funcional {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3px;
+    height: fit-content;
+}
+
+#medic {
+    width: 100%;
+    margin: auto;
+    padding: 0px 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#att-nome {
+    width: 100%;
+}
+#att-nascimento {
+    width: 45%;
+}
+#att-cpf {
+    width: 45%;
+}
+#att-tel {
+    width: 100%;
+}
+#att-email{
+    width: 100%;
+}
+#att-rg {
+    width: 100%;
+}
+#att-dataAdmissao {
+    width: 100%;
+}
+#att-cargo {
+    width: 100%;
+}
+#att-salario {
+    width: 100%;
+}
+#att-registro {
+    width: 100%;
+}
+#att-especializacao {
+    width: 100%;
+}
+#att-anograd {
+    width: 40%;
+}
+#att-graduacao {
+    width: 50%;
+}
+
+#container button {
+    padding: 5px;
+    font-size: 22px;
+    font-family: var(--fonte-principal);
+    background-color: var(--azul);
+    border: none;
+    width: 23vw;
+    margin-top: 20px;
+}
+
+#acesso {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+}
+#acesso div {
+    text-align: center;
+}
+
+#gerar-acesso {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}

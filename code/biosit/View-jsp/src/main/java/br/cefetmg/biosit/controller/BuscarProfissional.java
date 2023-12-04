@@ -32,15 +32,16 @@ public class BuscarProfissional {
             String cargo = request.getParameter("cargo");
             String especialidade = request.getParameter("especialidade");
             
+            
             if(cargo.equals("medico")) {
                 pro = new Medico();
                 pro.setRegistro(request.getParameter("registro"));
-            } if(cargo.equals("secretario")) {
+            } else if(cargo.equals("secretario")) {
                 pro = new Profissional("secretario");
-            } if (cargo.equals("gerente")) {
+            } else if (cargo.equals("gerente")) {
                 pro = new Profissional("gerente");
             } else {
-                pro = new Profissional(null);
+                pro = new Profissional(cargo);
             }
             
             pro.setCpf(cpf);
@@ -49,11 +50,11 @@ public class BuscarProfissional {
             pro.setRegistro(registro);
             
             ManterProfissional service = new ManterProfissional();
-            //profissionais = service.pesquisar(pro);
-            profissionais = service.pesquisarTodos();
+            profissionais = service.pesquisar(pro);
             
             jsp = "/listagemProfissional.jsp";
             request.setAttribute("profissionais", profissionais);
+            System.out.println("tam: " + profissionais.size() + " r: " + profissionais);
         } catch (Exception e) {
             jsp = "index.jsp";
         }

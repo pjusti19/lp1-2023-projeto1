@@ -47,6 +47,10 @@ public class ManterProfissional {
         return dao.pesquisarTodos();
     }
     
+    public Profissional pesquisar(String cpf) throws Exception {
+        return dao.pesquisarCPF(cpf);
+    }
+    
     public List<Profissional> pesquisar(Profissional pro) throws Exception {
         List<Profissional> profissionais = new ArrayList<>();
         
@@ -97,11 +101,61 @@ public class ManterProfissional {
                 }
             }
         }
-        
         return profissionais;
     }
     
     public void atualizar(Profissional pro) throws Exception {
+        if(Util.verify(pro.getCargo())) {
+            throw new Exception("Erro");
+        }
+        if(Util.verify(pro.getCpf())) {
+            throw new Exception("Erro");
+        }
+        if(Util.verify(pro.getNome())) {
+            throw new Exception("Erro");
+        }
         
+        dao.atualizar(pro);
     }
+    
+    public void excluir(String cpf) throws Exception {
+        Profissional pro = dao.pesquisarCPF(cpf);
+        if(!(pro.getAcess() == null || pro.getAcess() == 0)) {
+            dao.excluirAcesso(pro.getAcess());
+        }
+        dao.excluir(cpf);
+    }
+    
+    public void gerarAcesso(String cpf, String cargo, String user, String senha) throws Exception {
+        Profissional pro = dao.pesquisarCPF(cpf);
+       // System.out.println(pro.getCpf() + " --nh11 " + pro.getAcess());
+        if(!(pro.getAcess() == null || pro.getAcess() == 0)) return;
+        System.out.println("entrando no dao");
+        Integer id = dao.inserirAcesso(cargo, user, senha);
+        System.out.println("voltou do inserir acesso");
+        //System.out.println(pro.getCpf() + " --nh22 " + pro.getAcess());
+        dao.linkarAcesso(cpf, id);
+    }
+    
+    public void excluirAcesso(String cpf) throws Exception {
+        Profissional pro = dao.pesquisarCPF(cpf);
+        if((pro.getAcess() == null || pro.getAcess() == 0)) return;
+        dao.excluirAcesso(pro.getAcess());
+        pro.setAcess(0);
+        dao.linkarAcesso(cpf, 0);
+    }
+    
+//    public static void main(String[] args) {
+//        try {
+//            ManterProfissional service = new ManterProfissional();
+//            Profissional pro = new Profissional("");
+//            pro.setCpf("12345678985");
+//            List<Profissional> pros = service.pesquisar(pro);
+//            for(Profissional p : pros) {
+//                System.out.println(p.getNome());
+//            }
+//        } catch(Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
 }

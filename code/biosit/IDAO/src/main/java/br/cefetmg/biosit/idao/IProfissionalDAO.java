@@ -24,4 +24,7 @@ public interface IProfissionalDAO {
     List<Profissional> pesquisarCargo(String cargo) throws Exception;
     List<Profissional> pesquisarEspecialidade(String especialidade) throws Exception;
     
+    Integer inserirAcesso(String cargo, String user, String senha) throws Exception;
+    boolean linkarAcesso(String cpf, Integer id) throws Exception;
+    boolean excluirAcesso(Integer id) throws Exception;
 }
