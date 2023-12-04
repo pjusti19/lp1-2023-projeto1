@@ -186,7 +186,7 @@ public void selecionarTriagem(Triagem inserir) {
         if (rowsAffected <= 0) {
             throw new SQLException("Falha ao atualizar o contato. Nenhuma linha foi afetada.");
         }
-    } catch (SQLException e) {
+    } catch (SQLException e){
         // Log ou relance a exceção para que o servlet a capture
         throw e;
     } catch (Exception e) {
