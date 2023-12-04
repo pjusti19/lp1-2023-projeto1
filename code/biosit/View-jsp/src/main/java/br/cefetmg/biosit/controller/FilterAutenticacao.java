@@ -29,10 +29,6 @@ public class FilterAutenticacao implements Filter {
         HttpSession session = httpRequest.getSession(false);
 
         boolean isAuthenticated = session != null && session.getAttribute("usuarioLogado") != null;
-        
-        String path = ((HttpServletRequest) request).getServletPath();
-        if (path.startsWith("/estilos/") || path.startsWith("/imgs/"))
-            chain.doFilter(request, response);
 
         if (isAuthenticated || isLoginPage(httpRequest) || isFacadePage(httpRequest)) {
             chain.doFilter(request, response);
