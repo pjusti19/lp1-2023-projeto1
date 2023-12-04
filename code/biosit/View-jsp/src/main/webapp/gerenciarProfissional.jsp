@@ -32,8 +32,8 @@
                     <label class="email-pro">Email: <br>
                         <input type="email" name="email">
                     </label>
-                    <label class="reg-pro">Registro: <br>
-                        <input type="text" name="registro">
+                    <label class="reg-pro">Telefone: <br>
+                        <input type="text" name="tel">
                     </label>
                     <label class="cargo-pro">Cargo: <br>
                         <select name="cargo">

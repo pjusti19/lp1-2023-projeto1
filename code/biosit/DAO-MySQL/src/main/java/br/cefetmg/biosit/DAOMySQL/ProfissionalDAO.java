@@ -30,7 +30,7 @@ public class ProfissionalDAO implements IProfissionalDAO {
     
     @Override
     public boolean inserir(Profissional pro) throws Exception {
-        String query = "INSERT INTO profissional (nome, cpf, email, nascimento, registro, cargo) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO profissional (nome, cpf, email, nascimento, telefone, cargo, dataAdmissao) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, user, password);
@@ -40,8 +40,9 @@ public class ProfissionalDAO implements IProfissionalDAO {
             preparedStatement.setString(2, pro.getCpf());
             preparedStatement.setString(3, pro.getEmail());
             preparedStatement.setString(4, pro.getNascimento());
-            preparedStatement.setString(5, pro.getRegistro());
+            preparedStatement.setString(5, pro.getTel());
             preparedStatement.setString(6, pro.getCargo());
+            preparedStatement.setString(7, pro.getAdmissao());
             
             preparedStatement.executeUpdate();
             connection.close();
@@ -53,12 +54,55 @@ public class ProfissionalDAO implements IProfissionalDAO {
     
     @Override
     public boolean atualizar(Profissional pro) throws Exception {
-        return false;
+        String query = "UPDATE profissional SET nome = ?, nascimento= ?, rg = ?, telefone = ?, email = ?, registro = ?, salario = ?, especialidade = ?, instituicao = ?, anoGrad = ? WHERE cpf = ?";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, pro.getNome());
+            preparedStatement.setString(2, pro.getNascimento());
+            preparedStatement.setString(3, pro.getRG());
+            preparedStatement.setString(4, pro.getTel());
+            preparedStatement.setString(5, pro.getEmail());
+            preparedStatement.setString(6, pro.getRegistro());
+            preparedStatement.setDouble(7, pro.getSalario());
+            preparedStatement.setString(8, pro.getEspecialidade());
+            preparedStatement.setString(9, pro.getInstituicao());
+            preparedStatement.setString(10, pro.getAnoGrad());
+            preparedStatement.setString(11, pro.getCpf());
+
+            preparedStatement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new CadastroException(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new CadastroException(e.getMessage());
+        }
+        return true;
     }
     
     @Override
     public boolean excluir(String cpf) throws Exception {
-        return false;
+        String query = "DELETE FROM profissional WHERE cpf = ?";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, cpf);
+
+            int r = preparedStatement.executeUpdate();
+            if (!(r > 0)) {
+                throw new Exception("Erro. Nenhum profissional encontrado");
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception("Erro ao deletar o profissional: " + e.getMessage());
+        }
+        return true;
     }
     
     @Override
@@ -80,6 +124,13 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setId(resultSet.getString("id"));
                 pro.setNascimento(resultSet.getString("nascimento"));
                 pro.setNome(resultSet.getString("nome"));
+                pro.setRegistro(resultSet.getString("registro"));
+                pro.setRG(resultSet.getString("rg"));
+                pro.setAdmissao(resultSet.getString("dataAdmissao"));
+                pro.setAnoGrad(resultSet.getString("anoGrad"));
+                pro.setInstituicao(resultSet.getString("instituicao"));
+                pro.setSalario(resultSet.getDouble("salario"));
+                pro.setTel(resultSet.getString("telefone"));
                 profissionais.add(pro);
             }
             
@@ -113,6 +164,13 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setId(resultSet.getString("id"));
                 pro.setNascimento(resultSet.getString("nascimento"));
                 pro.setNome(resultSet.getString("nome"));
+                pro.setRegistro(resultSet.getString("registro"));
+                pro.setRG(resultSet.getString("rg"));
+                pro.setAdmissao(resultSet.getString("dataAdmissao"));
+                pro.setAnoGrad(resultSet.getString("anoGrad"));
+                pro.setInstituicao(resultSet.getString("instituicao"));
+                pro.setSalario(resultSet.getDouble("salario"));
+                pro.setTel(resultSet.getString("telefone"));
                 profissionais.add(pro);
             }
             connection.close();
@@ -143,6 +201,13 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setId(resultSet.getString("id"));
                 pro.setNascimento(resultSet.getString("nascimento"));
                 pro.setNome(resultSet.getString("nome"));
+                pro.setRegistro(resultSet.getString("registro"));
+                pro.setRG(resultSet.getString("rg"));
+                pro.setAdmissao(resultSet.getString("dataAdmissao"));
+                pro.setAnoGrad(resultSet.getString("anoGrad"));
+                pro.setInstituicao(resultSet.getString("instituicao"));
+                pro.setSalario(resultSet.getDouble("salario"));
+                pro.setTel(resultSet.getString("telefone"));
             }
             
             connection.close();
@@ -173,6 +238,13 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setId(resultSet.getString("id"));
                 pro.setNascimento(resultSet.getString("nascimento"));
                 pro.setNome(resultSet.getString("nome"));
+                pro.setRegistro(resultSet.getString("registro"));
+                pro.setRG(resultSet.getString("rg"));
+                pro.setAdmissao(resultSet.getString("dataAdmissao"));
+                pro.setAnoGrad(resultSet.getString("anoGrad"));
+                pro.setInstituicao(resultSet.getString("instituicao"));
+                pro.setSalario(resultSet.getDouble("salario"));
+                pro.setTel(resultSet.getString("telefone"));
                 profissionais.add(pro);
             }
             connection.close();
@@ -203,6 +275,13 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setId(resultSet.getString("id"));
                 pro.setNascimento(resultSet.getString("nascimento"));
                 pro.setNome(resultSet.getString("nome"));
+                pro.setRegistro(resultSet.getString("registro"));
+                pro.setRG(resultSet.getString("rg"));
+                pro.setAdmissao(resultSet.getString("dataAdmissao"));
+                pro.setAnoGrad(resultSet.getString("anoGrad"));
+                pro.setInstituicao(resultSet.getString("instituicao"));
+                pro.setSalario(resultSet.getDouble("salario"));
+                pro.setTel(resultSet.getString("telefone"));
                 profissionais.add(pro);
             }
             connection.close();
@@ -233,6 +312,13 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setId(resultSet.getString("id"));
                 pro.setNascimento(resultSet.getString("nascimento"));
                 pro.setNome(resultSet.getString("nome"));
+                pro.setRegistro(resultSet.getString("registro"));
+                pro.setRG(resultSet.getString("rg"));
+                pro.setAdmissao(resultSet.getString("dataAdmissao"));
+                pro.setAnoGrad(resultSet.getString("anoGrad"));
+                pro.setInstituicao(resultSet.getString("instituicao"));
+                pro.setSalario(resultSet.getDouble("salario"));
+                pro.setTel(resultSet.getString("telefone"));
                 profissionais.add(pro);
             }
             connection.close();

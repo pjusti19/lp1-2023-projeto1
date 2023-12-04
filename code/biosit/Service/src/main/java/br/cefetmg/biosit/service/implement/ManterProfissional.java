@@ -105,7 +105,21 @@ public class ManterProfissional {
     }
     
     public void atualizar(Profissional pro) throws Exception {
+        if(Util.verify(pro.getCargo())) {
+            throw new Exception("Erro");
+        }
+        if(Util.verify(pro.getCpf())) {
+            throw new Exception("Erro");
+        }
+        if(Util.verify(pro.getNome())) {
+            throw new Exception("Erro");
+        }
         
+        dao.atualizar(pro);
+    }
+    
+    public void excluir(String cpf) throws Exception {
+        dao.excluir(cpf);
     }
     
 //    public static void main(String[] args) {
