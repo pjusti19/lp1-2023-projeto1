@@ -97,7 +97,24 @@
                 <% } %>
                 
                 <section id="acesso" class="containersec secao-oculta">
-                    Acesso
+                    <% if(pro.getAcess() == null || pro.getAcess() == 0) { %>
+                        <input type="hidden" name="acess" value="<%= pro.getAcess() %>">
+                        <section id="gerar-acesso">
+                            <div>Gerar acesso ao sistema</div><br>
+                            <label id="att-user"> Usuário:
+                                <input type="text" name="user">
+                            </label>
+                            <label id="att-senha"> Senha:
+                                <input type="password" name="senha" minlength="4" maxlength="20">
+                            </label>
+                        </section>
+                        <button name="act" value="gerarAcesso">Gerar Acesso</button>
+                    <% } else { %>
+                        <section id="gerar-acesso">
+                            <div>Acesso ativo</div>
+                            <button name="act" value="excluirAcesso">Excluir Acesso</button>
+                        </section>
+                    <% } %>
                 </section>
             </form>
                 <% String erro = (String) request.getAttribute("error");

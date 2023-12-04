@@ -26,7 +26,7 @@ CREATE TABLE prontuario (
 );
 
 CREATE TABLE IF NOT EXISTS Usuario (
-    idUsuario INT PRIMARY KEY,
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     nomeUsuario VARCHAR(50),
     senhaUsuario VARCHAR(50),
     tipoUsuario VARCHAR(20)

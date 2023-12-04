@@ -20,6 +20,8 @@ public class Profissional {
    private String instituicao;
    private String anoGrad;
    private String tel;
+   
+   private Integer acess;
 
     public Profissional(String cargo) {
         this.cargo = cargo;
@@ -30,6 +32,7 @@ public class Profissional {
         this.instituicao = "";
         this.anoGrad = "";
         this.tel = "";
+        this.acess = null;
     }
     
     public boolean equals(Profissional profissional) {
@@ -89,6 +92,9 @@ public class Profissional {
     public String getTel(){
         return tel;
     }
+    public Integer getAcess() {
+        return acess;
+    }
 
     public void setCargo(String cargo) {
         if (cargo == null) return;
@@ -144,5 +150,8 @@ public class Profissional {
         if (tel == null) return;
         this.tel = tel;
     }
-    
+    public void setAcess(Integer acess) {
+        if(acess == null) return;
+        this.acess = acess;
+    }
 }

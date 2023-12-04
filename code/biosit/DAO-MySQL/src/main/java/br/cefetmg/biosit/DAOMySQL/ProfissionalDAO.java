@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -131,6 +132,7 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setInstituicao(resultSet.getString("instituicao"));
                 pro.setSalario(resultSet.getDouble("salario"));
                 pro.setTel(resultSet.getString("telefone"));
+                pro.setAcess(resultSet.getInt("acess"));
                 profissionais.add(pro);
             }
             
@@ -171,6 +173,7 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setInstituicao(resultSet.getString("instituicao"));
                 pro.setSalario(resultSet.getDouble("salario"));
                 pro.setTel(resultSet.getString("telefone"));
+                pro.setAcess(resultSet.getInt("acess"));
                 profissionais.add(pro);
             }
             connection.close();
@@ -208,6 +211,7 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setInstituicao(resultSet.getString("instituicao"));
                 pro.setSalario(resultSet.getDouble("salario"));
                 pro.setTel(resultSet.getString("telefone"));
+                pro.setAcess(resultSet.getInt("acess"));
             }
             
             connection.close();
@@ -245,6 +249,7 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setInstituicao(resultSet.getString("instituicao"));
                 pro.setSalario(resultSet.getDouble("salario"));
                 pro.setTel(resultSet.getString("telefone"));
+                pro.setAcess(resultSet.getInt("acess"));
                 profissionais.add(pro);
             }
             connection.close();
@@ -282,6 +287,7 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setInstituicao(resultSet.getString("instituicao"));
                 pro.setSalario(resultSet.getDouble("salario"));
                 pro.setTel(resultSet.getString("telefone"));
+                pro.setAcess(resultSet.getInt("acess"));
                 profissionais.add(pro);
             }
             connection.close();
@@ -319,6 +325,7 @@ public class ProfissionalDAO implements IProfissionalDAO {
                 pro.setInstituicao(resultSet.getString("instituicao"));
                 pro.setSalario(resultSet.getDouble("salario"));
                 pro.setTel(resultSet.getString("telefone"));
+                pro.setAcess(resultSet.getInt("acess"));
                 profissionais.add(pro);
             }
             connection.close();
@@ -326,6 +333,76 @@ public class ProfissionalDAO implements IProfissionalDAO {
             throw new Exception(e.getMessage());
         }
         return profissionais;
+    }
+    
+    @Override
+    public Integer inserirAcesso(String cargo, String usuario, String senha) throws Exception {
+        String query = "INSERT INTO usuario (nomeUsuario, senhaUsuario, tipoUsuario) VALUES (?, ?, ?)";
+        Integer id = 0;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            
+            preparedStatement.setString(1, usuario);
+            preparedStatement.setString(2, senha);
+            preparedStatement.setString(3, cargo);
+            
+            int linhas = preparedStatement.executeUpdate();
+            if (linhas > 0) {
+                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    id = generatedKeys.getInt(1);
+                }
+            }
+            System.out.println("chegou antes do close");
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("errro inserir acesso: " + e.getMessage());
+        }
+        return id;
+    }
+    
+    @Override
+    public boolean linkarAcesso(String cpf, Integer id) throws Exception {
+        String query = "UPDATE profissional SET acess = ? WHERE cpf = ?";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, cpf);
+
+            preparedStatement.executeUpdate();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("errro linkar: " + e.getMessage());
+        }
+        return true;
+    }
+    
+    @Override
+    public boolean excluirAcesso(Integer id) throws Exception {
+        String query = "DELETE FROM usuario WHERE idUsuario = ?";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setInt(1, id);
+
+            int r = preparedStatement.executeUpdate();
+            if (!(r > 0)) {
+                throw new Exception("Erro. Nenhum usuário encontrado");
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception("Erro");
+        }
+        return true;
     }
     
     // Teste

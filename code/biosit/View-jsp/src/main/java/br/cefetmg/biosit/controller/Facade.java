@@ -102,6 +102,10 @@ public class Facade extends HttpServlet {
             jsp = AtualizarProfissional.execute(request);
         } else if(act.equals("excluirProfissional")) {
             jsp = ExcluirProfissional.execute(request);
+        } else if(act.equals("gerarAcesso")) {
+            jsp = GerarAcesso.execute(request);
+        } else if(act.equals("excluirAcesso")) {
+            jsp = ExcluirAcesso.execute(request);
         }
         
         RequestDispatcher rd = request.getRequestDispatcher(jsp);

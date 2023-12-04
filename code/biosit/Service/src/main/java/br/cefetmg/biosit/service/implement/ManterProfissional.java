@@ -119,7 +119,30 @@ public class ManterProfissional {
     }
     
     public void excluir(String cpf) throws Exception {
+        Profissional pro = dao.pesquisarCPF(cpf);
+        if(!(pro.getAcess() == null || pro.getAcess() == 0)) {
+            dao.excluirAcesso(pro.getAcess());
+        }
         dao.excluir(cpf);
+    }
+    
+    public void gerarAcesso(String cpf, String cargo, String user, String senha) throws Exception {
+        Profissional pro = dao.pesquisarCPF(cpf);
+       // System.out.println(pro.getCpf() + " --nh11 " + pro.getAcess());
+        if(!(pro.getAcess() == null || pro.getAcess() == 0)) return;
+        System.out.println("entrando no dao");
+        Integer id = dao.inserirAcesso(cargo, user, senha);
+        System.out.println("voltou do inserir acesso");
+        //System.out.println(pro.getCpf() + " --nh22 " + pro.getAcess());
+        dao.linkarAcesso(cpf, id);
+    }
+    
+    public void excluirAcesso(String cpf) throws Exception {
+        Profissional pro = dao.pesquisarCPF(cpf);
+        if((pro.getAcess() == null || pro.getAcess() == 0)) return;
+        dao.excluirAcesso(pro.getAcess());
+        pro.setAcess(0);
+        dao.linkarAcesso(cpf, 0);
     }
     
 //    public static void main(String[] args) {
