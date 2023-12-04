@@ -6,6 +6,8 @@
         <title>Cadastro de paciente</title>
         <link rel="stylesheet" href="estilos/mae.css">
         <link rel="stylesheet" href="estilos/consulta.css">
+        <%@ page import="br.cefetmg.biosit.dto.*" %>
+        <%@ page import="java.util.ArrayList" %>
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -26,9 +28,9 @@
                     </label>
                     <label id="urgencia">Urgência:<br>
                         <select name="urgencia">
-                            <option value="leve" id="leve">leve</option>
-                            <option value="média" id="media">média</option>
-                            <option value="grave" id="grave">grave</option>
+                            <option value="leve" id="leve">Leve</option>
+                            <option value="média" id="media">Média</option>
+                            <option value="grave" id="grave">Grave</option>
                         </select>
                     </label
                     <label id="nome-medico">Médico:<br>

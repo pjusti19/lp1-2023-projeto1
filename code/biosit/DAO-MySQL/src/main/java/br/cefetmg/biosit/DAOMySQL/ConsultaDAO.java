@@ -26,7 +26,7 @@ public class ConsultaDAO implements IConsultaDAO{
     private final String user;
     
     public ConsultaDAO() {
-        url = "jdbc:mysql://localhost:3306/biositdb?serverTimezone=UTC";
+        url = "jdbc:mysql://localhost:3306/biositdb";
         password = "";
         user = "root";
     }

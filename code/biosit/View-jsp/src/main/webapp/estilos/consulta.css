@@ -40,11 +40,41 @@ main#consulta-att section {
     display: flex;
     flex-direction: column;
 }
+
+#consulta .agendamento form select{
+    background-color: var(--cinza);
+    height: 4vh;
+    width: 100%;
+    border-radius: 0px;
+    border: none;
+}
+
+#consulta .agendamento form select option{
+    background-color: white;
+    color: #505053;
+}
+
+#consulta .agendamento form label{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 0px;
+    color: #505053;
+}
+
+#consulta .agendamento form select:hover{
+    cursor: pointer;
+}
+
+#consulta .agendamento form select:active{
+    background-color: var(--azul);
+    color: white;
+}
+
 #nome-medico, 
 #nome-medico-att{
     width: 100%;
 }
-#nome-medico input, 
+
 #nome-medico-att input{
     width: 100%;
 }
@@ -53,7 +83,7 @@ main#consulta-att section {
 #urgencia-att {
     width: 45%;
 }
-#urgencia input, 
+
 #urgencia-att input {
     width: 100%;
 }
@@ -67,7 +97,7 @@ main#consulta-att section {
 #nome-paciente-att {
     width: 100%;
 }
-#nome-paciente input, 
+
 #nome-paciente-att input {
     width: 100%;
 }
