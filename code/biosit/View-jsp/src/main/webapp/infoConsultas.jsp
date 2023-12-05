@@ -40,7 +40,7 @@
                         <section id="att-btn">
                             <a id="btn-voltar" onclick="location.href = 'index.jsp'">Voltar</a>
                             <button id="atualiza-consulta" type="submit" name="act" value="atualizarConsulta">Atualizar</button>
-                            <a id="btn-delete" onclick="window.location='/biosit/Facade?act=excluirConsulta&nomeExcluir=<%=consulta.getId()%>'">Excluir</a>
+                            <a id="btn-delete" onclick="window.location='/biosit/Facade?act=excluirConsulta&nomeExcluir=<%=consulta.getNomePaciente()%>'">Excluir</a>
                         </section>
                     <%
                         }

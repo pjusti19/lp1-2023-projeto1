@@ -187,7 +187,7 @@ public class ConsultaDAO implements IConsultaDAO{
     }
     
     @Override
-    public boolean pesquisarDisponibilidade(String medico, String data, String horario) throws Exception {
+    public boolean pesquisarDisponibilidade(String medico, String data, String horario) throws Exception, MedicoIndisponivelException {
         String query = "SELECT * FROM consultas WHERE medico = ? AND dataCon = ? AND horario = ?";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -199,8 +199,9 @@ public class ConsultaDAO implements IConsultaDAO{
             preparedStatement.setString(3, horario);
             ResultSet resultSet = preparedStatement.executeQuery();
 
+            
             if (resultSet.next()) {
-                return false;
+                throw new MedicoIndisponivelException(medico, data, horario);
             }
             connection.close();
         } catch (SQLException e) {

@@ -32,19 +32,12 @@ public class CadastrarConsulta {
 
         try {
             String nomePaciente = request.getParameter("nomePaciente");
-//            System.out.println("pac:" + nomePaciente); 
             String descricao = request.getParameter("descricao");
-//            System.out.println("des:" + descricao); 
             String urgencia = request.getParameter("urgencia");
-//            System.out.println("urg:" + urgencia);                        
             String data = request.getParameter("data");
-//            System.out.println("data:" + data);
             String horario = request.getParameter("horario");
-//            System.out.println("hora:" + horario);
             String medico = request.getParameter("medico");
-//            System.out.println("med:" + medico);
             Consulta consulta = new Consulta(nomePaciente, descricao, urgencia, medico, data, horario);
-//            System.out.println("con:" + consulta);
 
             IAgendarConsulta agendarConsulta = new AgendarConsulta();
             agendarConsulta.cadastrar(consulta);
@@ -73,7 +66,7 @@ public class CadastrarConsulta {
                 profissionais = manterProfissional.pesquisarTodos();
                 request.setAttribute("pacientes", pacientes);
                 request.setAttribute("profissionais", profissionais);
-                
+
                 request.setAttribute("tperror", "cadastrarConsulta");
                 request.setAttribute("error", e.getMessage());
             } catch (Exception ex) {
@@ -90,7 +83,7 @@ public class CadastrarConsulta {
                 profissionais = manterProfissional.pesquisarTodos();
                 request.setAttribute("pacientes", pacientes);
                 request.setAttribute("profissionais", profissionais);
-                
+
                 request.setAttribute("tperror", "cadastrarConsulta");
                 request.setAttribute("error", e.getMessage());
             } catch (Exception ex) {
@@ -107,7 +100,7 @@ public class CadastrarConsulta {
                 profissionais = manterProfissional.pesquisarTodos();
                 request.setAttribute("pacientes", pacientes);
                 request.setAttribute("profissionais", profissionais);
-                
+
                 request.setAttribute("tperror", "cadastrarConsulta");
                 request.setAttribute("error", "Não foi possível realizar o cadastro, tente novamente");
             } catch (Exception ex) {
@@ -118,3 +111,4 @@ public class CadastrarConsulta {
         return jsp;
     }
 }
+
