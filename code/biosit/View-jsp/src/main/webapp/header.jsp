@@ -20,6 +20,14 @@
          
         </div>
     </header>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function exibirNotificacao() {
+            $.get("ExibirNotificacao", function(data) {
+                $("#resultado").html(data);
+            });
+        }
+    </script>
     <section id="opcoes" class="menu-escondido">
         <h1>Menu</h1>
         <%
@@ -63,7 +71,11 @@
     </section>
     <section id="notificacoes" class="menu-escondido">
         <h1>Notificações</h1>
-        <p>Nenhuma notificação</p>
+        <button onclick="exibirNotificacao()">Exibir pacientes recém cadastrados</button>
+
+    <div id="resultado">
+        
+    </div>
     </section>
     <script src="scripts/header.js"></script>
 </html>

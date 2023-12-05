@@ -12,4 +12,5 @@ public interface IFinanceiroDAO {
     List<Financeiro> pesquisarCategoria(String categoria) throws Exception;
     List<Financeiro> pesquisarIntervaloData(Date dataInicial, Date dataFinal) throws Exception;
     List<Financeiro> pesquisarTodos() throws Exception;
+    List<Financeiro> pesquisarCompleto(String categoria, Date dataInicial, Date dataFinal) throws Exception;
 }

@@ -19,6 +19,7 @@ main#login section {
 
 #login .secao form button {
     width: 100%;
+    background-color: rgb(44, 182, 248);
 }
 
 #login .secao form {
@@ -32,6 +33,7 @@ main#login section {
 #login .secao form input {
     border-radius: 0px;
     border: none;
+    
 }
 
 #login .secao form label {

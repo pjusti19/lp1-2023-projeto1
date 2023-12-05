@@ -9,5 +9,5 @@ import java.util.List;
  * @author David Eller
  */
 public interface IPesquisarFinanceiro {   
-    public List<Financeiro> pesquisar(Financeiro financeiro) throws Exception;
+    public List<Financeiro> pesquisar(Financeiro financeiro, boolean dataDigitada) throws Exception;
 }

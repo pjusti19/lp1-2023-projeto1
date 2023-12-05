@@ -67,7 +67,7 @@ public class Consulta {
 
     public void setHorario(String horario) {
         this.horario = horario;
-    }   
+    } 
     
 }
 

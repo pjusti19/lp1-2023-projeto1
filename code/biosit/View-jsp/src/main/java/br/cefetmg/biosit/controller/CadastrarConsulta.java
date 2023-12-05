@@ -11,6 +11,7 @@ import br.cefetmg.biosit.dto.Consulta;
 import br.cefetmg.biosit.service.IAgendarConsulta;
 import br.cefetmg.biosit.service.implement.AgendarConsulta;
 import br.cefetmg.biosit.dto.exception.*;
+import br.cefetmg.biosit.controller.AdicionarNotificacao;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,6 @@ import java.util.List;
  *
  * @author Aluno
  */
-
 public class CadastrarConsulta {
 
     public static String execute(HttpServletRequest request) {
@@ -42,6 +42,8 @@ public class CadastrarConsulta {
 
             IAgendarConsulta agendarConsulta = new AgendarConsulta();
             agendarConsulta.cadastrar(consulta);
+            
+            AdicionarNotificacao.adicionar(consulta, request);
 
             request.setAttribute("sucess", "Consulta cadastrada com sucesso");
         } catch (CadastroException e) {

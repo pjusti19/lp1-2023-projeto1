@@ -32,14 +32,14 @@ public class FilterAutenticacao implements Filter {
 
         if (isAuthenticated || isLoginPage(httpRequest) || isFacadePage(httpRequest)) {
             chain.doFilter(request, response);
-        } else {
+        }
+        else {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
         }
     }
 
     @Override
     public void destroy() {
-
     }
 
     private boolean isLoginPage(HttpServletRequest request) {
