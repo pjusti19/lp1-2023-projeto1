@@ -4,9 +4,9 @@
  * Created: 29 de out. de 2023
  */
 
-CREATE DATABASE IF NOT EXISTS biositbd;
+CREATE DATABASE IF NOT EXISTS biositdb;
 
-USE biositbd;
+USE biositdb;
 
 CREATE TABLE IF NOT EXISTS pacientes (
     nome VARCHAR(50) NOT NULL,
@@ -25,12 +25,45 @@ CREATE TABLE prontuario (
     descricao VARCHAR(500) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS consultas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomePaciente VARCHAR(100),
+    descricao VARCHAR(100),
+    urgencia VARCHAR(100),
+    medico VARCHAR(100),
+    dataCon VARCHAR(10),
+    horario VARCHAR(10)
+);
+
 CREATE TABLE IF NOT EXISTS Usuario (
-    idUsuario INT PRIMARY KEY,
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     nomeUsuario VARCHAR(50),
     senhaUsuario VARCHAR(50),
     tipoUsuario VARCHAR(20)
 );
+
+CREATE TABLE Equipamento (
+    nome VARCHAR(50),
+    dia VARCHAR(10),
+    quantidade INT,
+    fornecedora VARCHAR(50),
+    setor VARCHAR(50)
+);
+
+CREATE TABLE Medicamento (
+    nome VARCHAR(50),
+    validade VARCHAR(10),
+    quantidade INT,
+    fornecedora VARCHAR(50),
+    lote VARCHAR(50)
+);
+
+CREATE TABLE Exame (
+    exame VARCHAR(50),
+    paciente VARCHAR(50),
+    dataHora VARCHAR(10)
+);
+
 
 INSERT INTO Usuario (idUsuario, nomeUsuario, senhaUsuario, tipoUsuario)
 VALUES
@@ -39,3 +72,23 @@ VALUES
     (3, 'secretario','123','secretario'),
     (4, 'sec2','123','secretarioTriagem'),
     (5, 'enfermeiro','123','enfermeiro');
+
+
+CREATE TABLE profissional (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
+    email VARCHAR(20),
+    cpf VARCHAR(11),
+    nascimento VARCHAR(20),
+    registro VARCHAR(20),
+    cargo VARCHAR(20),
+    dataAdmissao VARCHAR(20),
+    salario DOUBLE,
+    especialidade VARCHAR(25),
+    rg VARCHAR(20),
+    instituicao VARCHAR(25),
+    anoGrad VARCHAR(6),
+    telefone VARCHAR(20),
+    acess INT,
+    UNIQUE(cpf)
+);

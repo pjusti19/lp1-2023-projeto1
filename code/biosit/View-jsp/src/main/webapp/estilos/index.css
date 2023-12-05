@@ -30,36 +30,6 @@
     border: 1px solid #ccc;
 }
 
-.botaoDeBusca {
-    display: flex;
-    width: 100%;
-    justify-content: left;
-    height: min-content;
-    text-align: center;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#inputBusca { 
-    border: none;
-    font-size: 16px;
-    width: 100%;
-}
-
-#buscar {
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-#iconeBuscar{
-    height: 2vh;
-}
-
 /* css da busca de consulta */
 
 #agenda .busca form{
@@ -102,16 +72,17 @@
     width: 100%;
 }
 
-#agenda .busca form button, #agendar{
+#agenda .busca form button{
     background-color: var(--azul);
     width: 100%;
     padding: 20px auto;
 }
+
 #agenda .busca form input {
     background-color: var(--cinza);
     height: 2vh;
 }
-#agenda .busca{
+#agenda .busca, #calendario a{
     font-family: 'Raleway', sans-serif;;
 }
 #agenda .busca form input,
@@ -133,11 +104,11 @@ button:hover {
     margin: 1vh 0px;
 }
 #agenda .busca form label,
-#agenda .busca form button, #agendar{
+#agenda .busca form button, #calendario a{
     color: #505053;
     font-size: 20px;
 }
-#agenda .busca form button, #agendar{
+#agenda .busca form button, #calendario a{
     height: 40px;
     margin: 2vh auto;
 }
@@ -157,3 +128,11 @@ button:hover {
     background-color: #203fca4a;
 }
 
+#redirecionar {
+    width: 100%;  
+}
+
+#agendar {
+    display: block;
+     line-height: 40px; /* Adiciona esta linha para centralizar verticalmente */
+}

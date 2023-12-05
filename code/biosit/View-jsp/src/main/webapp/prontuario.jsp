@@ -16,6 +16,9 @@
         <%@ page import="br.cefetmg.biosit.dto.Paciente" %>
         <%@ page import="br.cefetmg.biosit.dto.Prontuario" %>
         <%@ page import="br.cefetmg.biosit.dto.RegistroProntuario" %>
+        <%@ page import="br.cefetmg.biosit.dto.Consulta" %>
+        <%@ page import="java.time.LocalDate" %>
+        <%@ page import="java.time.format.DateTimeFormatter" %>
         <%@ page import="java.util.ArrayList" %>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -29,8 +32,6 @@
                         <div id="sec-geral" class="btn-secao selected">Dados Gerais</div>
                         <div id="sec-pron" class="btn-secao">Prontuário</div>
                         <div id="sec-cons" class="btn-secao">Consultas</div>
-                        <div id="sec-exame" class="btn-secao">Exames</div>
-                        <div id="sec-receita" class="btn-secao">Receitas</div>
                     </section>
                     <% Paciente paciente = (Paciente) request.getAttribute("paciente_exib");
                     if(paciente.getRG() == null) paciente.setRG("");
@@ -111,13 +112,29 @@
                         </section>
                     </section>
                     <section class="secao-sel secao-oculta">
-                        <section>Consultas</section>
-                    </section>
-                    <section class="secao-sel secao-oculta">
-                        <section>Exames</section>
-                    </section>
-                    <section class="secao-sel secao-oculta">
-                        <section>Receitas</section>
+                        <div id="title-consulta">Consultas</div>
+                        <section id="lista-consulta">
+                            <% 
+                                ArrayList<Consulta> consultas = (ArrayList<Consulta>) request.getAttribute("consultas");
+                                if(consultas != null) {
+                                if(consultas.size() == 0) { %> Nenhuma consulta agendada. <% }
+                                for(Consulta cons : consultas) { 
+                                    DateTimeFormatter formatoInicial = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                    DateTimeFormatter formatoSaida = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                                    LocalDate d = LocalDate.parse(cons.getData(), formatoInicial);
+                                    String dd = d.format(formatoSaida);
+                                %>
+                                <article class="art-consulta <%=cons.getUrgencia()%>">
+                                    <div class="horario"><%=dd%> - <%=cons.getHorario()%></div>
+                                    <div class="corpo">
+                                        <div class="medico">Médico: <%= cons.getMedico() %></div>
+                                        <div class="descricao"><%=cons.getDescricao()%></div>
+                                        <div class="urgencia"><%=cons.getUrgencia()%></div>
+                                    </div>
+                                </article>
+                            <%} } else { %> Não foi possível encontrar consultas. <% } %>
+                        </section>
                     </section>
                 </section>
                 <section id="att-btn">

@@ -2,8 +2,6 @@
 let btnGeral = document.querySelector("#sec-geral");
 let btnPron = document.querySelector('#sec-pron');
 let btnCons = document.querySelector('#sec-cons');
-let btnExame = document.querySelector('#sec-exame');
-let btnReceita = document.querySelector('#sec-receita');
 let btnArray = document.querySelectorAll(".btn-secao");
 let secaoArray = document.querySelectorAll(".secao-sel");
 
@@ -44,30 +42,6 @@ function abreCons() {
     window.sessionStorage.setItem('sessaoAberta', 'consulta');
 }
 
-btnExame.addEventListener('click', abreExame);
-function abreExame() {
-    for(let i = 0; i < btnArray.length; i++) {
-        btnArray[i].classList.remove("selected");
-        secaoArray[i].classList.remove("secao-oculta");
-        secaoArray[i].classList.add("secao-oculta");
-    }
-    secaoArray[3].classList.remove("secao-oculta");
-    btnExame.classList.add("selected");
-    window.sessionStorage.setItem('sessaoAberta', 'exame');
-}
-
-btnReceita.addEventListener('click', abreReceita);
-function abreReceita(){
-    for(let i = 0; i < btnArray.length; i++) {
-        btnArray[i].classList.remove("selected");
-        secaoArray[i].classList.remove("secao-oculta");
-        secaoArray[i].classList.add("secao-oculta");
-    }
-    secaoArray[4].classList.remove("secao-oculta");
-    btnReceita.classList.add("selected");
-    window.sessionStorage.setItem('sessaoAberta', 'receita');
-}
-
 
 function init() {
     let sa = window.sessionStorage.getItem('sessaoAberta');
@@ -79,11 +53,7 @@ function init() {
         abreGeral();
     } else if(sa === 'consulta') {
         abreCons();
-    } else if(sa === 'exame') {
-        abreExame();
-    } else if(sa === 'receita') {
-        abreReceita();
-    } 
+    }
 }
 init();
 

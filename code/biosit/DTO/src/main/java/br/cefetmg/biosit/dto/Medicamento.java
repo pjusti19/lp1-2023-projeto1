@@ -52,9 +52,24 @@ import java.util.Date;
     public void setQuantRestante(int quantRestante) {
         this.quantRestante = quantRestante;
     }
+
+    public String getDataValidade() {
+        return dataValidade;
+    }
+
+    public void setDataValidade(String dataValidade) {
+        this.dataValidade = dataValidade;
+    }
         
     public Medicamento (String nome, String data, int quant, String fornecedora, int lote) {
-
+        this.nome = nome;
+        this.dataValidade = data;
+        this.quantRestante = quant;
+        this.fornecedora = fornecedora;
+        this.lote = lote;
+    }
+    public Medicamento(){
+        
     }
 
     

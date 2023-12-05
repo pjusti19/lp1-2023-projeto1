@@ -40,11 +40,41 @@ main#consulta-att section {
     display: flex;
     flex-direction: column;
 }
+
+#consulta .agendamento form select{
+    background-color: var(--cinza);
+    height: 4vh;
+    width: 100%;
+    border-radius: 0px;
+    border: none;
+}
+
+#consulta .agendamento form select option{
+    background-color: white;
+    color: #505053;
+}
+
+#consulta .agendamento form label{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 0px;
+    color: #505053;
+}
+
+#consulta .agendamento form select:hover{
+    cursor: pointer;
+}
+
+#consulta .agendamento form select:active{
+    background-color: var(--azul);
+    color: white;
+}
+
 #nome-medico, 
 #nome-medico-att{
     width: 100%;
 }
-#nome-medico input, 
+
 #nome-medico-att input{
     width: 100%;
 }
@@ -53,7 +83,7 @@ main#consulta-att section {
 #urgencia-att {
     width: 45%;
 }
-#urgencia input, 
+
 #urgencia-att input {
     width: 100%;
 }
@@ -67,7 +97,7 @@ main#consulta-att section {
 #nome-paciente-att {
     width: 100%;
 }
-#nome-paciente input, 
+
 #nome-paciente-att input {
     width: 100%;
 }
@@ -92,10 +122,11 @@ main#consulta-att section {
     padding: 20px auto;
 }
 #consulta .agendamento form input, 
-#consulta-att .atualizacao form input {
+#consulta-att .atualizacao form  input{
     background-color: var(--cinza);
     height: 4vh;
 }
+
 #consulta .agendamento, #consulta-att .atualizacao{
     font-family: 'Raleway', sans-serif;
 }
@@ -240,34 +271,48 @@ button:hover {
 
 .unidadeListaCon .lpnasc {
     font-size: 20px;
-    color: rgb(51 51 51);
+    color: rgb(51, 51, 51);
 }
 
 .unidadeListaCon .lcdescricao {
     font-size: 23px;
-    color: rgb(51 51 51);
+    color: rgb(51, 51, 51);
 }
 
 .unidadeListaCon .lcurgencia {
     font-size: 23px;
-    color: rgb(51 51 51);
+    color: rgb(51, 51, 51);
 }
 
 .unidadeListaCon .lcmedico {
     font-size: 20px;
-    color: rgb(51 51 51);
+    color: rgb(51, 51, 51);
 }
 
 .unidadeListaCon .lcdata{
     font-size: 18px;
-    color: rgb(51 51 51);
+    color: rgb(51, 51, 51);
 }
 
 .unidadeListaCon .lchora {
     font-size: 18px;
-    color: rgb(51 51 51);
+    color: rgb(51, 51, 51);
 }
 
 #listagemConsulta #container-lista-consulta .unidadeListaCon:hover {
     cursor: pointer;
 }
+
+
+#leve{
+    color: #203fca4a;
+}
+
+#media{
+    color: yellow;
+}
+
+#grave{
+    color: red;
+}
+

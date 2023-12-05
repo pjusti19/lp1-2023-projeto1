@@ -29,7 +29,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
 
     @Override
     public boolean inserir(Equipamento equipamento) throws CadastroException {
-        String query = "INSERT INTO equipamentos (nome, data, quantidade, fornecedora, setor) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO equipamento (nome, dia, quantidade, fornecedora, setor) VALUES (?, ?, ?, ?, ?)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -54,7 +54,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
 
     @Override
     public boolean atualizar(Equipamento equipamento) throws CadastroException {
-        String query = "UPDATE equipamento SET nome = ?, data = ?, fornecedora = ?, setor = ?, WHERE quantidade = ?";
+        String query = "UPDATE equipamento SET nome = ?, dia = ?, fornecedora = ?, setor = ?, WHERE quantidade = ?";
         try (Connection connection = DriverManager.getConnection(url, user, password); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, equipamento.getNome());
@@ -108,7 +108,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("data"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("dia"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
                 equipamentos.add(equipamento);
             }
             connection.close();
@@ -128,7 +128,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("data"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("dia"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
                 equipamentos.add(equipamento);
             }
             connection.close();
@@ -149,7 +149,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("data"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("dia"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
                 equipamentos.add(equipamento);
             }
             connection.close();
@@ -170,7 +170,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("data"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("dia"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
                 equipamentos.add(equipamento);
             }
             connection.close();
@@ -189,7 +189,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("data"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("dia"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
                 equipamentos.add(equipamento);
             }
             connection.close();
@@ -199,7 +199,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
         return equipamentos;
     }
     public List<Equipamento> pesquisarTodos() throws Exception {
-        String query = "SELECT * FROM equipamentos";
+        String query = "SELECT * FROM equipamento";
         List<Equipamento> equipamentos = new ArrayList<>();
         
         try {
@@ -209,7 +209,7 @@ public class EquipamentoDAO implements IEquipamentoDAO {
             
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("data"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
+                Equipamento equipamento = new Equipamento(resultSet.getString("nome"), resultSet.getString("dia"), resultSet.getInt("quantidade"), resultSet.getString("fornecedora"), resultSet.getString("setor"));
                 equipamentos.add(equipamento);
             }
             

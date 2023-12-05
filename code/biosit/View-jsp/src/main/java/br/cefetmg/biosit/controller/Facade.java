@@ -83,7 +83,9 @@ public class Facade extends HttpServlet {
             jsp = AtualizarConsulta.execute(request);
         } else if(act.equals("excluirConsulta")) {
             jsp = ExcluirConsulta.execute(request);
-        } else if(act.equals("AdicionaRegistroProntuario")) {
+        } else if(act.equals("exibirAgendamento")) {
+            jsp = ExibirAgendamento.execute(request);
+        }else if(act.equals("AdicionaRegistroProntuario")) {
             jsp = AdicionarRegistroProntuario.execute(request);
         } else if(act.equals("EditarRegistroProntuario")) {
             jsp = EditarRegistroProntuario.execute(request);
@@ -91,7 +93,22 @@ public class Facade extends HttpServlet {
             jsp = ExcluirRegistroProntuario.execute(request);
         } else if(act.equals("fazerLogin")) {
             jsp = FazerLogin.execute(request);
+        } else if(act.equals("cadastrarProfissional")) {
+            jsp = CadastrarProfissional.execute(request);
+        } else if(act.equals("pesquisarProfissional")) {
+            jsp = BuscarProfissional.execute(request);
+        } else if(act.equals("exibirProfissional")) {
+            jsp = ExibirProfissional.execute(request);
+        } else if(act.equals("atualizarProfissional")) {
+            jsp = AtualizarProfissional.execute(request);
+        } else if(act.equals("excluirProfissional")) {
+            jsp = ExcluirProfissional.execute(request);
+        } else if(act.equals("gerarAcesso")) {
+            jsp = GerarAcesso.execute(request);
+        } else if(act.equals("excluirAcesso")) {
+            jsp = ExcluirAcesso.execute(request);
         }
+        
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }

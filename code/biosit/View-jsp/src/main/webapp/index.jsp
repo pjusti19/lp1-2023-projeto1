@@ -32,7 +32,8 @@
                         </thead>
                         <tbody id="corpoCalendario"></tbody>
                     </table>
-                <a href="consulta.jsp"><button id="agendar">Agendar Consulta</button></a>
+                    <div id="redirecionar">
+                        <a id="agendar" onclick="window.location='/biosit/Facade?act=exibirAgendamento'">Agendar Consulta</a></div>
                 </article>
                 <article id="agenda" class="sombreado">
                     <h1 id="dataPorExtenso"></h1>

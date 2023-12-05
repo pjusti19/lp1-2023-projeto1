@@ -17,7 +17,6 @@
             <button id="mostrar-notificacoes"><img src="imgs/sino.png" id="sino"></button>
             <button id="mostrar-menu"><img src="imgs/iconemenu.png" id="sino"></button>
 
-         
         </div>
     </header>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -31,42 +30,50 @@
     <section id="opcoes" class="menu-escondido">
         <h1>Menu</h1>
         <%
-    HttpSession sessionObj = request.getSession(false);
-    Object tipoUsuario = (session != null) ? session.getAttribute("tipoUsuario") : null;
-    if (tipoUsuario.toString().contains("medico")) {
+
+            HttpSession sessionObj = request.getSession(false);
+            Object tipoUsuario = (sessionObj != null) ? sessionObj.getAttribute("tipoUsuario") : null;
+
+            if (tipoUsuario != null && tipoUsuario.toString().contains("medico")) {
+
         %>
-        <ul class="lista">
-            <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="requisicao.jsp"><li>Requisição de Exames</li></a>
-        </ul>
-        <% } if (tipoUsuario.toString().contains("secretario")) {
+            <ul class="lista">
+                <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
+                <a href="exame.jsp"><li>Requisição de Exames</li></a>
+            </ul>
+        <% } 
+           if (tipoUsuario != null && tipoUsuario.toString().contains("secretario")) {
         %>
-        <ul class="lista">
-            <a href="paciente.jsp"><li>Paciente</li></a>
-        </ul>
-        <% } if (tipoUsuario.toString().contains("enfermeiro")) {
+            <ul class="lista">
+                <a href="paciente.jsp"><li>Paciente</li></a>
+            </ul>
+        <% } 
+           if (tipoUsuario != null && tipoUsuario.toString().contains("enfermeiro")) {
         %>
-        <ul class="lista">
-            <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="requisicao.jsp"><li>Requisição de Exames</li></a>
-        </ul>
-        <% } if (tipoUsuario.toString().contains("secretarioTriagem")) {
+            <ul class="lista">
+                <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
+                <a href="exame.jsp"><li>Requisição de Exames</li></a>
+            </ul>
+        <% } 
+           if (tipoUsuario != null && tipoUsuario.toString().contains("secretarioTriagem")) {
         %>
-        <ul class="lista">
-            <a href="triagem.jsp"><li>Triagem</li></a>
-        </ul>
-        <%
-    } else { %>
-        <ul class="lista">
-            <a href="estoque.jsp"><li>Estoque</li></a>
-            <a href="funcionarios.jsp"><li>Funcionários</li></a>
-            <a href="equipamento.jsp"><li>Equipamentos</li></a>
-            <a href="paciente.jsp"><li>Paciente</li></a>
-            <a href="ExibirTriagem"><li>Triagem</li></a>
-            <a href="financeiro.jsp"><li>Financeiro</li></a>
-            <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
-            <a href="requisicao.jsp"><li>Requisição de Exames</li></a>
-        </ul>
+
+            <ul class="lista">
+                <a href="triagem.jsp"><li>Triagem</li></a>
+            </ul>
+        <% }
+           if (tipoUsuario != null && tipoUsuario.toString().contains("admin")) { 
+        %>
+            <ul class="lista">
+                <a href="medicamento.jsp"><li>Estoque</li></a>
+                <a href="gerenciarProfissional.jsp"><li>Funcionários</li></a>
+                <a href="equipamento.jsp"><li>Equipamentos</li></a>
+                <a href="paciente.jsp"><li>Paciente</li></a>
+                <a href="triagem.jsp"><li>Triagem</li></a>
+                <a href="financeiro.jsp"><li>Financeiro</li></a>
+                <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
+                <a href="exame.jsp"><li>Requisição de Exames</li></a>
+            </ul>
         <% } %>
     </section>
     <section id="notificacoes" class="menu-escondido">
