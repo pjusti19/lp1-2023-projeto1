@@ -16,7 +16,7 @@
         <main id="listagemMedicamento">
             <section id="container-lista-paciente">
                 <%
-                        ArrayList<Medicamento> medicamentos = (ArrayList<Medicamento>) request.getAttribute("pacientes");
+                        ArrayList<Medicamento> medicamentos = (ArrayList<Medicamento>) request.getAttribute("medicamentos");
                         if(medicamentos.size() == 0) {
                 %>
                     <div>Nenhum medicamento encontrado.</div>
@@ -27,13 +27,12 @@
                     <article class="unidadeListaMed" onclick="window.location='/biosit/Facade?act=exibirMedicamento&nomeExibir=<%=medicamento.getNome()%>'">
                         <section class="cont-esq">
                             <div class="lpnome"><%=medicamento.getNome()%></div>
-                            <div class="lpsetor"><%=medicamento.getSetor()%></div>
-                            <div class="lpfornecedora"><%=medicamento.getFornecedora()%></div>
+                            <div class="lpfornecedora">Fornecedora:<%=medicamento.getFornecedora()%></div>
                             
                         </section>
                         <section class="cont-dir">
-                            <div class="lpquantidade"><%=Util.converter(medicamento.getQuant())%></div>
-                            <div class="lpvalidade"><%=Util.converter(medicamento.getValidade())%></div>
+                            <div class="lpquantidade">Quantidade:<%=medicamento.getQuantRestante()%></div>
+                            <div class="lpvalidade">Validade:<%=Util.converter(medicamento.getDataValidade())%></div>
                         </section>
                     </article>
                 <%   }} %>

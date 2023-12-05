@@ -17,27 +17,32 @@ import java.util.List;
 
 public class BuscarEquipamento {
     public static String execute(HttpServletRequest request) {
-        String jsp = "/equipamento.jsp";
+        String jsp = "/listagemEquipamento.jsp";
         
         try {
-            ArrayList<Equipamento> equipamentos = new ArrayList<Equipamento>();
+            List<Equipamento> equipamentos = new ArrayList<Equipamento>();
             
             String nome = request.getParameter("nome");
+            System.out.println("nome: " + nome);
             String fornecedora = request.getParameter("fornecedora");
             String data = request.getParameter("data");
             String setor = request.getParameter("setor");
-            int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+            int quantidade;
+            if(!request.getParameter("quantidade").equals("")){
+                System.out.println("entrou aq");
+                quantidade = Integer.parseInt(request.getParameter("quantidade"));
+            }else quantidade = 0;
             Equipamento equipamento = new Equipamento(nome, data, quantidade, fornecedora, setor);
             
             IManterEquipamento manterEquipamento = new ManterEquipamento();
             
             equipamentos = (ArrayList<Equipamento>) manterEquipamento.pesquisar(equipamento);
             request.setAttribute("equipamentos", equipamentos);
-            jsp = "/listagemEquipamento.jsp";
             
         } catch(Exception e) {
-            request.setAttribute("tperror", "pesquisaEquipamento");
-            request.setAttribute("error", e.getMessage());
+//            request.setAttribute("tperror", "pesquisaEquipamento");
+//            request.setAttribute("error", e.getMessage());
+            System.out.println("das: " + e.getMessage());
             jsp = "/equipamento.jsp";
         }
         
