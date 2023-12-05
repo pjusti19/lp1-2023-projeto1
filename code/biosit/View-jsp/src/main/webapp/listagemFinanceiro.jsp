@@ -25,7 +25,7 @@
                         ArrayList<Financeiro> valores = (ArrayList<Financeiro>) request.getAttribute("valores");
                         if(valores.size() == 0) {
         %>
-        <div>Nenhum paciente encontrado.</div>
+        <div>Nenhum valor encontrado.</div>
         <%
                         } else { 
                         String pattern = "MM/dd/yyyy";

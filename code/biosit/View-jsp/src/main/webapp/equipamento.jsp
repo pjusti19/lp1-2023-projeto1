@@ -72,7 +72,6 @@
                     <input type="text" name="setor" maxlength="100">
                 </label><br>
                 <button type="submit" name="act" value="buscarEquipamento">Pesquisar</button>
-                <button type="button" id="consultarHistorico">Consultar Histórico</button><br>
             </form>
         </section>
     </main>
