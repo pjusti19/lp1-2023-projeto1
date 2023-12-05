@@ -16,15 +16,26 @@
         <div class="bloco" id="menu">
             <button id="mostrar-notificacoes"><img src="imgs/sino.png" id="sino"></button>
             <button id="mostrar-menu"><img src="imgs/iconemenu.png" id="sino"></button>
+
         </div>
     </header>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function exibirNotificacao() {
+            $.get("ExibirNotificacao", function(data) {
+                $("#resultado").html(data);
+            });
+        }
+    </script>
     <section id="opcoes" class="menu-escondido">
         <h1>Menu</h1>
         <%
+
             HttpSession sessionObj = request.getSession(false);
             Object tipoUsuario = (sessionObj != null) ? sessionObj.getAttribute("tipoUsuario") : null;
 
             if (tipoUsuario != null && tipoUsuario.toString().contains("medico")) {
+
         %>
             <ul class="lista">
                 <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
@@ -46,6 +57,7 @@
         <% } 
            if (tipoUsuario != null && tipoUsuario.toString().contains("secretarioTriagem")) {
         %>
+
             <ul class="lista">
                 <a href="triagem.jsp"><li>Triagem</li></a>
             </ul>
@@ -66,7 +78,11 @@
     </section>
     <section id="notificacoes" class="menu-escondido">
         <h1>Notificações</h1>
-        <p>Nenhuma notificação</p>
+        <button onclick="exibirNotificacao()">Exibir pacientes recém cadastrados</button>
+
+    <div id="resultado">
+        
+    </div>
     </section>
     <script src="scripts/header.js"></script>
 </html>

@@ -29,21 +29,17 @@ public class FilterAutenticacao implements Filter {
         HttpSession session = httpRequest.getSession(false);
 
         boolean isAuthenticated = session != null && session.getAttribute("usuarioLogado") != null;
-        
-        String path = ((HttpServletRequest) request).getServletPath();
-        if (path.startsWith("/estilos/") || path.startsWith("/imgs/"))
-            chain.doFilter(request, response);
 
         if (isAuthenticated || isLoginPage(httpRequest) || isFacadePage(httpRequest)) {
             chain.doFilter(request, response);
-        } else {
+        }
+        else {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
         }
     }
 
     @Override
     public void destroy() {
-
     }
 
     private boolean isLoginPage(HttpServletRequest request) {
@@ -56,5 +52,4 @@ public class FilterAutenticacao implements Filter {
         return request.getRequestURI().equals(loginPage);
     }
 }
-
 

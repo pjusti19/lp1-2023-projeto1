@@ -17,38 +17,39 @@ import java.util.List;
  * @author David Eller
  */
 public class FinanceiroDAO implements IFinanceiroDAO {
+
     private final String url;
     private final String password;
     private final String user;
-    
+
     public FinanceiroDAO() {
-        url = "jdbc:mysql://localhost:3306/biositdb";
+        url = "jdbc:mysql://localhost:3306/biositbd";
         password = "";
         user = "root";
     }
-    
+
     @Override
     public List<Financeiro> pesquisarTodos() throws Exception {
         String query = "SELECT * FROM financeiro";
         List<Financeiro> valores = new ArrayList<>();
-        
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            
+
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Financeiro financeiro = new Financeiro(resultSet.getDate("dataEmitida"),resultSet.getString("setor"), new Date());
+                Financeiro financeiro = new Financeiro(resultSet.getDate("data"), resultSet.getString("categoria"), new Date(), resultSet.getInt("valor"));
                 valores.add(financeiro);
             }
-            
+
             connection.close();
-            
-        }catch (SQLException e) {
-            throw new CadastroException(e.getMessage());
+
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
         }
-        
+
         return valores;
     }
 
@@ -64,7 +65,7 @@ public class FinanceiroDAO implements IFinanceiroDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Financeiro financeiro = new Financeiro(resultSet.getDate("dataEmitida"), resultSet.getString("categoria"), new Date());
+                Financeiro financeiro = new Financeiro(resultSet.getDate("data"), resultSet.getString("categoria"), new Date(), resultSet.getInt("valor"));
                 valores.add(financeiro);
             }
         } catch (SQLException e) {
@@ -77,7 +78,7 @@ public class FinanceiroDAO implements IFinanceiroDAO {
     public List<Financeiro> pesquisarCategoria(String categoria) throws Exception {
         String query = "SELECT * FROM financeiro WHERE categoria = ?";
         List<Financeiro> valores = new ArrayList<>();
-        
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, user, password);
@@ -87,7 +88,33 @@ public class FinanceiroDAO implements IFinanceiroDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Financeiro financeiro = new Financeiro(resultSet.getDate("dataEmitida"),resultSet.getString("categoria"), new Date());
+                Financeiro financeiro = new Financeiro(resultSet.getDate("data"), resultSet.getString("categoria"), new Date(), resultSet.getInt("valor"));
+                valores.add(financeiro);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        }
+        return valores;
+    }
+    
+    @Override
+    public List<Financeiro> pesquisarCompleto(String categoria, Date dataInicial, Date dataFinal) throws Exception {
+        String query = "SELECT * FROM financeiro WHERE categoria = ? AND data BETWEEN ? AND ?";
+        List<Financeiro> valores = new ArrayList<>();
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, categoria);
+            preparedStatement.setDate(2, new java.sql.Date(dataInicial.getTime()));
+            preparedStatement.setDate(3, new java.sql.Date(dataFinal.getTime()));
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Financeiro financeiro = new Financeiro(resultSet.getDate("data"), resultSet.getString("categoria"), new Date(), resultSet.getInt("valor"));
                 valores.add(financeiro);
             }
             connection.close();
@@ -97,6 +124,4 @@ public class FinanceiroDAO implements IFinanceiroDAO {
         return valores;
     }
 
-    
-    
 }

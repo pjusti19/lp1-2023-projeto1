@@ -13,6 +13,7 @@ import br.cefetmg.biosit.dto.Profissional;
 import br.cefetmg.biosit.service.IAgendarConsulta;
 import br.cefetmg.biosit.service.implement.AgendarConsulta;
 import br.cefetmg.biosit.dto.exception.*;
+import br.cefetmg.biosit.controller.AdicionarNotificacao;
 import br.cefetmg.biosit.service.implement.ManterPaciente;
 import br.cefetmg.biosit.service.implement.ManterProfissional;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ import java.util.logging.Logger;
  *
  * @author Aluno
  */
+
 // ISSO DAQUI TA MUITO FEIO, MAS FUNCIONA!
 public class CadastrarConsulta {
 
@@ -41,6 +43,8 @@ public class CadastrarConsulta {
 
             IAgendarConsulta agendarConsulta = new AgendarConsulta();
             agendarConsulta.cadastrar(consulta);
+            
+            AdicionarNotificacao.adicionar(consulta, request);
 
             List<Profissional> profissionais = new ArrayList<>();
             List<Paciente> pacientes = new ArrayList<Paciente>();
