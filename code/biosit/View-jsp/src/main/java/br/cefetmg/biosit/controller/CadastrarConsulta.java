@@ -28,7 +28,7 @@ import java.util.logging.Logger;
 public class CadastrarConsulta {
 
     public static String execute(HttpServletRequest request) {
-        String jsp = "/consulta.jsp";
+        String jsp = "/index.jsp";
 
         try {
             String nomePaciente = request.getParameter("nomePaciente");
