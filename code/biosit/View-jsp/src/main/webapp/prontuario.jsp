@@ -133,7 +133,7 @@
                                         <div class="urgencia"><%=cons.getUrgencia()%></div>
                                     </div>
                                 </article>
-                            <%} } else { %> Não foi possível encontrar consultas. <% } %>
+                                        <%} } else { %> <div style="text-align: center"> Não foi possível encontrar consultas. </div> <% } %>
                         </section>
                     </section>
                 </section>

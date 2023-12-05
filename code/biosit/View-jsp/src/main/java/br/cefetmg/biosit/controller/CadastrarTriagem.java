@@ -24,6 +24,10 @@ import java.util.ArrayList;
   "/CadastrarTriagem"
 })
 public class CadastrarTriagem extends HttpServlet {
+
+    static String execute(HttpServletRequest request) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
   TriagemDAO dao = new TriagemDAO();
   Triagem inserir = new Triagem();
 
