@@ -20,16 +20,16 @@
                 <form action="Facade" method="GET">
                     <h3>CADASTRO</h3>
                     <label id="nome-cadastro">Nome:<br>
-                        <input type="text" name="nome" maxlength="50">
+                        <input type="text" name="nome" maxlength="50" required>
                     </label>
                     <label id="cpf-cadastro">CPF:<br>
-                        <input type="number" name="cpf">
+                        <input type="number" name="cpf" required>
                     </label>
                     <label id="data-nascimento-cadastro">Nascimento:<br>
-                        <input type="date" name="data-nascimento">
+                        <input type="date" name="data-nascimento" required>
                     </label>
                     <label id="endereco-cadastro">Endereço:<br>
-                        <input type="text" name="endereco" maxlength="100">
+                        <input type="text" name="endereco" maxlength="100" required>
                     </label>
                     <button id="envia-cadastro" type="submit" name="act" value="cadastrarPaciente">Cadastrar</button>
                     <%

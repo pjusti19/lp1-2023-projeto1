@@ -22,8 +22,8 @@ public class EquipamentoDAO implements IEquipamentoDAO {
     private final String user;
 
     public EquipamentoDAO() {
-        url = "jdbc:mysql://localhost:127.0.0.1:3306/biositdb";
-        password = "admin";
+        url = "jdbc:mysql://localhost:3306/biositdb";
+        password = "";
         user = "root";
     }
 

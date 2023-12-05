@@ -214,7 +214,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("data"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
+                Medicamento medicamento = new Medicamento(resultSet.getString("nome"),resultSet.getString("validade"),resultSet.getInt("quantidade"),resultSet.getString("fornecedora"),resultSet.getInt("lote"));
                 medicamentos.add(medicamento);
             }
             

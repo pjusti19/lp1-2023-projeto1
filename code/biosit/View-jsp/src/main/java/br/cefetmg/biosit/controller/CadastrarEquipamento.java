@@ -1,7 +1,5 @@
 package br.cefetmg.biosit.controller;
 
-import br.cefetmg.biosit.dto.*;
-import br.cefetmg.biosit.service.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -34,7 +32,7 @@ public class CadastrarEquipamento extends HttpServlet {
             
             
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("errrororo" +  e.getMessage());
             jsp = "";
         }
         

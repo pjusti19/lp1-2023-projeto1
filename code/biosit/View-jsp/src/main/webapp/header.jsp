@@ -53,7 +53,7 @@
            if (tipoUsuario != null && tipoUsuario.toString().contains("admin")) { 
         %>
             <ul class="lista">
-                <a href="estoque.jsp"><li>Estoque</li></a>
+                <a href="medicamento.jsp"><li>Estoque</li></a>
                 <a href="gerenciarProfissional.jsp"><li>Funcionários</li></a>
                 <a href="equipamento.jsp"><li>Equipamentos</li></a>
                 <a href="paciente.jsp"><li>Paciente</li></a>

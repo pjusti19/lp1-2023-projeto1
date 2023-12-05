@@ -16,7 +16,7 @@
         <main id="listagemEquipamento">
             <section id="container-lista-equipamento">
                 <%
-                        ArrayList<Equipamento> equipamentos = (ArrayList<Equipamento>) request.getAttribute("pacientes");
+                        ArrayList<Equipamento> equipamentos = (ArrayList<Equipamento>) request.getAttribute("equipamentos");
                         if(equipamentos.size() == 0) {
                 %>
                     <div>Nenhum equipamento encontrado.</div>
@@ -31,8 +31,8 @@
                         </section>
                         <section class="cont-dir">
                             <div class="lpdata"><%=Util.converter(equipamento.getData())%></div>
-                            <div class="lpquantidade"><%=Util.converter(equipamento.getData())%></div>
-                            <div class="lpsetor"><%=equipamento.getSetor()%></div>
+                            <div class="lpquantidade">Quantidade:<%=equipamento.getQuant()%></div>
+                            <div class="lpsetor">Setor:<%=equipamento.getSetor()%></div>
                
                         </section>
                     </article>
