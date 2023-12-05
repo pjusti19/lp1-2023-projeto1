@@ -31,9 +31,9 @@
                 </label>
                 <label id="urgencia">Urgência:<br>
                     <select name="urgencia">
-                        <option value="leve" id="leve">Leve</option>
-                        <option value="média" id="media">Média</option>
-                        <option value="grave" id="grave">Grave</option>
+                        <option value="Leve" id="leve">Leve</option>
+                        <option value="Média" id="media">Média</option>
+                        <option value="Grave" id="grave">Grave</option>
                     </select>
                 </label>
                 <label id="nome-medico">Médico:<br>

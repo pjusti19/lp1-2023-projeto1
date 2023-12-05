@@ -122,10 +122,11 @@ main#consulta-att section {
     padding: 20px auto;
 }
 #consulta .agendamento form input, 
-#consulta-att .atualizacao form input {
+#consulta-att .atualizacao form  input{
     background-color: var(--cinza);
     height: 4vh;
 }
+
 #consulta .agendamento, #consulta-att .atualizacao{
     font-family: 'Raleway', sans-serif;
 }
@@ -314,3 +315,4 @@ button:hover {
 #grave{
     color: red;
 }
+

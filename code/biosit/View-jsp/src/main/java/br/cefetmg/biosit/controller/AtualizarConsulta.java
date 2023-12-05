@@ -28,11 +28,11 @@ public class AtualizarConsulta {
             agendarConsulta.atualizar(consulta);
             
             request.setAttribute("consulta_exib", consulta);
-            request.setAttribute("sucess", "Dados atualizados com sucesso");
+            request.setAttribute("success", "Dados atualizados com sucesso");
             
         } catch (Exception e) {
             request.setAttribute("error", e.getMessage());
-            jsp = "/infoConsultas.jsp";
+            jsp = "/index.jsp";
         }
         return jsp;
     }

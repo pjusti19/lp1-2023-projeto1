@@ -118,7 +118,7 @@ public class ConsultaDAO implements IConsultaDAO{
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Consulta consulta = new Consulta(resultSet.getString("nomePaciente"),resultSet.getString("descricao"),resultSet.getString("urgencia"),resultSet.getString("medico"),
-                resultSet.getString("data"),resultSet.getString("horario"));
+                resultSet.getString("dataCon"),resultSet.getString("horario"));
                 consultas.add(consulta);
             }
             
@@ -146,7 +146,7 @@ public class ConsultaDAO implements IConsultaDAO{
 
             while (resultSet.next()) {
                 Consulta consulta = new Consulta(resultSet.getString("nomePaciente"),resultSet.getString("descricao"),resultSet.getString("urgencia"),resultSet.getString("medico"),
-                resultSet.getString("data"),resultSet.getString("horario"));
+                resultSet.getString("dataCon"),resultSet.getString("horario"));
                 consultas.add(consulta);
             }
             connection.close();
@@ -174,7 +174,7 @@ public class ConsultaDAO implements IConsultaDAO{
                 String descricao = resultSet.getString("descricao");
                 String urgencia = resultSet.getString("urgencia");
                 String medico = resultSet.getString("medico");
-                String data = resultSet.getString("data");
+                String data = resultSet.getString("dataCon");
                 String horario = resultSet.getString("horario");
                 consulta = new Consulta(nomePaciente, descricao, urgencia, medico, data, horario);
             }
@@ -224,7 +224,7 @@ public class ConsultaDAO implements IConsultaDAO{
 
             while (resultSet.next()) {
                 Consulta consulta = new Consulta(resultSet.getString("nomePaciente"),resultSet.getString("descricao"),resultSet.getString("urgencia"),resultSet.getString("medico"),
-                resultSet.getString("data"),resultSet.getString("horario"));
+                resultSet.getString("dataCon"),resultSet.getString("horario"));
                 consultas.add(consulta);
             }
             connection.close();
@@ -249,7 +249,7 @@ public class ConsultaDAO implements IConsultaDAO{
 
             while (resultSet.next()) {
                 Consulta consulta = new Consulta(resultSet.getString("nomePaciente"),resultSet.getString("descricao"),resultSet.getString("urgencia"),resultSet.getString("medico"),
-                resultSet.getString("data"),resultSet.getString("horario"));
+                resultSet.getString("dataCon"),resultSet.getString("horario"));
                 consultas.add(consulta);
             }
             connection.close();
@@ -274,7 +274,7 @@ public class ConsultaDAO implements IConsultaDAO{
 
             while (resultSet.next()) {
                 Consulta consulta = new Consulta(resultSet.getString("nomePaciente"),resultSet.getString("descricao"),resultSet.getString("urgencia"),resultSet.getString("medico"),
-                resultSet.getString("data"),resultSet.getString("horario"));
+                resultSet.getString("dataCon"),resultSet.getString("horario"));
                 consultas.add(consulta);
             }
             connection.close();
@@ -302,7 +302,7 @@ public class ConsultaDAO implements IConsultaDAO{
                 String descricao = resultSet.getString("descricao");
                 String urgencia = resultSet.getString("urgencia");
                 String medico = resultSet.getString("medico");
-                String data = resultSet.getString("data");
+                String data = resultSet.getString("dataCon");
                 String horario = resultSet.getString("horario");
                 consulta = new Consulta(nomePaciente, descricao, urgencia, medico, data, horario);
             }
