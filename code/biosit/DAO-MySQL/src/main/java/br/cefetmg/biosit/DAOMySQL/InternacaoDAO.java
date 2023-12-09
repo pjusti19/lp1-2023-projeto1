@@ -74,7 +74,7 @@ public class InternacaoDAO {
        
   }
     
-     public void inserirInternacao(Internacao inserir) throws SQLException {
+     public void inserirInternacao(Internacao inserir) {
     String create = "INSERT INTO contatos (nome, cpf, dtnasc, quarto, leito, dat_ent, motivo, historico) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     try {
       //abrir conexao
@@ -94,12 +94,9 @@ public class InternacaoDAO {
       pst.executeUpdate();
       //encerrar conexao
       con.close();
-    } catch (SQLException e) {
-        // Log ou relance a exceção para que o servlet a capture
-        throw e;
-    } catch (Exception e) {
+    }  catch (Exception e) {
         e.printStackTrace(); // Log da exceção (pode ser substituído por um framework de log)
-        throw new SQLException("Falha ao atualizar o contato.", e);
+        
     }
 
   }

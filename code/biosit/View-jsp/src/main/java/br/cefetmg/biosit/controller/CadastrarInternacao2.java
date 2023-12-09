@@ -20,43 +20,33 @@ import java.util.ArrayList;
  *
  * @author joaop
  */
-@WebServlet(name = "CadastrarInternacao", urlPatterns = {
-  "/CadastrarInternacao"
+@WebServlet(name = "CadastrarInternacao2", urlPatterns = {
+  "/CadastrarInternacao2"
 })
-public class CadastrarInternacao extends HttpServlet {
-  InternacaoDAO dao = new InternacaoDAO();
-  Internacao inserir = new Internacao();
+public class CadastrarInternacao2 extends HttpServlet {
+  
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
   throws ServletException, IOException {
     PrintWriter out = response.getWriter();
     String action = request.getServletPath();
-
-    try {
-
-      inserir.setNome(request.getParameter("nome"));
-      inserir.setDtnasc(request.getParameter("dtnasc"));
-      inserir.setCpf(request.getParameter("cpf"));
-      inserir.setQuarto(request.getParameter("quarto"));
-      inserir.setLeito(request.getParameter("leito"));
-      inserir.setDat_ent(request.getParameter("data_ent"));
-      inserir.setMotivo(request.getParameter("motivo"));
-      inserir.setHistorico(request.getParameter("historico"));
-      
-      
-      
-
-      dao.inserirInternacao(inserir);
-      
+    InternacaoDAO dao = new InternacaoDAO();
+  Internacao inserir = new Internacao();
+  
+    inserir.setNome("joao");
+      inserir.setDtnasc("2004");
+      inserir.setCpf("16965357606");
+      inserir.setQuarto("301");
+      inserir.setLeito("A");
+      inserir.setDat_ent("2005");
+      inserir.setMotivo("doença");
+      inserir.setHistorico("sei la");
       out.println(inserir.getNome());
       out.println("joao");
+      dao.inserirInternacao(inserir);
       RequestDispatcher dispatcher = request.getRequestDispatcher("/ListagemInternacao");
     dispatcher.forward(request, response); 
-
-    } catch (Exception e) {
-      e.printStackTrace();
-
-    }
+    
     
     
     

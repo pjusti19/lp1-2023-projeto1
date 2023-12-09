@@ -264,7 +264,7 @@ var inputDate = document.getElementById("dtnasc");
             <%@include file="header.jsp" %>
                 <main class="cinza" style="background-color: rgb(209, 209, 209);">
                     <div class="cadastrotriagem">
-                        <form name="formulario" action="CadastrarInternacao" onsubmit="return validarFormulario()" method="GET" id="formularioo">
+                        <form name="formulario" action="CadastrarInternacao2" onsubmit="return validarFormulario()" method="GET" id="formularioo">
                             <h3>Nova Internação</h3>
                             <label style="width:72%;" id="nome-cadastrotriagem">*Nome:
                                 
@@ -522,7 +522,7 @@ var inputDate = document.getElementById("dtnasc");
                             <br>
                             <div id="mensagemErro" class="mensagem-erro">Por favor, preencha todos os campos obrigatórios. </div>
                             <br>
-                            <button class="botaotriagem" type="submit" name="act" value="CadastrarInternacao" onclick="validarFormulario(); avaliarGravidade; enviarFormulario();">Confirmar</button>
+                            <button class="botaotriagem" type="submit" name="act" value="CadastrarInternacao2" onclick="validarFormulario(); avaliarGravidade; enviarFormulario();">Confirmar</button>
                             <%
                     String nome = (String) request.getAttribute("nome");
                     String dtnasc = (String) request.getAttribute("dtnasc");
