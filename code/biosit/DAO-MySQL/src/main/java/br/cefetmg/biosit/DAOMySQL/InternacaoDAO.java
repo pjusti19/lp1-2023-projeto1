@@ -74,8 +74,44 @@ public class InternacaoDAO {
        
   }
     
-     public void inserirInternacao(Internacao inserir) {
-    String create = "INSERT INTO contatos (nome, cpf, dtnasc, quarto, leito, dat_ent, motivo, historico) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void selecionarInternacao(Internacao inserir) throws SQLException {
+     
+      String read2 = "select * from internacao where idcon = ?";
+      
+      try {
+      //abrir conexao
+      Connection con = conectar();
+      //preparar a query create
+      PreparedStatement pst = con.prepareStatement(read2);
+      pst.setString(1, inserir.getIdinter());
+      //substituir os parametros
+      ResultSet rs = pst.executeQuery();
+      while(rs.next()){
+          inserir.setNome(rs.getString(2));
+          inserir.setCpf(rs.getString(3));
+          inserir.setDtnasc(rs.getString(4));
+          inserir.setQuarto(rs.getString(5));
+          inserir.setLeito(rs.getString(6));
+          inserir.setDat_ent(rs.getString(7));
+          
+          
+      }
+
+      //encerrar conexao
+      con.close();
+      
+    } catch (SQLException e) {
+        // Log ou relance a exceção para que o servlet a capture
+        throw e;
+    } catch (Exception e) {
+        e.printStackTrace(); // Log da exceção (pode ser substituído por um framework de log)
+        throw new SQLException("Falha ao atualizar o contato.", e);
+    }
+       
+  }
+    
+       public void inserirTriagem(Internacao inserir) {
+    String create = "INSERT INTO internacao (nome, dtnasc, cpf, quarto, leito, dat_ent, motivo, historico) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     try {
       //abrir conexao
       Connection con = conectar();
@@ -83,20 +119,20 @@ public class InternacaoDAO {
       PreparedStatement pst = con.prepareStatement(create);
       //substituir os parametros
      pst.setString(1, inserir.getNome());
-     pst.setString(2, inserir.getCpf());
-     pst.setString(3, inserir.getDtnasc());
+     pst.setString(2, inserir.getDtnasc());
+     pst.setString(3, inserir.getCpf());
      pst.setString(4, inserir.getQuarto());
      pst.setString(5, inserir.getLeito());
      pst.setString(6, inserir.getDat_ent());
      pst.setString(7, inserir.getMotivo());
      pst.setString(8, inserir.getHistorico());
+
       //ExecutarQuery
       pst.executeUpdate();
       //encerrar conexao
       con.close();
-    }  catch (Exception e) {
-        e.printStackTrace(); // Log da exceção (pode ser substituído por um framework de log)
-        
+    } catch (Exception e) {
+
     }
 
   }

@@ -10,13 +10,21 @@
         <head>
             <title>Triagem</title>
             <script>
-                function obterDataAtual() {
-            const data = new Date();
-            const ano = data.getFullYear();
-            const mes = (data.getMonth() + 1).toString().padStart(2, '0');
-            const dia = data.getDate().toString().padStart(2, '0');
-            document.getElementById('data_ent').value = `${ano}-${mes}-${dia}`;
-        }
+                function atribuirDataAtual() {
+    const inputDate = document.getElementById("data_ent"); // Substitua "data_ent" pelo ID do seu input date
+    const dataAtual = new Date();
+
+    // Formata a data no formato YYYY-MM-DD (o formato esperado pelo input date)
+    const ano = dataAtual.getFullYear();
+    const mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0');
+    const dia = dataAtual.getDate().toString().padStart(2, '0');
+    const dataFormatada = `${ano}-${mes}-${dia}`;
+
+    inputDate.value = dataFormatada;
+}
+
+// Chama a função ao carregar a página
+window.onload = atribuirDataAtual;
         
         function atualizarConcatenacao() {
             const quartoSelecionado = document.getElementById('quarto').value;
@@ -260,27 +268,27 @@ var inputDate = document.getElementById("dtnasc");
             <link rel="stylesheet" href="estilos/novopacienteTriagem.css">
         </head>
 
-        <body onload="obterDataAtual()">
+        <body onload="atribuirDataAtual()">
             <%@include file="header.jsp" %>
                 <main class="cinza" style="background-color: rgb(209, 209, 209);">
                     <div class="cadastrotriagem">
                         <form name="formulario" action="CadastrarInternacao2" onsubmit="return validarFormulario()" method="GET" id="formularioo">
                             <h3>Nova Internação</h3>
                             <label style="width:72%;" id="nome-cadastrotriagem">*Nome:
-                                
+
                                 <input style="width:100%;" type="text" id="nome" name="nome">
                                 <br> </label>
-                            
-                            <button class="botaotriagem" style="width:25%; height: 3%; margin-top: 3%; font-size: 95%;" name="act" value="ResultadoPacienteTriagem" id="buscarBotao">Buscar do Sistema</button>  
+
+                            <button class="botaotriagem" style="width:25%; height: 3%; margin-top: 3%; font-size: 95%;" name="act" value="ResultadoPacienteTriagem" id="buscarBotao">Buscar do Sistema</button>
                             <label style="width:100%;" id="endereco-cadastrotriagem">Endereço:
                                 <input style="width:100%;" type="text" id="rg" name="endereco">
                                 <br> </label>
                             <label style="width:28%;" id="datanasc-cadastrotriagem">Data de nascimento:
                                 <input style="width:100%;" type="date" id="dtnasc" name="dtnasc" value="">
                                 <br> </label>
-                                
-                                <label style="width:28%;" id="datanasc-cadastrotriagem">Data de entrada:
-                                <input style="width:100%;" type="date" id="data_ent" name="data_ent" >
+
+                            <label style="width:28%;" id="datanasc-cadastrotriagem">Data de entrada:
+                                <input style="width:100%;" type="date" id="data_ent" name="data_ent">
                                 <br> </label>
                             <label style="width:38%;" id="cpf-cadastrotriagem">CPF:
                                 <input style="width:100%;" type="number" id="cpf" name="cpf">
@@ -463,8 +471,8 @@ var inputDate = document.getElementById("dtnasc");
                                     <option value="---" hidden></option>
                                 </select>
                             </label> -->
-                            
-                            
+
+
                             <label for="quarto" style="margin: 0px; margin-left: 2%;"> *Quarto:
                                 <br>
                                 <select id="quarto" name="quarto" style="margin-top: 8%">>
@@ -480,19 +488,19 @@ var inputDate = document.getElementById("dtnasc");
                                     <option value="---" hidden></option>
                                 </select>
                             </label>
-                            
+
                             <label for="leito" style="margin: 0px;  margin-left: 2%;"> *Leito:
                                 <br>
                                 <select id="leito" name="leito" style="margin-top: 8%">>
                                     <option value="Selecionar">Selecionar</option>
                                     <option value="A">A</option>
                                     <option value="B">B</option>
-                                    
+
                                     <option value="---" hidden></option>
                                 </select>
                             </label>
-                            
-                            
+
+
                             <!--<label for="consult" style="margin: 0px; margin-left: 6%"> Consultório:
                                 <br>
                                 <select id="consult" name="consult" style="margin-top: 10%">>
@@ -506,7 +514,7 @@ var inputDate = document.getElementById("dtnasc");
                             </label> -->
                             <label style="width:100%;" id="sintomas-triagem">
                                 <br>Motivo:
-                                <textarea style="width:100%;" id="sintomas" name="sintomas" rows="4" cols="40"></textarea>
+                                <textarea style="width:100%;" id="motivo" name="motivo" rows="4" cols="40"></textarea>
                                 <br> </label>
                             <label id="socorrodeus"> Urgência: </label>
                             <label id="urgenciaa"> Baixa</label>

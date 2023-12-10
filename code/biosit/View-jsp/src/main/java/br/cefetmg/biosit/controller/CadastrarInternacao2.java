@@ -33,17 +33,17 @@ public class CadastrarInternacao2 extends HttpServlet {
     InternacaoDAO dao = new InternacaoDAO();
   Internacao inserir = new Internacao();
   
-    inserir.setNome("joao");
-      inserir.setDtnasc("2004");
-      inserir.setCpf("16965357606");
-      inserir.setQuarto("301");
-      inserir.setLeito("A");
-      inserir.setDat_ent("2005");
-      inserir.setMotivo("doença");
-      inserir.setHistorico("sei la");
+      inserir.setNome(request.getParameter("nome"));
+      inserir.setDtnasc(request.getParameter("dtnasc"));
+      inserir.setCpf(request.getParameter("cpf"));
+      inserir.setQuarto(request.getParameter("quarto"));
+      inserir.setLeito(request.getParameter("leito"));
+      inserir.setDat_ent(request.getParameter("dat_ent"));
+      inserir.setMotivo(request.getParameter("motivo"));
+      inserir.setHistorico(request.getParameter("historico"));
       out.println(inserir.getNome());
       out.println("joao");
-      dao.inserirInternacao(inserir);
+      dao.inserirTriagem(inserir);
       RequestDispatcher dispatcher = request.getRequestDispatcher("/ListagemInternacao");
     dispatcher.forward(request, response); 
     
