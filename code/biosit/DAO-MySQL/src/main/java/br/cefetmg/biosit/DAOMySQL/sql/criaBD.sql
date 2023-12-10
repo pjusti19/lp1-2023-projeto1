@@ -71,7 +71,7 @@ VALUES
     (2, 'medico', '123', 'medico'),
     (3, 'secretario','123','secretario'),
     (4, 'sec2','123','secretarioTriagem'),
-    (5, 'enfermeiro','123','enfermeiro');
+    (5, 'enfermeiro','123','enfermeiro');6
 
 
 CREATE TABLE profissional (

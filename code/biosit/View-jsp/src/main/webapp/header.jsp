@@ -69,7 +69,8 @@
                 <a href="gerenciarProfissional.jsp"><li>Funcionários</li></a>
                 <a href="equipamento.jsp"><li>Equipamentos</li></a>
                 <a href="paciente.jsp"><li>Paciente</li></a>
-                <a href="triagem.jsp"><li>Triagem</li></a>
+                <a href="ExibirTriagem"><li>Triagem</li></a>
+                <a href="ListagemInternacao"><li>Internacao</li></a>
                 <a href="financeiro.jsp"><li>Financeiro</li></a>
                 <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
                 <a href="exame.jsp"><li>Requisição de Exames</li></a>
