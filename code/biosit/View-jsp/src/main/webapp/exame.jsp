@@ -6,6 +6,9 @@
     <title>Requisição de exames</title>
     <link rel="stylesheet" href="estilos/mae.css">
     <link rel="stylesheet" href="estilos/exames.css">
+    <%@ page import="br.cefetmg.biosit.DAOMySQL.ExameDAO" %>
+    <%@ page import="br.cefetmg.biosit.dto.Exame" %>
+    <%@ page import="java.util.ArrayList" %>
 </head>
 <body>
     <%@include file="header.jsp" %>
@@ -15,7 +18,7 @@
                 <h3>Requisição de exame:</h3>
                 <%
                     ExameDAO exameDAO = new ExameDAO();
-                    List<Exame> exames = exameDAO.obterExamesParaSelect("", "", "", "", "");
+                    ArrayList<Exame> exames =(ArrayList<Exame>) exameDAO.obterExamesParaSelect("", "", "", "", "");
                 %>
 
                 <select name="paciente  ">

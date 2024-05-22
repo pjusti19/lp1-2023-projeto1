@@ -22,7 +22,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         function exibirNotificacao() {
-            $.get("ExibirNotificacao", function(data) {
+            $.get("/ExibirNotificacao", function(data) {
                 $("#resultado").html(data);
             });
         }
@@ -65,11 +65,12 @@
            if (tipoUsuario != null && tipoUsuario.toString().contains("admin")) { 
         %>
             <ul class="lista">
-                <a href="medicamento.jsp"><li>Estoque</li></a>
+                <a href="medicamento.jsp"><li>Medicamento</li></a>
                 <a href="gerenciarProfissional.jsp"><li>Funcionários</li></a>
                 <a href="equipamento.jsp"><li>Equipamentos</li></a>
                 <a href="paciente.jsp"><li>Paciente</li></a>
-                <a href="triagem.jsp"><li>Triagem</li></a>
+                <a href="ExibirTriagem"><li>Triagem</li></a>
+                <a href="ListagemInternacao"><li>Internacao</li></a>
                 <a href="financeiro.jsp"><li>Financeiro</li></a>
                 <a href="encaminhamento.jsp"><li>Encaminhamento</li></a>
                 <a href="exame.jsp"><li>Requisição de Exames</li></a>
@@ -78,7 +79,7 @@
     </section>
     <section id="notificacoes" class="menu-escondido">
         <h1>Notificações</h1>
-        <button onclick="exibirNotificacao()">Exibir pacientes recém cadastrados</button>
+        <button onclick="exibirNotificacao()">Exibir consultas recém cadastrados</button>
 
     <div id="resultado">
         

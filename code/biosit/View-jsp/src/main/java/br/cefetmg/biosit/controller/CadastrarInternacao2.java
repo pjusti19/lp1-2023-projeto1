@@ -4,8 +4,8 @@
  */
 package br.cefetmg.biosit.controller;
 
-import br.cefetmg.biosit.DAOMySQL.TriagemDAO;
-import br.cefetmg.biosit.dto.Triagem;
+import br.cefetmg.biosit.DAOMySQL.InternacaoDAO;
+import br.cefetmg.biosit.dto.Internacao;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,46 +20,39 @@ import java.util.ArrayList;
  *
  * @author joaop
  */
-@WebServlet(name = "CadastrarTriagem", urlPatterns = {
-  "/CadastrarTriagem"
+@WebServlet(name = "CadastrarInternacao2", urlPatterns = {
+  "/CadastrarInternacao2"
 })
-public class CadastrarTriagem extends HttpServlet {
-
-    static String execute(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-  TriagemDAO dao = new TriagemDAO();
-  Triagem inserir = new Triagem();
+public class CadastrarInternacao2 extends HttpServlet {
+  
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
   throws ServletException, IOException {
     PrintWriter out = response.getWriter();
     String action = request.getServletPath();
-
-    try {
-
+    InternacaoDAO dao = new InternacaoDAO();
+  Internacao inserir = new Internacao();
+  
       inserir.setNome(request.getParameter("nome"));
       inserir.setDtnasc(request.getParameter("dtnasc"));
-
       inserir.setCpf(request.getParameter("cpf"));
-      inserir.setMedico(request.getParameter("medico"));
-      inserir.setEsp(request.getParameter("esp"));
-      inserir.setConsult(request.getParameter("consult"));
-      inserir.setHora_ent(request.getParameter("hora_ent"));
-      inserir.setHora_prev(request.getParameter("hora_prev"));
-      inserir.setUrg(request.getParameter("urg"));
-
+      inserir.setQuarto(request.getParameter("quarto"));
+      inserir.setLeito(request.getParameter("leito"));
+      inserir.setDat_ent(request.getParameter("dat_ent"));
+      inserir.setMotivo(request.getParameter("motivo"));
+      inserir.setHistorico(request.getParameter("historico"));
+      out.println(inserir.getNome());
+      out.println("joao");
       dao.inserirTriagem(inserir);
-
-    } catch (Exception e) {
-      e.printStackTrace();
-
-    }
-    
-    
-
-    RequestDispatcher dispatcher = request.getRequestDispatcher("/ExibirTriagem");
+      RequestDispatcher dispatcher = request.getRequestDispatcher("/ListagemInternacao");
     dispatcher.forward(request, response); 
+    
+    
+    
+    
+    
+
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

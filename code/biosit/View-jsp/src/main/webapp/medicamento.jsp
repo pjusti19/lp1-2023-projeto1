@@ -56,7 +56,6 @@
                     </label><br>
 
                     <button type="submit" name="act" value="buscarMedicamento">Pesquisar</button>
-                    <button type="button" id="consultarHistorico">Consultar Histórico</button><br>
                 </form>
             </section>
     </main>

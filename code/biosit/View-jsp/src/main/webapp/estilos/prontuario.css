@@ -330,22 +330,24 @@ main {
     justify-content: flex-start;
     flex-wrap: wrap;
 }
-.art-consulta.leve {
+.art-consulta.leve,
+.art-consulta.Leve{
     border-bottom: 8px solid #22f522;
 }
-.art-consulta.média {
+.art-consulta.média,
+.art-consulta.Média{
     border-bottom: 8px solid yellow;
 }
-.art-consulta.grave {
+.art-consulta.grave,
+.art-consulta.Grave{
     border-bottom: 8px solid red;
 }
 .art-consulta {
     display: flex;
     flex-direction: column;
-    width: fit-content;
     background-color: var(--cinza);
     padding: 10px;
-    max-width: 40%;
+    width: 40%;
 }
 .horario {
     text-align: center;

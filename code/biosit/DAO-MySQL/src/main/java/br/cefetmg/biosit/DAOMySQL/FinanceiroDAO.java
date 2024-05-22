@@ -23,7 +23,7 @@ public class FinanceiroDAO implements IFinanceiroDAO {
     private final String user;
 
     public FinanceiroDAO() {
-        url = "jdbc:mysql://localhost:3306/biositbd";
+        url = "jdbc:mysql://localhost:3306/biositdb";
         password = "";
         user = "root";
     }
